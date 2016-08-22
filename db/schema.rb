@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822174951) do
+ActiveRecord::Schema.define(version: 20160822185826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 20160822174951) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_candidates_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "present"
+    t.string   "degree_type"
+    t.string   "degree_field"
+    t.integer  "organization_id"
+    t.integer  "job_application_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["job_application_id"], name: "index_educations_on_job_application_id", using: :btree
+    t.index ["organization_id"], name: "index_educations_on_organization_id", using: :btree
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -84,5 +100,7 @@ ActiveRecord::Schema.define(version: 20160822174951) do
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "educations", "job_applications"
+  add_foreign_key "educations", "organizations"
   add_foreign_key "languages", "job_applications"
 end
