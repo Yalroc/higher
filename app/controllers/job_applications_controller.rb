@@ -4,23 +4,28 @@ class JobApplicationsController < ApplicationController
 
 
   def edit
-    # find current job_offer
-
-    # check if job_application already exists
+    # SELECT @job_application
+    # Check IF a job application already exists
     if JobApplication.where(job_offer: @job_offer, candidate: current_candidate)
+      # a job application already exists
+      @job_application = JobApplication.where(job_offer: @job_offer, candidate: current_candidate)
 
     else
-    # Create job_application instance
-    @job_application = JobApplication.new
-    @job_application.candidate = current_candidate
-    @job_application.job_offer = @job_offer
-    @job_application.save
+      # a job application does not existe => Create new job_application
+      @job_application = JobApplication.new
+      @job_application.candidate = current_candidate
+      @job_application.job_offer = @job_offer
+      @job_application.save
     end
+
+    @experiences_sorted = current_candidate.experiences.sort! { |a,b| b.end_date <=> a.end_date }
+    @educations_sorted = current_candidate.educations.sort! { |a,b| b.end_date <=> a.end_date }
+    @languages = current_candidate.languages
   end
 
   def update
     if @job_application.update(job_application_params)
-      # make 'view as employer clickable'
+      # TODO: make 'view as employer clickable'
       redirect_to edit_job_offer_job_application(@job_offer, @job_application)
     else
       render :edit
