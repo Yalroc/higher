@@ -3,6 +3,10 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:update]
 
 
+  def index
+    @job_applications = set_job_offer.job_applications
+  end
+
   def edit
     # find current job_offer
 

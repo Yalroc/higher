@@ -27,9 +27,15 @@ orga_microsoft = Organization.create!({
   industry: "Computer Software",
   })
 
-orga_microsoft = Organization.create!({
+orga_essec = Organization.create!({
   name: "ESSEC Business School",
   size: 56,
+  industry: "University",
+  })
+
+orga_dell = Organization.create!({
+  name: "Dell",
+  size: 4500,
   industry: "University",
   })
 
@@ -74,12 +80,23 @@ xp_jd_1 = Experience.create!({
   industry: "Computer Software"
   })
 
+xp_jd_1 = Experience.create!({
+  organization: Organization.where(size: 4500).first,
+  job_application: JobApplication.where(motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition.").first,
+  title: "Assitant Sales",
+  start_date: "1994",
+  end_date: "1996",
+  description: "I was assistant sales on the servers.",
+  company_size: 4500,
+  industry: "Information Technology and Services"
+  })
+
 ed_jd_1 = Education.create!({
   organization: Organization.where(size: 56).first,
   job_application: JobApplication.where(motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition.").first,
-  start_date: "1992",
-  title: "ESSEC Business School",
-  end_date: "1995",
+  start_date: "01-09-1989",
+  title: "ESSEC Busiéness School",
+  end_date: "5-6-199",
   description: "I graduated from this business school which belongs to the top 10 in Europe.",
   degree_type: "Master",
   degree_field: "Business Administration",
