@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   # :show, :edit, & :update => "As a candidate, I can edit my basic information (name, phone_number,..)""
   resources :candidates, only: [:show, :edit, :update]
 
+  authenticated :recruiters do
+    root 'job_offers#index' as: :authenticated_root
+  end
 end
