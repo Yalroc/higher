@@ -3,6 +3,7 @@ class JobOffersController < ApplicationController
   skip_before_action :authenticate_candidate!
 
   def index
+    @organizations = Organization.new
     @job_offers = JobOffer.all
   end
 
@@ -10,7 +11,6 @@ class JobOffersController < ApplicationController
   end
 
   def new
-
     @job_offer = JobOffer.new
   end
 
