@@ -2,7 +2,12 @@ table{
    background: #fff;
 }
 
-table,thead,tbody,tfoot,tr, td,th{
+.tableau-offer {
+  flex: 0 0 20%;
+  margin-top: 15px;
+}
+
+.tableau-offer table,thead,tbody,tfoot,tr, td,th{
   text-align: center;
   margin: auto;
   border: 1px solid #dedede;
@@ -20,9 +25,4 @@ table,thead,tbody,tfoot,tr, td,th{
   width: 100%;
   background: #dedede;
   text-align: center;
-}
-
-.tableau-offer {
-  flex: 0 0 20%;
-  margin-top: 15px;
 }
