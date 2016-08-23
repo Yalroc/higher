@@ -14,11 +14,10 @@ Rails.application.routes.draw do
 
     # JOB APPLICATIONS ROUTES
     # job_applications routes must be nested in job_offers => it's the only way we can display all job_offers associated to an offer
-    # :index => "As a recruiter I can VIEW profiles (candidate) associated to an offer"
+    # :index => "As a recruiter I can VIEW profiles (candidate) associated to an offer" // will change to a custom 'dashboard route for recruiters'
     # :show => "As a recruiter, I can SEE a job application to one of my job offers && As a candidate, I can SEE my application as an employer"
-    # :new & :create => "As a candidate I can APPLY to a job offer" // QUESTION: how to make the 'new' page fit on two pages?
-    # :destroy => "As a recruiter I can REJECT (update) a profil (candidate) associated to an offer"
-    resources :job_applications, only: [:index, :show, :new, :create, :destroy]
+    # :edit => "As a candidate I can APPLY to a job offer" // QUESTION: how to make the 'new' page fit on two pages?
+    resources :job_applications, only: [:index, :show, :edit]
 
   end
 
