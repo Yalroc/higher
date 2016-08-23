@@ -4,8 +4,6 @@ class JobApplicationsController < ApplicationController
 
   skip_before_action :authenticate_candidate!
 
-
-
   def index
     @job_applications = set_job_offer.job_applications
   end
