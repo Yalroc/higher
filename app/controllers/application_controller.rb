@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_candidate!, unless: :devise_controller?
   before_action :authenticate_recruiter!, unless: :devise_controller?
+
+  def after_sign_in_path_for(resource)
+    case resource.class.name
+    when "Recruiter"
+      job_offers_path
+    when "Candidate"
+      root_path
+    end
+  end
 end
 
 # Solution 1
