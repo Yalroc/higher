@@ -1,0 +1,28 @@
+table{
+   background: #fff;
+}
+
+table,thead,tbody,tfoot,tr, td,th{
+  text-align: center;
+  margin: auto;
+  border: 1px solid #dedede;
+  padding: 1rem;
+}
+
+.column-1 {
+  width: 20%;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #dedede;
+  text-align: center;
+}
+
+.tableau-offer {
+  flex: 0 0 20%;
+  margin-top: 15px;
+}
