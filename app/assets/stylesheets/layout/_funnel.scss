@@ -1,0 +1,13 @@
+.gray-background {
+  background-color: $gray-lighter;
+  min-height: 100vh;
+  padding-bottom: 10vh;
+}
+
+.cv-wrapper {
+  background: white;                          /* White background */
+  padding: 30px;                              /* Internal space */
+  border-radius: 4px;                         /* Small radius */
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
