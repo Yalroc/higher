@@ -8,7 +8,7 @@ class CreateEducations < ActiveRecord::Migration[5.0]
       t.boolean :present
       t.string :degree_type
       t.string :degree_field
-      t.references :organization, foreign_key: true
+      t.string :organization
       t.references :job_application, foreign_key: true
 
       t.timestamps

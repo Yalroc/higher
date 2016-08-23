@@ -1,7 +1,9 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_offer, only: [:index, :edit, :update]
   before_action :set_job_application, only: [:update]
-  skip_before_action :authenticate_candidate!
+
+  skip_before_action :authenticate_recruiter!
+
 
 
   def index
@@ -13,19 +15,19 @@ class JobApplicationsController < ApplicationController
     # Check IF a job application already exists
     if JobApplication.where(job_offer: @job_offer, candidate: current_candidate)
       # a job application already exists
-      @job_application = JobApplication.where(job_offer: @job_offer, candidate: current_candidate)
+      @job_application = JobApplication.where(job_offer: @job_offer, candidate: current_candidate).first
 
     else
       # a job application does not existe => Create new job_application
-      @job_application = JobApplication.new
+      @job_application = JobApplication.new # =>  <# JobApplication 358742, candidate: nil, job_offer: nil, motivation_letter: nil >
       @job_application.candidate = current_candidate
       @job_application.job_offer = @job_offer
       @job_application.save
     end
 
-    @experiences_sorted = current_candidate.experiences.sort! { |a,b| b.end_date <=> a.end_date }
-    @educations_sorted = current_candidate.educations.sort! { |a,b| b.end_date <=> a.end_date }
-    @languages = current_candidate.languages
+    @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
+    @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
+    @languages = @job_application.languages
   end
 
   def update
@@ -48,7 +50,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def set_job_application
-    @set_job_application = JobApplication.find(params[:id])
+    @job_application = JobApplication.find(params[:id])
   end
 
 end
