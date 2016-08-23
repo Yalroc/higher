@@ -4,8 +4,6 @@ class JobOffersController < ApplicationController
 
   def index
     @organizations = Organization.new
-    # @job_offer = JobOffer.all
-    # raise
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
   end
 
