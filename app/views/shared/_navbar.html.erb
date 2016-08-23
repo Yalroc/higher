@@ -1,4 +1,5 @@
 <!-- NAVBAR FOR RECRUITERS -->
+<div class="navbar-higher"></div> <!-- spacer to compensate the 'fixed navbar offset' -->
 <div class="navbar-higher navbar-higher-fixed">
 
   <!-- Logo -->
@@ -52,37 +53,30 @@
     <!-- space:empty flex-box -->
     <div class="blank-10-percent"></div>
 
-  <!-- Profile picture and dropdown -->
-  <div class="navbar-wagon-item">
-    <div class="dropdown">
-      <i class="fa fa-caret-down navbar-higher-menu" data-toggle="dropdown" aria-hidden="true"></i>
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <i class="fa fa-caret-down navbar-higher-menu" data-toggle="dropdown" aria-hidden="true"></i>
 
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li>
-          <%= link_to "#" do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_candidate_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-        </li>
-      </ul>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_candidate_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+</div> <!-- end of navbar for recruiters -->
 
+<!-- NAVBAR FOR CANDIDATES (in the application funnel) -->
+  <!-- TODO -->
 
-  <div class="hidden">
-
-    <!-- Login text link -->
-    <%= link_to t(".sign_in", default: "Login"), new_candidate_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-  </div>
-
-
-
-
-  </div>
-</div>
-
+<!-- NAVBAR FOR CANDIDATES (managing their past applications & profile) -->
+  <!-- TODO -->
