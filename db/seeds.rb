@@ -1,5 +1,11 @@
 Candidate.destroy_all
 Recruiter.destroy_all
+Organization.destroy_all
+JobOffer.destroy_all
+JobApplication.destroy_all
+Language.destroy_all
+Experience.destroy_all
+Education.destroy_all
 
 jd = Candidate.create!({
   first_name: "Thibault",
