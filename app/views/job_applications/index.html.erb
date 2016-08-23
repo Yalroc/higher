@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Candidate</th>
+    <th>Fit</th>
+    <th>XP</th>
+    <th>Companies</th>
+    <th>Education</th>
+    <th>Languages</th>
+    <th>Date</th>
+  </tr>
+  <% @job_applications.each do |job_application| %>
+  <tr>
+    <th></th>
+    <th><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization.name %></th>
+    <th>82.1%</th>
+    <th>5 years</th>
+    <th><% job_application.experiences.each do |experience| %>
+        <%= experience.organization.name %>
+        <% end %>
+    </th>
+    <th></th>
+  </tr>
+<% end %>
+</table>
