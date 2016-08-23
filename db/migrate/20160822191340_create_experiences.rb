@@ -3,7 +3,7 @@ class CreateExperiences < ActiveRecord::Migration[5.0]
     create_table :experiences do |t|
       t.integer :company_size
       t.string :industry
-      t.references :organization, foreign_key: true
+      t.string :organization
       t.references :job_application, foreign_key: true
       t.string :title
       t.date :start_date
