@@ -61,7 +61,7 @@
                 <% if @languages.empty? %>
                 <% else %>
                   <div class="">
-                    <h3><i class="fa fa-globe" aria-hidden="true"></i> EDUCATION</h3>
+                    <h3><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h3>
                     <ul><% @languages.each do |language| %>
                         <li><%= language.name + ' >> ' + language.proficiency %>
                           <% if @candidate == current_candidate %>
