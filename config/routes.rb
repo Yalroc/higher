@@ -30,4 +30,7 @@ Rails.application.routes.draw do
     root 'job_offers#index', as: :authenticated_root
   end
 
+  # DEMO JOB OFFER
+  get 'demo', to: 'pages#demo'
+
 end
