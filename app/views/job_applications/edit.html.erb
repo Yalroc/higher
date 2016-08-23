@@ -1,0 +1,82 @@
+ <!-- LE CV -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class=""> <!-- div englobbante  -->
+            <br>
+            <% if @user == current_user %>
+              <% if @experiences.empty? == false %>
+                <p><%= link_to "Add an Experience", new_experience_path %></p>
+              <% else %>
+                <br>
+                <%= link_to "Build your CV", new_experience_path, class: "text-center btn btn-primary", id: "booking-button" %>
+              <% end %>
+            <% end %>
+
+                <!-- les expériences pro -->
+                <% if @experiences_sorted.empty? %>
+                <% else %>
+                  <div class="">
+                    <h3><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h3>
+                    <% @experiences_sorted.each do |experience| %>
+                      <div class="">
+                        <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
+                        <% if @user == current_user %>
+                          <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
+                          <%= link_to "Delete", root_path, method: :delete %>
+                        <% end %>
+                        <br>
+                        <p class="display-inline"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s + " >> " %></p>
+                        <% if (((experience.end_date - experience.start_date)/30.5).to_i/12) != 0 %>
+                          <p class="display-inline"><%=  (((experience.end_date - experience.start_date)/30.5).to_i/12).to_s + " year(s) " %></p>
+                        <% end %>
+                        <% if (((experience.end_date - experience.start_date)/30.5).to_i%12) != 0 %>
+                          <p class="display-inline"><%= (((experience.end_date - experience.start_date)/30.5).to_i%12).to_s + " month(s)" %><p>
+                        <% end %>
+                        <p><%= experience.description %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <!-- les formations -->
+                <% if @educations_sorted.empty? %>
+                <% else %>
+                  <div class="">
+                    <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
+                    <% @educations_sorted.each do |education| %>
+                      <div class="">
+                        <h4 class="display-inline"><%= education.title + ' @ ' + education.organization %></h4>
+                          <% if @user == current_user %>
+                            <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
+                            <%= link_to "Delete", root_path, method: :delete %>
+                          <% end %>
+                        <p><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
+                        <p><%= education.description %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <!-- les languages -->
+                <% if @languages.empty? %>
+                <% else %>
+                  <div class="">
+                    <h3><i class="fa fa-globe" aria-hidden="true"></i> EDUCATION</h3>
+                    <ul><% @languages.each do |language| %>
+                        <li><%= language.name + ' >> ' + language.proficiency %>
+                          <% if @user == current_user %>
+                            <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
+                            <%= link_to "Delete", root_path, method: :delete %>
+                          <% end %>
+                        </li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+            </div> <!-- div englobbante  -->
+
+      </div> <!-- col de bootstrap -->
+    </div> <!-- row de bootstrap -->
+  </div> <!-- container de bootstrap -->
