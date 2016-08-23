@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :recruiters
   devise_for :candidates
 
+  # authenticated :recruiter do
+  #     root 'job_offers#index', as: :authenticated_root
+  #   end
+
   # HOME PAGE ROUTE
   root to: 'pages#home'
 
@@ -24,9 +28,5 @@ Rails.application.routes.draw do
   # CANDIDATES ROUTES
   # :show, :edit, & :update => "As a candidate, I can edit my basic information (name, phone_number,..)""
   resources :candidates, only: [:show, :edit, :update]
-
-  authenticated :recruiter do
-    root 'job_offers#index', as: :authenticated_root
-  end
 
 end

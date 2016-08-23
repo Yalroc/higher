@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <% @job_offers.each do |offer| %>
+          <p><%= offer.description %></p>
+        <% end %>
+        <%= link_to "créer une offre", new_job_offer_path  %>
+      </div>
+    </div>
+  </div>
+</div>
+
