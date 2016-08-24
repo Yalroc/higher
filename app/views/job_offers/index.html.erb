@@ -1,5 +1,9 @@
 <div class="wrapper">
   <div class="container">
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TableModal">
+    Créer une offre
+  </button>
     <div class="row">
 <!--       <div class="col-xs-4"> -->
         <div class="tableau-offer">
@@ -22,6 +26,25 @@
                   <td>1500</td>
                   <td>50</td>
                   <td>75%</td>
+                    <!-- Modal -->
+                    <div class="modal fade" id="TableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">title</h4>
+                          </div>
+                          <div class="modal-body">
+                            <%= simple_form_for([ @job_offer ]) do |form| %>
+                              <%= form.input :description %>
+                              <%= form.button :submit %>
+                          <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   <%end%>
                 </tr>
             </tbody>
@@ -30,7 +53,6 @@
 <!--       </div> -->
     </div>
     <br>
-     <%= link_to "créer une offre d'emploi", new_job_offer_path, class: "btn btn-primary"  %>
+     <%#= link_to "créer une offre d'emploi", new_job_offer_path, class: "btn btn-primary"  %>
   </div>
 </div>
-

@@ -5,6 +5,7 @@ class JobOffersController < ApplicationController
   def index
     @organizations = Organization.new
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
+    @job_offer = JobOffer.new
   end
 
   def show
