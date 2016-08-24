@@ -5,6 +5,10 @@ class JobOfferPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def new?
     record.recruiter == user # =>  @job_offer.recruiter == current_recruiter
   end

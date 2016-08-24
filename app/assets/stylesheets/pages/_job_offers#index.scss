@@ -1,31 +1,36 @@
-table{
+table {
    background: #fff;
 }
-
-.tableau-offer {
-  flex: 0 0 20%;
-  margin-top: 15px;
-}
-
-.tableau-offer table,thead,tbody,tfoot,tr, td,th{
-  text-align: center;
+.tableau-offer table,thead,tbody,tfoot,tr, td,th {
   margin: auto;
-  border: 1px solid #dedede;
   padding: 1rem;
+  justify-content: space-between;
 }
-
 .column-1 {
   width: 20%;
 }
-
 .wrapper {
   height: 100vh;
-  display: flex;
-  align-items: center;
   width: 100%;
   background: #dedede;
   text-align: center;
 }
-.tableau-offer {
-
+.head-fixed {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  top: 40px;
+  background-color: grey;
+}
+.offers-body {
+  margin-top: 79px;
+  display: block;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.vw {
+  width: 100vw;
 }

@@ -10,6 +10,7 @@ class JobOffersController < ApplicationController
   end
 
   def show
+    authorize @job_offer
   end
 
   def new
@@ -20,7 +21,7 @@ class JobOffersController < ApplicationController
   def create
     @job_offer = JobOffer.new(offer_params)
     @job_offer.recruiter = current_recruiter
-    authorize(@job_offer)
+    authorize @job_offer
 
     if @job_offer.save
       redirect_to job_offers_path
@@ -32,11 +33,11 @@ class JobOffersController < ApplicationController
   end
 
   def edit
-    authorize(@job_offer)
+    authorize @job_offer
   end
 
   def update
-    authorize(@job_offer)
+    authorize @job_offer
 
     if @job_offer.update(offer_params)
       redirect_to job_offers

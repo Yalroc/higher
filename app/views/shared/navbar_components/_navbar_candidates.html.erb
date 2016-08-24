@@ -1,13 +1,13 @@
-<!-- NAVBAR FOR RECRUITERS -->
+<!-- NAVBAR FOR CANDIDATES (managing their past applications) -->
 <div class="navbar-higher"></div><!-- spacer to compensate the 'fixed navbar offset' -->
-<div class="navbar-higher navbar-higher-fixed">
+<div class="navbar-higher-funnel navbar-higher-fixed">
 
-  <!-- Logo Recruiter -->
-  <%= link_to 'job_offers#index', class: "navbar-higher-brand" do %>
+  <!-- Logo Recruiter / relative<=>absolute to navbar-higher-funnel -->
+  <%= link_to 'job_offers#index', class: "navbar-higher-brand-recruiter" do %>
     <%= image_tag "LOreal_white_vector.png" %>
   <%end %>
 
-  <!-- Logo Higher -->
+  <!-- Logo Higher / relative<=>absolute to navbar-higher-funnel -->
   <%= link_to 'job_offers#index', class: "navbar-higher-brand" do %>
     <%= image_tag "name-logo-small.png" %>
   <%end %>
@@ -19,11 +19,6 @@
       </div>
     </div>
   </div>
-
-
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
 
 </div> <!-- end of navbar for recruiters -->
