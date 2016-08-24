@@ -15,7 +15,7 @@ class JobOffersController < ApplicationController
 
   def new
     @job_offer = JobOffer.new
-    authorize @job_offer
+    authorize(@job_offer) # va voir dans Pundit la policy => JobOffer#new & record = @job_offer
   end
 
   def create

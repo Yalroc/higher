@@ -7,6 +7,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = set_job_offer.job_applications
+    @job_applications = policy_scope(JobApplication)
   end
 
   def edit
