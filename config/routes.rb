@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   # CANDIDATES ROUTES
   # :show, :edit, & :update => "As a candidate, I can edit my basic information (name, phone_number,..)""
-  resources :candidates, only: [:show, :update]
+  resources :candidates, only: [:show, :edit, :update]
 
 
   # DEMO JOB OFFER
