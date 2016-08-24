@@ -15,7 +15,6 @@ class CandidatesController < ApplicationController
   end
 
   def show
-
   end
 
   private

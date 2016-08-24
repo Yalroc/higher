@@ -13,23 +13,30 @@ class JobOffersController < ApplicationController
 
   def new
     @job_offer = JobOffer.new
+    authorize(@job_offer)
   end
 
   def create
     @job_offer = JobOffer.new(offer_params)
     @job_offer.recruiter = current_recruiter
+    authorize(@job_offer)
 
     if @job_offer.save
       redirect_to job_offers_path
     else
       render :new
     end
+
+
   end
 
   def edit
+    authorize(@job_offer)
   end
 
   def update
+    authorize(@job_offer)
+
     if @job_offer.update(offer_params)
       redirect_to job_offers
     else
@@ -38,6 +45,10 @@ class JobOffersController < ApplicationController
   end
 
   private
+
+  def pundit_user
+    current_recruiter
+  end
 
   def offer_params
     params.require(:job_offer).permit(:description)
