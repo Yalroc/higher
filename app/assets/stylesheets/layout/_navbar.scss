@@ -13,9 +13,6 @@
   background: $black;
   transition: all 0.3s ease;
   height: 80px;
-  // display: flex
-  // align-items: center;
-  // justify-content: space-between;
 }
 
 /* Optional class to fix the navbar on top */
@@ -50,7 +47,7 @@
 .navbar-higher-brand-funnel {
   position: absolute;
   top: 7px;
-  right: 5px;
+  right: 23px;
     img {
       height: 47px;
     }
@@ -149,6 +146,15 @@
 
 .funnel-steps-flexbox {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle {
+  background-color: $gray-lighter;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 
 }
 
@@ -191,4 +197,10 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+#funnel-logout-triangle {
+  position: absolute;
+  top: 19px;
+  right: 10px;
 }

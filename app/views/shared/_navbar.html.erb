@@ -1,11 +1,11 @@
 
 
 <% if recruiter_signed_in? %>
-<!-- NAVBAR FOR CANDIDATES (managing their past applications & profile) -->
+<!-- NAVBAR FOR RECRUITERS -->
   <%= render "shared/navbar_components/navbar_recruiters" %>
 
 <% elsif 2 == 1 %> <!-- candidate_signed_in? -->
-<!-- NAVBAR FOR RECRUITERS -->
+<!-- NAVBAR FOR CANDIDATES (managing their past applications & profile) -->
   <%= render "shared/navbar_components/navbar_candidates" %>
 
 <% elsif candidate_signed_in? %> <!-- candidate_signed_in? && controller#actions from the funnel -->
