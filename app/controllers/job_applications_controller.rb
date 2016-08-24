@@ -24,7 +24,7 @@ class JobApplicationsController < ApplicationController
       @job_application.save
     end
 
-    authorize(@job_application) # we tell Pundit to authorize @job_application record (once it is created)
+    authorize(@job_application) # we tell Pundit to look for the authorization policies of JobApplication#edit record (once it is created)
 
     @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
     @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }

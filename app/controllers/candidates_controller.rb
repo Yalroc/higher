@@ -3,9 +3,12 @@ class CandidatesController < ApplicationController
   skip_before_action :authenticate_recruiter!
 
   def edit
+    authorize @candidate
   end
 
   def update
+    authorize @candidate
+
     @candidate.update(candidate_params)
      if @candidate.save
       redirect_to candidate_path
@@ -15,9 +18,15 @@ class CandidatesController < ApplicationController
   end
 
   def show
+    authorize @candidate
   end
 
   private
+
+  def pundit_user
+    current_candidate
+  end
+
 
   def candidate_params
     params.require(:candidate).permit(:email, :first_name, :last_name, :phone_number)
