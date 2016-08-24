@@ -1,5 +1,5 @@
 class Recruiter < ApplicationRecord
-  belongs_to :organization
+  belongs_to :organization, required: false
   has_many :job_offers
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
