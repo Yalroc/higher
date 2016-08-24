@@ -4,11 +4,11 @@
 <!-- NAVBAR FOR VISITORS (log in & sign up) -->
   <%= render "shared/navbar_components/navbar_recruiters" %>
 
-<% elsif candidate_signed_in? %>
+<% elsif 2 == 1 %> <!-- candidate_signed_in? -->
 <!-- NAVBAR FOR RECRUITERS -->
   <%= render "shared/navbar_components/navbar_candidates" %>
 
-<% elsif 2 == 1 %> <!-- candidate_signed_in? && controller#actions from the funnel -->
+<% elsif candidate_signed_in?%> <!-- candidate_signed_in? && controller#actions from the funnel -->
 <!-- NAVBAR FOR CANDIDATES (in the application funnel) -->
   <%= render "shared/navbar_components/navbar_candidates_funnel" %>
 
