@@ -1,25 +1,39 @@
-<table>
-  <tr>
-    <th></th>
-    <th>Candidate</th>
-    <th>Fit</th>
-    <th>XP</th>
-    <th>Companies</th>
-    <th>Education</th>
-    <th>Languages</th>
-    <th>Date</th>
-  </tr>
-  <% @job_applications.each do |job_application| %>
-  <tr>
-    <th></th>
-    <th><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization.name %></th>
-    <th>82.1%</th>
-    <th>5 years</th>
-    <th><% job_application.experiences.each do |experience| %>
-        <%= experience.organization.name %>
+<div class="table-applications-wrapper">
+  <div class=table-applications>
+    <div id="table-columns-1" class="text-center"></div>
+    <div id="table-columns-2" class="text-center">Candidate</div>
+    <div id="table-columns-3" class="text-center">Fit</div>
+    <div id="table-columns-4" class="text-center">XP</div>
+    <div id="table-columns-5" class="text-center">Companies</div>
+    <div id="table-columns-6" class="text-center">Education</div>
+    <div id="table-columns-7" class="text-center">Languages</div>
+    <div id="table-columns-8" class="text-center">Date</div>
+  </div>
+
+
+ <% @job_applications.each_with_index do |job_application, y| %>
+  <div class=table-applications>
+    <div id="table-columns-1" class="text-center"><%= y + 1%></div>
+
+    <div id="table-columns-2" class="text-center"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></div>
+
+    <div id="table-columns-3" class="text-center">82.1%</div>
+
+    <div id="table-columns-4" class="text-center">5 years</div>
+
+    <div id="table-columns-5" class="text-center"><% job_application.experiences.each do |experience| %>
+        <%= experience.organization %>
         <% end %>
-    </th>
-    <th></th>
-  </tr>
-<% end %>
-</table>
+    </div>
+
+    <div id="table-columns-6" class="text-center"><%= job_application.educations.first.organization %></div>
+
+    <div id="table-columns-7" class="text-center"><% job_application.languages.each do |language| %>
+        <%= language.name %>
+        <% end %>
+    </div>
+
+    <div id="table-columns-8" class="text-center"><%= job_application.created_at.strftime("%A") %></div>
+  </div>
+  <% end %>
+</div>

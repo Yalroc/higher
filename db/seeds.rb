@@ -21,25 +21,6 @@ Organization.create!({
   industry: "Information Technology and Services",
   })
 
-Organization.create!({
-  name: "Microsoft",
-  size: 76000,
-  industry: "Computer Software",
-  })
-
-
-Organization.create!({
-  name: "ESSEC Business School",
-  size: 56,
-  industry: "University",
-  })
-
-orga_dell = Organization.create!({
-  name: "Dell",
-  size: 4500,
-  industry: "University",
-  })
-
 re_jd = Recruiter.create!({
   email: "tde@gmail.com",
   password: "123456",
@@ -58,13 +39,13 @@ ja_jd = JobApplication.create!({
   motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition."
   })
 
-la_jd = Language.create!({
+lae_jd = Language.create!({
   job_application: JobApplication.first,
   name: "French",
   proficiency: "Native"
   })
 
-la_jd = Language.create!({
+lasqf_jd = Language.create!({
   job_application: JobApplication.first,
   name: "English",
   proficiency: "Fluent"
@@ -81,18 +62,7 @@ Experience.create!({
   industry: "Computer Software"
   })
 
-xp_jd_1 = Experience.create!({
-  organization: Organization.where(size: 4500).first,
-  job_application: JobApplication.where(motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition.").first,
-  title: "Assitant Sales",
-  start_date: "1994",
-  end_date: "1996",
-  description: "I was assistant sales on the servers.",
-  company_size: 4500,
-  industry: "Information Technology and Services"
-  })
-
-ed_jd_1 = Education.create!({
+ed_qsdqjd_1 = Education.create!({
   organization: "ESSEC Business School",
   job_application: JobApplication.first,
   start_date: "1-6-1992",
@@ -104,3 +74,62 @@ ed_jd_1 = Education.create!({
   })
 
 ####################################################
+
+Candidate.create!({
+  first_name: "Isabelle",
+  last_name: "Cheminet",
+  email: "isa@gmail.com",
+  password: "123456",
+  phone_number: "+33 6 78 94 35 66",
+  })
+
+ja_jdddd = JobApplication.create!({
+  candidate: Candidate.second,
+  job_offer: JobOffer.first,
+  motivation_letter: "Dear Sir or Madam, I am very interested by your proposition. I have worked for more than ten years in the IT field, so I think I have enough experience to get this position."
+  })
+
+la_jdddd = Language.create!({
+  job_application: JobApplication.second,
+  name: "French",
+  proficiency: "Native"
+  })
+
+la_ssjd = Language.create!({
+  job_application: JobApplication.second,
+  name: "English",
+  proficiency: "TOEIC 950"
+  })
+
+la_sssjd = Language.create!({
+  job_application: JobApplication.second,
+  name: "Chinese",
+  proficiency: "Intermediate"
+  })
+
+Experience.create!({
+  organization: "SAP",
+  job_application: JobApplication.second,
+  title: "Account director",
+  start_date: "1-6-2002",
+  end_date: "1-6-2016",
+  description: "I was charged of the middle market clients.",
+  company_size: 100000,
+  industry: "Computer Software"
+  })
+
+ed_jsd_1 = Education.create!({
+  organization: "Université Paris Dauphine",
+  job_application: JobApplication.second,
+  start_date: "1-6-1996",
+  title: "Master",
+  end_date: "1-6-2001",
+  description: "I have a specialization in IT services.",
+  degree_type: "Master",
+  degree_field: "Marketing",
+  })
+
+
+
+
+
