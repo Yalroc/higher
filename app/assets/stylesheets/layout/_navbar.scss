@@ -12,11 +12,10 @@
 .navbar-higher-funnel {
   background: $black;
   transition: all 0.3s ease;
-  display: flex;
-  height: 65px;
-  padding: 0px 30px;
-  align-items: center;
-  justify-content: space-between;
+  height: 80px;
+  // display: flex
+  // align-items: center;
+  // justify-content: space-between;
 }
 
 /* Optional class to fix the navbar on top */
@@ -46,6 +45,24 @@
 /* Navbar logo */
 .navbar-higher-brand img {
   height: 39px;
+}
+
+.navbar-higher-brand-funnel {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+    img {
+      height: 47px;
+    }
+}
+
+.navbar-higher-brand-recruiter {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+    img {
+      height: 23px;
+    }
 }
 
 // SEARCH BAR
@@ -126,8 +143,15 @@
   &:visited {
     text-decoration: none;
   }
+}
+
+// FUNNEL STEPS
+
+.funnel-steps-flexbox {
+  display: flex;
 
 }
+
 
 // DROPDOWN
 
