@@ -3,11 +3,11 @@
     <div class="row">
 <!--       <div class="col-xs-4"> -->
         <div class="tableau-offer">
+        <% if @job_offers.any? == true %>
           <table class="vw">
             <thead class="head-fixed">
               <tr class="flex">
                 <th><%= @organization.name %></th>
-                <th>l'Oréal</th>
                 <th>Offers</th>
                 <th>Candidates</th>
                 <th>Contacted</th>
@@ -18,17 +18,22 @@
               <% @job_offers.each do |offer| %>
                 <tr>
                   <td class="column-1"><%= offer.description %></td>
-                  <td>12</td>
-                  <td>1500</td>
+                  <td><%= Date.today %></td>
+                  <td><%= offer.job_applications.count %></td>
                   <td>50</td>
                   <td>75%</td>
                   <%end%>
                 </tr>
             </tbody>
           </table>
+          <% else %>
+
+          <% end %>
         </div>
     </div>
   </div>
+  <br>
+  <br>
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TableModal">
   create an offer
 </button>

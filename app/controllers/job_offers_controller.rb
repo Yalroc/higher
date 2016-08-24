@@ -6,7 +6,12 @@ class JobOffersController < ApplicationController
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
     @job_offer = JobOffer.new
     @job_offers = policy_scope(JobOffer)
-    @organization = @job_offers.recruiter.organization
+
+    if @job_offers.any?
+      @organization = @job_offers.first.recruiter.organization
+    else
+      @organization = nil
+    end
   end
 
   def show
