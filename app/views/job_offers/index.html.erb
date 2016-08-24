@@ -12,7 +12,7 @@
               <tr>
                 <!-- <th><#%= @organizations.name %></th> -->
                 <th>l'Oréal</th>
-                <!-- <th>Offers</th> -->
+                <<th>Offers</th>
                 <th>Candidates</th>
                 <th>Contacted</th>
                 <th>Average fit</th>
@@ -22,7 +22,7 @@
               <% @job_offers.each do |offer| %>
                 <tr>
                   <td class="column-1"><%= offer.description %></td>
-                  <!-- <td>12</td> -->
+                  <td>12</td>
                   <td>1500</td>
                   <td>50</td>
                   <td>75%</td>
@@ -50,9 +50,6 @@
             </tbody>
           </table>
         </div>
-<!--       </div> -->
     </div>
-    <br>
-     <%#= link_to "créer une offre d'emploi", new_job_offer_path, class: "btn btn-primary"  %>
   </div>
 </div>
