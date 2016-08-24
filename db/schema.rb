@@ -43,17 +43,18 @@ ActiveRecord::Schema.define(version: 20160822191340) do
     t.boolean  "present"
     t.string   "degree_type"
     t.string   "degree_field"
-    t.string   "organization"
+    t.integer  "organization_id"
     t.integer  "job_application_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["job_application_id"], name: "index_educations_on_job_application_id", using: :btree
+    t.index ["organization_id"], name: "index_educations_on_organization_id", using: :btree
   end
 
   create_table "experiences", force: :cascade do |t|
     t.integer  "company_size"
     t.string   "industry"
-    t.string   "organization"
+    t.integer  "organization_id"
     t.integer  "job_application_id"
     t.string   "title"
     t.date     "start_date"
@@ -63,14 +64,15 @@ ActiveRecord::Schema.define(version: 20160822191340) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["job_application_id"], name: "index_experiences_on_job_application_id", using: :btree
+    t.index ["organization_id"], name: "index_experiences_on_organization_id", using: :btree
   end
 
   create_table "job_applications", force: :cascade do |t|
     t.integer  "candidate_id"
     t.integer  "job_offer_id"
-    t.text     "motivation_letter"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.text     "cover_letter"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["candidate_id"], name: "index_job_applications_on_candidate_id", using: :btree
     t.index ["job_offer_id"], name: "index_job_applications_on_job_offer_id", using: :btree
   end
@@ -121,7 +123,9 @@ ActiveRecord::Schema.define(version: 20160822191340) do
   end
 
   add_foreign_key "educations", "job_applications"
+  add_foreign_key "educations", "organizations"
   add_foreign_key "experiences", "job_applications"
+  add_foreign_key "experiences", "organizations"
   add_foreign_key "languages", "job_applications"
   add_foreign_key "recruiters", "organizations"
 end
