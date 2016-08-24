@@ -133,8 +133,176 @@ ed_jsd_1 = Education.create!({
   end_date: "1-6-2001",
   description: "I have a specialization in IT services.",
   degree_type: "Master",
+  degree_field: "Trade",
+  })
+
+#######
+########
+
+Candidate.create!({
+  first_name: "Benjamin",
+  last_name: "Rihouet",
+  email: "ben@gmail.com",
+  password: "123456",
+  phone_number: "+33 4 78 24 35 96",
+  })
+
+ja_jdddd = JobApplication.create!({
+  candidate: Candidate.third,
+  job_offer: JobOffer.first,
+  motivation_letter: "Hi, I had an experience at Amazon in Marketing, but now I want to be more focused on tech products."
+  })
+
+la_jdddd = Language.create!({
+  job_application: JobApplication.third,
+  name: "French",
+  proficiency: "Native"
+  })
+
+la_ssjd = Language.create!({
+  job_application: JobApplication.third,
+  name: "English",
+  proficiency: "TOEFL 930"
+  })
+
+Experience.create!({
+  organization: "Amazon",
+  job_application: JobApplication.third,
+  title: "Digital Marketing Analyst",
+  start_date: "1-6-2010",
+  end_date: "1-6-2016",
+  description: "I worked on several projects about SEO and growth hacking.",
+  company_size: 100000,
+  industry: "E-commerce"
+  })
+
+ed_jsd_1 = Education.create!({
+  organization: "HEC Paris",
+  job_application: JobApplication.third,
+  start_date: "1-6-2005",
+  title: "Master",
+  end_date: "1-6-2009",
+  description: "I did a specialization in Consumer Goods Marketing",
+  degree_type: "Master",
   degree_field: "Marketing",
   })
+
+
+##########
+
+
+
+Candidate.create!({
+  first_name: "Jeanne",
+  last_name: "Pré",
+  email: "jeanne@gmail.com",
+  password: "123456",
+  phone_number: "+33 9 71 94 35 66",
+  })
+
+ja_jdddd = JobApplication.create!({
+  candidate: Candidate.fourth,
+  job_offer: JobOffer.first,
+  motivation_letter: "I need a more challenging position."
+  })
+
+la_jdddd = Language.create!({
+  job_application: JobApplication.fourth,
+  name: "French",
+  proficiency: "Native"
+  })
+
+la_ssjd = Language.create!({
+  job_application: JobApplication.fourth,
+  name: "English",
+  proficiency: "Fluent"
+  })
+
+la_sssjd = Language.create!({
+  job_application: JobApplication.fourth,
+  name: "German",
+  proficiency: "Fluent"
+  })
+
+Experience.create!({
+  organization: "EY",
+  job_application: JobApplication.fourth,
+  title: "Senior Auditor",
+  start_date: "1-6-2002",
+  end_date: "1-6-2016",
+  description: "I managed a team of 15 collaborators.",
+  company_size: 100000,
+  industry: "Accounting"
+  })
+
+ed_jsd_1 = Education.create!({
+  organization: "Trinity College",
+  job_application: JobApplication.fourth,
+  start_date: "1-6-1996",
+  title: "Master",
+  end_date: "1-6-2001",
+  description: "My specialization is about finance.",
+  degree_type: "Master",
+  degree_field: "Finance",
+  })
+
+##########
+
+Candidate.create!({
+  first_name: "Mohammed",
+  last_name: "Essaïd",
+  email: "moha@gmail.com",
+  password: "123456",
+  phone_number: "+33 9 31 94 88 66",
+  })
+
+ja_jdddd = JobApplication.create!({
+  candidate: Candidate.fifth,
+  job_offer: JobOffer.first,
+  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  })
+
+la_jdddd = Language.create!({
+  job_application: JobApplication.fifth,
+  name: "French",
+  proficiency: "Native"
+  })
+
+la_ssjd = Language.create!({
+  job_application: JobApplication.fifth,
+  name: "English",
+  proficiency: "Fluent"
+  })
+
+la_sssjd = Language.create!({
+  job_application: JobApplication.fifth,
+  name: "Arabic",
+  proficiency: "Fluent"
+  })
+
+Experience.create!({
+  organization: "Capgemini",
+  job_application: JobApplication.fifth,
+  title: "Developer",
+  start_date: "1-6-2002",
+  end_date: "1-6-2016",
+  description: "Exciting experience in a dynamic SSII.",
+  company_size: 100000,
+  industry: "Accounting"
+  })
+
+ed_jsd_1 = Education.create!({
+  organization: "TELECOM Paris Tech",
+  job_application: JobApplication.fifth,
+  start_date: "1-6-1996",
+  title: "Master",
+  end_date: "1-6-2001",
+  description: "My specialization is about computer science.",
+  degree_type: "Master",
+  degree_field: "Computer Science",
+  })
+
+
 
 
 

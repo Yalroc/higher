@@ -21,7 +21,13 @@
   <div class="menu-profils">
       <% current_recruiter.organization.recruiters.each do |recruiter| %>
     <div class="mini-menu-profils">
-      <%= recruiter.title %>
+      <%= recruiter.title %><br>
+      <% if recruiter == current_recruiter %>
+        <i class="fa fa-circle green-point" aria-hidden="true"></i>
+      <% else %>
+        <i class="fa fa-circle red-point" aria-hidden="true"></i>
+      <% end %>
+        <i class="fa fa-comment-o text-center" aria-hidden="true"></i>
     </div>
       <% end %>
   </div>
