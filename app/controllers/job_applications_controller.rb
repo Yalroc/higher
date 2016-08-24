@@ -22,6 +22,7 @@ class JobApplicationsController < ApplicationController
       @job_application.job_offer = @job_offer
       @job_application.save
     end
+
     authorize(@job_application) # we tell Pundit to authorize @job_application record (once it is created)
 
     @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
