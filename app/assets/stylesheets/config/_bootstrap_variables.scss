@@ -15,7 +15,8 @@ $brand-primary:   $blue;
 $brand-success:   $green;
 $brand-info:      $yellow;
 $brand-danger:    $red;
-$brand-warning:   $orange;
+$brand-warning:   $black; // overwritten with dark higher color
+// $brand-warning:   $orange;
 
 // Buttons / inputs radius
 $border-radius-base:  2px;
