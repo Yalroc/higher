@@ -9,6 +9,16 @@
   justify-content: space-between;
 }
 
+.navbar-higher-funnel {
+  background: $black;
+  transition: all 0.3s ease;
+  display: flex;
+  height: 65px;
+  padding: 0px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-higher-fixed {
   position: fixed;
