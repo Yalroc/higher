@@ -11,9 +11,9 @@ class JobApplicationsController < ApplicationController
   def edit
     # SELECT @job_application
     # Check IF a job application already exists
-    if JobApplication.where(job_offer: @job_offer, candidate: current_candidate)
+    if JobApplication.find(params[:id])
       # a job application already exists
-      @job_application = JobApplication.where(job_offer: @job_offer, candidate: current_candidate).first
+      @job_application = JobApplication.find(params[:id])
 
     else
       # a job application does not existe => Create new job_application
@@ -22,6 +22,7 @@ class JobApplicationsController < ApplicationController
       @job_application.job_offer = @job_offer
       @job_application.save
     end
+    authorize(@job_application) # we tell Pundit to authorize @job_application record (once it is created)
 
     @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
     @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
@@ -38,6 +39,10 @@ class JobApplicationsController < ApplicationController
   end
 
   private
+
+  def pundit_user
+    current_candidate
+  end
 
   def job_application_params
     params.require(:job_application).permit(:motivation_letter)

@@ -86,4 +86,24 @@
 <!-- SCRIPTS -->
 
 
+<!-- button de modal -->
+ <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#EditCVModal">Edit plume</button>
+<!-- modal Edit plume writer-->
+
+<div class="modal fade" id="EditCVModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(current_candidate) do |form| %>
+            <%= form.input :first_name %>
+            <%= form.button :submit %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
