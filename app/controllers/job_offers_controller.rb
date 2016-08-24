@@ -3,10 +3,10 @@ class JobOffersController < ApplicationController
   skip_before_action :authenticate_candidate!
 
   def index
-    @organizations = Organization.new
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
     @job_offer = JobOffer.new
     @job_offers = policy_scope(JobOffer)
+    @organization = @job_offers.recruiter.organization
   end
 
   def show
