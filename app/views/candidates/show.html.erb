@@ -4,6 +4,7 @@
       <h2><%= @candidate.first_name + " " + @candidate.last_name %> </h2>
       <p><strong> Phone number </strong> : <%= @candidate.phone_number %></p>
       <p><strong> Email </strong> : <%= @candidate.email %></p>
+      <%= link_to "Edit info", edit_candidate_path %>
     </div>
   </div>
 </div>
