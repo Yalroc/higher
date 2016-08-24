@@ -28,6 +28,13 @@ re_jd = Recruiter.create!({
   organization: Organization.first,
   })
 
+re_jd = Recruiter.create!({
+  email: "kate@gmail.com",
+  password: "123456",
+  title: "Kate Smith @ Junior Recruiter - IT department",
+  organization: Organization.first,
+  })
+
 jo_jd = JobOffer.create!({
   recruiter: Recruiter.first,
   description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions."
