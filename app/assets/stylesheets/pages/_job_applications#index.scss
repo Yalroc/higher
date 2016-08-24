@@ -1,0 +1,54 @@
+.table-applications-wrapper {
+  margin-top: 50px;
+}
+
+.table-applications {
+  display: flex;
+  width: 90%%;
+  border-top-width: 0.25px;
+  border-bottom-width: 0.25px;
+  border-left-width: 0.5px;
+  border-right-width: 0.5px;
+  border-color: black;
+  border-style: solid;
+}
+
+#table-columns-1 {
+  flex: 0 0 5%;
+  border-left-width: 0.5px;
+  border-right-width: 0.5px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-color: black;
+  border-style: solid;
+}
+
+#table-columns-2 {
+  flex: 0 0 20%;
+  text-vertical-align: center;
+}
+
+#table-columns-3 {
+  flex: 0 0 10%;
+}
+
+#table-columns-4 {
+  flex: 0 0 10%;
+}
+
+#table-columns-5 {
+  flex: 0 0 10%;
+}
+
+#table-columns-6 {
+  flex: 0 0 20%;
+}
+
+#table-columns-7 {
+  flex: 0 0 12.5%;
+}
+
+#table-columns-8 {
+  flex: 0 0 12.5%;
+}
+
