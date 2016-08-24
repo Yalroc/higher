@@ -12,22 +12,50 @@
     <%= image_tag "name-logo-small.png" %>
   <%end %>
 
+  <!-- dropdown / relative<=>absolute to navbar-higher-funnel -->
+    <div class="dropdown" id="funnel-logout-triangle">
+      <i class="fa fa-caret-down navbar-higher-menu" data-toggle="dropdown" aria-hidden="true"></i>
+
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+          <%= link_to "#" do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_candidate_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
+      </ul>
+    </div> <!-- end of dropdown -->
+
+  <!-- FUNNEL STEPS DASHBOARD + IMPORT DATA + VIEW AS EMPLOYER -->
   <div class="container">
     <div class="row">
       <div class="col-xs-1 col-xs-offset-2">
         <h6 style="color: white">import</h6>
         <h6 style="color: white">data</h6>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-4 col-xs-offset-1">
         <div class="funnel-steps-flexbox" > <!-- flex dev with 3 circles -->
-          <h6 style="color: white">offer</h6>
-          <h6 style="color: white">resumé</h6>
-          <h6 style="color: white">details</h6>
+          <div>
+            <div class="circle text-center">1</div>
+            <h6 style="color: white", class="text-center">job</h6>
+          </div>
+          <div>
+            <div class="circle text-center">2</div>
+            <h6 style="color: white", class="text-center">résumé</h6>
+          </div>
+          <div>
+            <div class="circle text-center">3</div>
+            <h6 style="color: white", class="text-center">details</h6>
+          </div>
         </div>
       </div>
-      <div class="col-xs-1">
-        <h6 style="color: white">view as</h6>
-        <h6 style="color: white">employer</h6>
+      <div class="col-xs-1 col-xs-offset-1">
+        <h6 style="color: white", class="text-right">view as</h6>
+        <h6 style="color: white" class="text-right">employer</h6>
       </div>
     </div> <!-- end of row -->
   </div> <!-- end of container -->
