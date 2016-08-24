@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-      <h2>You are <%= @candidate.first_name + " " + @candidate.last_name %> </h2>
-      <p> Phone number : <%= @candidate.phone_number %></p>
+      <h2><%= @candidate.first_name + " " + @candidate.last_name %> </h2>
+      <p><strong> Phone number </strong> : <%= @candidate.phone_number %></p>
+      <p><strong> Email </strong> : <%= @candidate.email %></p>
     </div>
   </div>
 </div>
