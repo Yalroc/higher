@@ -1,8 +1,12 @@
 class JobOfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.all
     end
+  end
+
+  def show?
+    true
   end
 
   def new?
