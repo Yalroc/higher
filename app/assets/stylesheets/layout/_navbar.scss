@@ -1,6 +1,7 @@
 // OVERALL POSITIONING
 .navbar-higher {
-  background: #323a45;
+  // background: #323a45;
+  background: linear-gradient(#323a45, $black);
   transition: all 0.3s ease;
   display: flex;
   height: 45px;
@@ -13,6 +14,14 @@
   background: $black;
   transition: all 0.3s ease;
   height: 80px;
+}
+
+/* Text on visitor navbar */
+
+.hr-content {
+  color: white;
+  font-weight: lighter;
+  padding-top: 10px;
 }
 
 /* Optional class to fix the navbar on top */
@@ -126,15 +135,19 @@
   color: white;
   font-size: 17px;
   font-weight: lighter;
+  opacity: 0.8;
   padding: 0 13px;
   &:hover {
     text-decoration: none;
-    font-weight: normal;
+    // font-weight: normal;
+    opacity: 1;
     color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 9px;
   }
   &:active {
     text-decoration: none;
-    font-weight: normal;
+    // font-weight: normal;
     color: white;
   }
   &:visited {
