@@ -6,6 +6,7 @@ class JobOffersController < ApplicationController
     @organizations = Organization.new
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
     @job_offer = JobOffer.new
+    @job_offers = policy_scope(JobOffer)
   end
 
   def show
@@ -13,7 +14,7 @@ class JobOffersController < ApplicationController
 
   def new
     @job_offer = JobOffer.new
-    authorize(@job_offer)
+    authorize(@job_offer) # va voir dans Pundit la policy => JobOffer#new & record = @job_offer
   end
 
   def create

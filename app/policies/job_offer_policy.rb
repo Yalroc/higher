@@ -1,12 +1,12 @@
 class JobOfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.all
     end
   end
 
   def new?
-    record.recruiter == user
+    record.recruiter == user # =>  @job_offer.recruiter == current_recruiter
   end
 
   def create?
