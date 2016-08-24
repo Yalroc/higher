@@ -31,6 +31,8 @@ class JobApplicationsController < ApplicationController
   end
 
   def update
+    authorize(@job_application)
+
     if @job_application.update(job_application_params)
       # TODO: make 'view as employer clickable'
       redirect_to edit_job_offer_job_application(@job_offer, @job_application)
