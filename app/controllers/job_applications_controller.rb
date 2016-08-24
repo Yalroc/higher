@@ -3,6 +3,7 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:update]
 
   skip_before_action :authenticate_recruiter!
+  skip_before_action :authenticate_candidate!, only: [:index]
 
   def index
     @job_applications = set_job_offer.job_applications
