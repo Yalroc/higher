@@ -58,7 +58,7 @@ class JobOffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:job_offer).permit(:description)
+    params.require(:job_offer).permit(:description, :title)
   end
 
   def set_job_offers

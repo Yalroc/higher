@@ -5,23 +5,23 @@
         <div class="tableau-offer">
         <% if @job_offers.any? == true %>
           <table class="vw">
-            <thead class="head-fixed">
+            <thead class="head-fixed text-center">
               <tr class="flex">
-                <th><%= @organization %></th>
-                <th>Offers</th>
-                <th>Candidates</th>
-                <th>Contacted</th>
-                <th>Average fit</th>
+                <th class="column-1 text-center"><%= @organization %></th>
+                <th class="column-2 text-center">Offers</th>
+                <th class="column-3 text-center">Candidates</th>
+                <th class="column-4 text-center">Contacted</th>
+                <th class="column-5 text-center">Average fit</th>
               </tr>
             </thead>
             <tbody class="offers-body">
               <% @job_offers.each do |offer| %>
-                <tr>
-                  <td class="column-1"><%= offer.description %></td>
-                  <td class="column-1"><%= Date.today %></td>
-                  <td class="column-1"><%= offer.job_applications.count %></td>
-                  <td class="column-1">50</td>
-                  <td class="column-1">75%</td>
+                <tr class= "border">
+                  <td class="column-1"><%= offer.title %></td>
+                  <td class="column-2"><%= Date.today %></td>
+                  <td class="column-3"><%= offer.job_applications.count %></td>
+                  <td class="column-4">50</td>
+                  <td class="column-5">75%</td>
                   <%end%>
                 </tr>
             </tbody>
