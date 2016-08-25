@@ -30,7 +30,7 @@
       <ul>
         <% @candidate.job_applications.each do |job_application| %>
           <li>
-            <p><%= link_to job_application.job_offer.title, job_offer_job_application_path(job_offer_id: job_application.job_offer.id, id: job_application.id) %></p>
+            <button type="button" id="button-candidate" class="btn btn-warning" data-toggle="modal" data-target="#ShowInfoModal"><%= job_application.job_offer.title %></button>
           </li>
         <% end %>
       </ul>
@@ -55,6 +55,25 @@
             <%= form.input :phone_number %>
             <%= form.button :submit %>
           <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Show info of application -->
+
+<div class="modal fade" id="ShowInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <% @candidate.job_applications.each do |job_application| %>
+        <h4 class="modal-title text-center" id="myModalLabel"><%= job_application.job_offer.title %></h4>
+      </div>
+      <div class="modal-body">
+
+            <%= job_application.job_offer.description %>
+        <% end %>
       </div>
     </div>
   </div>
