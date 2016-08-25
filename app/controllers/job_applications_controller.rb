@@ -44,7 +44,7 @@ class JobApplicationsController < ApplicationController
 
     if @job_application.update(job_application_params)
       # TODO: make 'view as employer clickable'
-      redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
+      redirect_to edit_job_offer_job_application_path(@job_offer, @job_application, tab: "cover-letter")
     else
       render :edit
     end
