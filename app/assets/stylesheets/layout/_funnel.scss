@@ -1,13 +1,23 @@
 .gray-background {
   background-color: $gray-lighter;
-  min-height: 100vh;
-  padding-bottom: 10vh;
+  min-height: 110vh;
+}
+
+.black-background {
+  background-color: $black;
+  min-height: 110vh;
 }
 
 .cv-wrapper {
   background: white;                          /* White background */
+  min-height: 110vh;
   padding: 30px;                              /* Internal space */
-  border-radius: 4px;                         /* Small radius */
+  margin-bottom: 10vh;
+  border-radius: 1px;                         /* Small radius */
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#motivation_letter_field {
+  height: 30vh;
 }

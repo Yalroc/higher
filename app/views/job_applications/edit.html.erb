@@ -1,5 +1,5 @@
 <!-- JOB OFFER -->
-<div class="gray-background tab-content" id="job-offer">
+<div class="black-background tab-content" id="job-offer">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -100,7 +100,7 @@
               <% end %>
             </div>
           <% end %>
-          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button> <!-- button de modal: Add XP -->
+          <button type="button" id="booking-button" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button> <!-- button de modal: Add XP -->
           <div class="modal fade" id="AddExperienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  <!-- modal Add Experience -->
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -164,7 +164,7 @@
               <% end %>
             </div>
           <% end %>
-          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddEducationModal">Add Education</button> <!-- button de modal: Add Education -->
+          <button type="button" id="booking-button" data-toggle="modal" data-target="#AddEducationModal">Add Education</button> <!-- button de modal: Add Education -->
           <div class="modal fade" id="AddEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Add Education-->
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -220,7 +220,7 @@
               </ul>
             </div>
           <% end %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button> <!-- button de modal: Add Language -->
+          <button type="button" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button> <!-- button de modal: Add Language -->
           <div class="modal fade" id="AddLanguageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Add Language -->
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -253,7 +253,10 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="cv-wrapper"> <!-- div englobbante -->
-
+          <%= simple_form_for([@job_offer, @job_application]) do |field| %>
+            <%= field.input :motivation_letter, input_html: { id: 'motivation_letter_field' } %>
+            <%= field.button :submit %>
+          <% end %>
         </div> <!-- fin div englobbante  -->
       </div>
     </div>
