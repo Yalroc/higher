@@ -24,16 +24,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4">
+    <div class="text-center">
+      <div class="col-xs-4 col-xs-offset-4">
 
-    <h3>You candidate for</h3>
-      <ul>
-        <% @candidate.job_applications.each do |job_application| %>
-          <li>
-            <button type="button" id="button-candidate" class="btn btn-warning" data-toggle="modal" data-target="#ShowInfoModal"><%= job_application.job_offer.title %></button>
-          </li>
-        <% end %>
-      </ul>
+      <h3>You candidate for</h3>
+          <% @candidate.job_applications.each do |job_application| %>
+
+              <button type="button" id="button-candidate" class="btn" data-toggle="modal" data-target="#ShowInfoModal"><%= job_application.job_offer.title %></button>
+
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
