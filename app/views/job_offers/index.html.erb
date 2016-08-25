@@ -17,12 +17,14 @@
             <tbody class="offers-body">
               <% @job_offers.each do |offer| %>
                 <tr class= "border">
-                  <td class="column-1"><%= image_tag "noun_job.png", :width => '25' %> <span class="noun_job"><%= offer.title %></span></td>
+                <%= link_to job_offer_job_applications_path(offer) do %>
+                    <td class="column-1"><%= image_tag "noun_job.png", :width => '25' %> <span class="noun_job"><%= offer.title %></span></td>
+                <% end %>
                   <td class="column-2"><%= Date.today %></td>
                   <td class="column-3"><%= offer.job_applications.count %></td>
                   <td class="column-4">50</td>
                   <td class="column-5">75%</td>
-                  <%end%>
+              <%end%>
                 </tr>
             </tbody>
           </table>
