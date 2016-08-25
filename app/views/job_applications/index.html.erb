@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 
 <!-- Second navbar -->
 <div class="second-navbar-job-applications">
@@ -37,47 +39,52 @@
 <div class="wrapper-table-job-offer text-center">
   <div>
     <div class="table-applications-wrapper">
-      <div class="table-applications-header">
-        <div id="table-columns-1" class="text-center"></div>
-        <div id="table-columns-2" class="text-center">Candidate</div>
-        <div id="table-columns-3" class="text-center">Fit</div>
-        <div id="table-columns-4" class="text-center">XP</div>
-        <div id="table-columns-5" class="text-center">Companies</div>
-        <div id="table-columns-6" class="text-center">Education</div>
-        <div id="table-columns-7" class="text-center">Languages</div>
-        <div id="table-columns-8" class="text-center">Date</div>
-      </div>
-
-     <% @job_applications.each_with_index do |job_application, y| %>
-      <div class=table-applications>
-        <div id="table-columns-1" class="text-center"><%= y + 1 %></div>
-
-        <div id="table-columns-2" class="text-center"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></div>
-
-        <div id="table-columns-3" class="text-center">82.1%</div>
-
-        <div id="table-columns-4" class="text-center">5 years</div>
-
-        <div id="table-columns-5" class="text-center"><% job_application.experiences.each do |experience| %>
-            <%= experience.organization %>
-            <% end %>
-        </div>
-
-        <div id="table-columns-6" class="text-center"><%= job_application.educations.first.organization %></div>
-
-        <div id="table-columns-7" class="text-center"><% job_application.languages.each do |language| %>
-            <%= language.name %>
-            <% end %>
-        </div>
-
-        <div id="table-columns-8" class="text-center"><%= job_application.created_at.strftime("%A") %></div>
-      </div>
-      <% end %>
+      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="mdl-data-table__cell--non-numeric">Candidate</th>
+            <th>Fit</th>
+            <th>XP</th>
+            <th>Companies</th>
+            <th>Education</th>
+            <th>Languages</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @job_applications.each_with_index do |job_application, y| %>
+            <tr>
+              <td><%= y + 1 %></td>
+              <td class="mdl-data-table__cell--non-numeric"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></td>
+              <td class="mdl-data-table__cell--non-numeric">86.7%</td>
+              <td>5y +</td>
+              <td><% job_application.experiences.each do |experience| %>
+                  <%= experience.organization %>
+                  <% end %>
+              </td>
+              <td><%= job_application.educations.first.organization %></td>
+              <td><% job_application.languages.each do |language| %>
+                  <%= language.name %>
+                  <% end %>
+              </td>
+              <td><%= job_application.created_at.strftime("%A") %></td>
+            </tr>
+           <% end %>
+        </tbody>
+      </table>
     </div>
    </div>
+</div>
+
+<!-- Modal to show the profil -->
+<div class="modal">
 
 </div>
 
+
+
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 
 
 
