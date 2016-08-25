@@ -1,9 +1,11 @@
+
 $(document).ready(function() {
+  // switch tabs #job, #resume, & #cover-letter
   var params = getJsonFromUrl();
 
   $('.tab-content').hide();
 
-  tab = params["tab"] || "resume";
+  tab = ( params["tab"] || "resume" );
   $('#' + tab).show();
 
   $('.tabs').on('click', function() {
@@ -11,6 +13,8 @@ $(document).ready(function() {
     $('.tab-content').hide();
     $(id).show();
   })
+
+
 })
 
 function getJsonFromUrl() {
