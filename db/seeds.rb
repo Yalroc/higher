@@ -78,8 +78,6 @@ ed_qsdqjd_1 = Education.create!({
   degree_field: "Grande Ecole",
   end_date: "1-6-1995",
   description: "I graduated from this business school which belongs to the top 10 in Europe.",
-  degree_type: "Master",
-  degree_field: "Business Administration",
   })
 
 ####################################################
@@ -135,8 +133,6 @@ ed_jsd_1 = Education.create!({
   degree_field: "in Finance",
   end_date: "1-6-2001",
   description: "I have a specialization in IT services.",
-  degree_type: "Master",
-  degree_field: "Trade",
   })
 
 #######
@@ -183,8 +179,6 @@ ed_jsd_1 = Education.create!({
   organization: "HEC Paris",
   job_application: JobApplication.third,
   start_date: "1-6-2005",
-  degree_type: "Master",
-  degree_field: "Grande Ecole",
   end_date: "1-6-2009",
   description: "I did a specialization in Consumer Goods Marketing",
   degree_type: "Master",
@@ -243,8 +237,6 @@ ed_jsd_1 = Education.create!({
   organization: "Trinity College",
   job_application: JobApplication.fourth,
   start_date: "1-6-1996",
-  degree_type: "Master",
-  degree_field: "in Management"
   end_date: "1-6-2001",
   description: "My specialization is about finance.",
   degree_type: "Master",
@@ -300,8 +292,6 @@ ed_jsd_1 = Education.create!({
   organization: "TELECOM Paris Tech",
   job_application: JobApplication.fifth,
   start_date: "1-6-1996",
-  degree_type: "Master",
-  degree_field: "in Engineering"
   end_date: "1-6-2001",
   description: "My specialization is about computer science.",
   degree_type: "Master",
