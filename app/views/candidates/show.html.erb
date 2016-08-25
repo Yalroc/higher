@@ -11,6 +11,34 @@
   </div>
 </div>
 
+<% if @candidate.job_applications.any? %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="line">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+
+    <h3>You candidate for</h3>
+      <ul>
+        <% @candidate.job_applications.each do |job_application| %>
+          <li>
+            <p><%= link_to job_application.job_offer.title, job_offer_job_application_path(job_offer_id: job_application.job_offer.id, id: job_application.id) %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
+
 <!-- modal Edit info user -->
 
 <div class="modal fade" id="EditInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

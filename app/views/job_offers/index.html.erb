@@ -1,61 +1,63 @@
-<div class="wrapper">
-  <div class="">
-    <div class="row">
-<!--       <div class="col-xs-4"> -->
-        <div class="tableau-offer">
-        <% if @job_offers.any? == true %>
-          <table class="vw">
-            <thead class="head-fixed text-center">
-              <tr class="flex">
-                <th class="column-1 text-center"><%= @organization %></th>
-                <th class="column-2 text-center">Offers</th>
-                <th class="column-3 text-center">Candidates</th>
-                <th class="column-4 text-center">Contacted</th>
-                <th class="column-5 text-center">Average fit</th>
-              </tr>
-            </thead>
-            <tbody class="offers-body">
-              <% @job_offers.each do |offer| %>
-                <tr class= "border">
-                  <td class="column-1"><%= image_tag "noun_job.png", :width => '25' %> <span class="noun_job"><%= offer.title %></span></td>
-                  <td class="column-2"><%= Date.today %></td>
-                  <td class="column-3"><%= offer.job_applications.count %></td>
-                  <td class="column-4">50</td>
-                  <td class="column-5">75%</td>
-                  <%end%>
-                </tr>
-            </tbody>
-          </table>
-          <% else %>
 
+  <div class="wrapper">
+    <div class="">
+      <div class="row">
+  <!--       <div class="col-xs-4"> -->
+          <div class="tableau-offer">
+          <% if @job_offers.any? == true %>
+            <table class="vw">
+              <thead class="head-fixed text-center">
+                <tr class="flex">
+                  <th class="column-1 text-center"><%= @organization %></th>
+                  <th class="column-2 text-center">Offers</th>
+                  <th class="column-3 text-center">Candidates</th>
+                  <th class="column-4 text-center">Contacted</th>
+                  <th class="column-5 text-center">Average fit</th>
+                </tr>
+              </thead>
+              <tbody class="offers-body">
+                <% @job_offers.each do |offer| %>
+                  <tr class= "border">
+                    <td class="column-1"><%= image_tag "noun_job.png", :width => '25' %> <span class="noun_job"><%= offer.title %></span></td>
+                    <td class="column-2"><%= Date.today %></td>
+                    <td class="column-3"><%= offer.job_applications.count %></td>
+                    <td class="column-4">50</td>
+                    <td class="column-5">75%</td>
+                    <%end%>
+                  </tr>
+              </tbody>
+            </table>
+            <% else %>
+
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TableModal">
+    create an offer
+  </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="TableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Créez votre offre</h4>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(@job_offer) do |form| %>
+            <%= form.input :title %>
+            <%= form.input :description %>
+            <%= form.button :submit %>
           <% end %>
         </div>
+      </div>
     </div>
   </div>
-  <br>
-  <br>
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TableModal">
-  create an offer
-</button>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="TableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Créez votre offre</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for([ @job_offer ]) do |form| %>
-          <%= form.input :title %>
-          <%= form.input :description %>
-          <%= form.button :submit %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
