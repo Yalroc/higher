@@ -51,13 +51,12 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for([ @job_offer ]) do |form| %>
+          <%#= form.input :title %>
+          <%#= form.input :location %>
+          <%#= form.input :contract, collection: [ "CDI", "CDD", "Intérim", "stage" ] %>
           <%= form.input :description %>
           <%= form.button :submit %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
