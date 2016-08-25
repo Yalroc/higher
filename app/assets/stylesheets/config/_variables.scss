@@ -1,10 +1,23 @@
-/* -------------------------------------
+  /* -------------------------------------
  * Fonts
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+$base-font_: "Open Sans", "Helvetica", "sans-serif";
+$header-font_: "Raleway", "Helvetica", "sans-serif";
+
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,400i');
+$base-font: 'Muli', "Helvetica", "sans-serif";
+
+@import url('https://fonts.googleapis.com/css?family=Hind:400,500,600');
+$header-font: 'Hind', "Helvetica", "sans-serif";
+
+// @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700');
+// $_base-font: 'Titillium Web', sans-serif;
+
+// @import url('https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,600');
+// $header-font: 'Expletus Sans', cursive;
+
 
 // Local fonts (uncomment following lines)
 // @font-face {
