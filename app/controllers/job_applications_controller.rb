@@ -34,6 +34,9 @@ class JobApplicationsController < ApplicationController
     @experience = Experience.new
     @education = Education.new
     @language = Language.new
+
+    # Data for motivation_letter form
+    # @job_application => already in the controller
   end
 
   def update
@@ -41,7 +44,7 @@ class JobApplicationsController < ApplicationController
 
     if @job_application.update(job_application_params)
       # TODO: make 'view as employer clickable'
-      redirect_to edit_job_offer_job_application(@job_offer, @job_application)
+      redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
     else
       render :edit
     end
