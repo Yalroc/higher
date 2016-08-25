@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :educations, only: [:new, :create, :edit, :update, :destroy]
 
   # LANGUAGES ROUTES
-  resources :languages, only: [:new, :create]
+  resources :languages, only: [:new, :create, :edit, :update, :destroy]
 
 
   # CANDIDATES ROUTES

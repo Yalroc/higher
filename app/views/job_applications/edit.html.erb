@@ -24,7 +24,7 @@
                 <div class="">
                   <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
                   <!-- button de modal: Add XP -->
-                  <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#EditExperienceModal">Edit /</button>
+                  <button type="button" data-toggle="modal" data-target="#EditExperienceModal">Edit /</button>
 
                               <!-- modal Edit Experience -->
                               <div class="modal fade" id="EditExperienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -65,8 +65,8 @@
               <% end %>
             </div>
           <% end %>
-            <!-- button de modal: Add XP -->
-            <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button>
+          <!-- button de modal: Add XP -->
+          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button>
 
           <!-- EDUCATIONS -->
           <% if @educations_sorted.empty? %>
@@ -76,10 +76,10 @@
               <% @educations_sorted.each do |education| %>
                 <div class="">
                   <h4 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h4>
-                  <!-- button de modal: Add XP -->
-                  <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#EditEducationModal">Edit /</button>
+                  <!-- button de modal: Edit Education -->
+                  <button type="button" data-toggle="modal" data-target="#EditEducationModal">Edit /</button>
 
-                              <!-- modal Edit Experience -->
+                              <!-- modal Edit Education -->
                               <div class="modal fade" id="EditEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
@@ -110,8 +110,8 @@
               <% end %>
             </div>
           <% end %>
-            <!-- button de modal: Add Education -->
-            <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddEducationModal">Add Education</button>
+          <!-- button de modal: Add Education -->
+          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddEducationModal">Add Education</button>
 
           <!-- EDUCATIONS -->
           <% if @languages.empty? %>
@@ -120,15 +120,38 @@
               <h3><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h3>
               <ul><% @languages.each do |language| %>
                   <li><%= language.name + ' >> ' + language.proficiency %>
-                      <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
-                      <%= link_to "Delete", root_path, method: :delete %>
+                  <!-- button de modal: Edit Education -->
+                  <button type="button" data-toggle="modal" data-target="#EditLanguageModal">Edit /</button>
+
+                              <!-- modal Edit Education -->
+                              <div class="modal fade" id="EditLanguageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <h4 class="modal-title" id="myModalLabel">Edit Language</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <%= simple_form_for(language) do |field| %>
+                                        <%= field.input :name %>
+                                        <%= field.input :proficiency %>
+                                        <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+                                        <%= field.button :submit %>
+                                      <% end %>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                      <%= link_to "Delete", language_path(language), method: :delete %>
                   </li>
               <% end %>
               </ul>
             </div>
           <% end %>
-            <!-- button de modal: Add Language -->
-            <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button>
+          <!-- button de modal: Add Language -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button>
+
         </div> <!-- div englobbante du cv  -->
 
       </div> <!-- col de bootstrap -->
