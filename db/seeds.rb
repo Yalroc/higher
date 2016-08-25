@@ -37,6 +37,7 @@ re_jd = Recruiter.create!({
 
 jo_jd = JobOffer.create!({
   recruiter: Recruiter.first,
+  title: "Account Manager - IT Services - EMEA",
   description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions."
   })
 
