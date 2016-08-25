@@ -23,9 +23,9 @@
               <% @experiences_sorted.each do |experience| %>
                 <div class="">
                   <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
-                  <% if @candidate == current_candidate %>
+                  <% if @job_application.candidate == current_candidate %>
                     <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
-                    <%= link_to "Delete", root_path, method: :delete %>
+                    <%= link_to "Delete", experience_path(experience), method: :delete %>
                   <% end %>
                   <p class="display-inline"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s + " >> " %>
                   <% if (((experience.end_date - experience.start_date)/30.5).to_i/12) != 0 %>

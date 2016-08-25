@@ -12,4 +12,8 @@ class ExperiencePolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def destroy?
+    record.job_application.candidate == user
+  end
 end

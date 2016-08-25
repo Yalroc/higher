@@ -10,6 +10,8 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     authorize @experience
     @experience.save
+
+    # redirection to same page
     @job_application = JobApplication.find(params[:experience][:job_application_id])
     @job_offer = @job_application.job_offer
     redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
@@ -29,8 +31,14 @@ class ExperiencesController < ApplicationController
 
   def destroy
     @experience = Experience.find(params[:id])
+    @job_application = @experience.job_application # need job_application for redirection belowd
+    authorize @experience
     @experience.destroy
-    redirect_to user_path(current_user)
+
+    # redirection to same page
+    # @job_application => found above through @experience, before we destroy it
+    @job_offer = @job_application.job_offer
+    redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
   end
 
   private
