@@ -71,8 +71,9 @@
         <h4 class="modal-title text-center" id="myModalLabel"><%= job_application.job_offer.title %></h4>
       </div>
       <div class="modal-body">
-
             <%= job_application.job_offer.description %>
+            <p> <%= " " %> </p>
+            <p>You candidate the : <%= job_application.created_at.strftime("%b %d, %Y") %></p>
         <% end %>
       </div>
     </div>
