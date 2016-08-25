@@ -25,6 +25,16 @@ Rails.application.routes.draw do
 
   end
 
+  # EXPERIENCES ROUTES
+  resources :experiences, only: [:new, :create]
+
+  # EDUCATIONS ROUTES
+  resources :educations, only: [:new, :create]
+
+  # LANGUAGES ROUTES
+  resources :languages, only: [:new, :create]
+
+
   # CANDIDATES ROUTES
   # :show, :edit, & :update => "As a candidate, I can edit my basic information (name, phone_number,..)""
   resources :candidates, only: [:show, :edit, :update]

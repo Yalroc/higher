@@ -16,10 +16,10 @@
           <% end %>
 
           <!-- les expériences pro -->
+          <h3><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h3>
           <% if @experiences_sorted.empty? %>
           <% else %>
             <div class="">
-              <h3><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h3>
               <% @experiences_sorted.each do |experience| %>
                 <div class="">
                   <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
@@ -39,12 +39,14 @@
               <% end %>
             </div>
           <% end %>
+          <!-- button de modal: Add XP -->
+          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button>
 
           <!-- les formations -->
+          <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
           <% if @educations_sorted.empty? %>
           <% else %>
             <div class="">
-              <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
               <% @educations_sorted.each do |education| %>
                 <div class="">
                   <h4 class="display-inline"><%= education.title + ' @ ' + education.organization %></h4>
@@ -58,8 +60,10 @@
               <% end %>
             </div>
           <% end %>
+          <!-- button de modal: Add Education -->
+          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddEducationModal">Add Education</button>
 
-          <!-- les languages -->
+          <!-- les langues -->
           <% if @languages.empty? %>
           <% else %>
             <div class="">
@@ -75,6 +79,8 @@
               </ul>
             </div>
           <% end %>
+          <!-- button de modal: Add Language -->
+          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button>
         </div> <!-- div englobbante du cv  -->
 
       </div> <!-- col de bootstrap -->
@@ -86,24 +92,72 @@
 <!-- SCRIPTS -->
 
 
-<!-- button de modal: Add XP -->
- <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Edit plume</button>
-<!-- modal Edit plume writer-->
-
+<!-- modal Add Experience -->
 <div class="modal fade" id="AddExperienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Experience</h4>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(current_candidate) do |form| %>
-            <%= form.input :first_name %>
-            <%= form.button :submit %>
+        <%= simple_form_for(@experience) do |field| %>
+            <%= field.input :title %>
+            <%= field.input :organization %>
+            <%= field.input :start_date, discard_day: true, order: [:month, :year] %>
+            <%= field.input :end_date, discard_day: true, order: [:month, :year] %>
+            <%= field.input :present %>
+            <%= field.input :description %>
+            <%= field.input :company_size %>
+            <%= field.input :industry %>
+            <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+            <%= field.button :submit %>
           <% end %>
       </div>
     </div>
   </div>
 </div>
 
+<!-- modal Add Education-->
+<div class="modal fade" id="AddEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Education</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@education) do |field| %>
+            <%= field.input :degree_type %>
+            <%= field.input :degree_field %>
+            <%= field.input :organization %>
+            <%= field.input :start_date, discard_day: true, discard_month: true %>
+            <%= field.input :end_date, discard_day: true, discard_month: true %>
+            <%= field.input :description %>
+            <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+            <%= field.button :submit %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal Add Language -->
+<div class="modal fade" id="AddLanguageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Language</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@language) do |field| %>
+            <%= field.input :name %>
+            <%= field.input :proficiency %>
+            <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+            <%= field.button :submit %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

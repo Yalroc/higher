@@ -1,4 +1,4 @@
-class JobOffersController < ApplicationController
+  class JobOffersController < ApplicationController
   before_action :set_job_offers, only: [:show, :edit, :update]
   skip_before_action :authenticate_candidate!
 

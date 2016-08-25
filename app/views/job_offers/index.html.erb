@@ -17,7 +17,7 @@
             <tbody class="offers-body">
               <% @job_offers.each do |offer| %>
                 <tr>
-                  <td class="column-1"><%= offer.description %></td>
+                  <td class="column-1"><%= offer.title %></td>
                   <td><%= Date.today %></td>
                   <td><%= offer.job_applications.count %></td>
                   <td>50</td>

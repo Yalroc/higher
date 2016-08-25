@@ -6,8 +6,8 @@ class JobApplicationsController < ApplicationController
   skip_before_action :authenticate_candidate!, only: [:index]
 
   def index
-    @job_applications = set_job_offer.job_applications
     @job_applications = policy_scope(JobApplication)
+    @job_applications = set_job_offer.job_applications
   end
 
   def edit
@@ -26,10 +26,14 @@ class JobApplicationsController < ApplicationController
     end
 
     authorize(@job_application) # we tell Pundit to look for the authorization policies of JobApplication#edit record (once it is created)
-
     @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
     @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
     @languages = @job_application.languages
+
+    # Data for modals
+    @experience = Experience.new
+    @education = Education.new
+    @language = Language.new
   end
 
   def update
