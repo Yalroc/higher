@@ -33,10 +33,15 @@
     </div>
   </div>
 </div>
-<div class="text-center">
-  <%=  link_to "Apply Now", new_candidate_session_path, class: "btn btn-custom" %>
-</div>
-
+  <% if current_candidate.sign_in_count == 1 %>
+    <div class="text-center">
+      <%=  link_to "Apply Now", new_candidate_session_path, class: "btn btn-custom" %>
+    </div>
+  <% else %>
+    <div class="text-center">
+      <%=  link_to "Apply Now", new_candidate_session_path, class: "btn btn-custom" %>
+    </div>
+  <% end %>
 <br>
 <br>
 <br>
