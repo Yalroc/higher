@@ -18,10 +18,10 @@
               <% @job_offers.each do |offer| %>
                 <tr>
                   <td class="column-1"><%= offer.description %></td>
-                  <td><%= Date.today %></td>
-                  <td><%= offer.job_applications.count %></td>
-                  <td>50</td>
-                  <td>75%</td>
+                  <td class="column-1"><%= Date.today %></td>
+                  <td class="column-1"><%= offer.job_applications.count %></td>
+                  <td class="column-1">50</td>
+                  <td class="column-1">75%</td>
                   <%end%>
                 </tr>
             </tbody>
@@ -51,9 +51,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for([ @job_offer ]) do |form| %>
-          <%#= form.input :title %>
-          <%#= form.input :location %>
-          <%#= form.input :contract, collection: [ "CDI", "CDD", "Intérim", "stage" ] %>
+          <%= form.input :title %>
           <%= form.input :description %>
           <%= form.button :submit %>
         <% end %>
