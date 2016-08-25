@@ -15,18 +15,44 @@
             <% end %>
           <% end %>
 
-          <!-- les expériences pro -->
-          <h3><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h3>
+          <!-- EXPERIENCES   -->
           <% if @experiences_sorted.empty? %>
           <% else %>
             <div class="">
+              <h3><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h3>
               <% @experiences_sorted.each do |experience| %>
                 <div class="">
                   <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
-                  <% if @job_application.candidate == current_candidate %>
-                    <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
+                  <!-- button de modal: Add XP -->
+                  <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#EditExperienceModal">Edit /</button>
+
+                              <!-- modal Edit Experience -->
+                              <div class="modal fade" id="EditExperienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <h4 class="modal-title" id="myModalLabel">Edit Experience</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <%= simple_form_for(experience) do |field| %>
+                                          <%= field.input :title %>
+                                          <%= field.input :organization %>
+                                          <%= field.input :start_date, discard_day: true, order: [:month, :year] %>
+                                          <%= field.input :end_date, discard_day: true, order: [:month, :year] %>
+                                          <%= field.input :present %>
+                                          <%= field.input :description %>
+                                          <%= field.input :company_size %>
+                                          <%= field.input :industry %>
+                                          <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+                                          <%= field.button :submit %>
+                                        <% end %>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                     <%= link_to "Delete", experience_path(experience), method: :delete %>
-                  <% end %>
                   <p class="display-inline"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s + " >> " %>
                   <% if (((experience.end_date - experience.start_date)/30.5).to_i/12) != 0 %>
                     <%=  (((experience.end_date - experience.start_date)/30.5).to_i/12).to_s + " year(s) " %>
@@ -39,48 +65,70 @@
               <% end %>
             </div>
           <% end %>
-          <!-- button de modal: Add XP -->
-          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button>
+            <!-- button de modal: Add XP -->
+            <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button>
 
-          <!-- les formations -->
-          <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
+          <!-- EDUCATIONS -->
           <% if @educations_sorted.empty? %>
           <% else %>
             <div class="">
+              <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
               <% @educations_sorted.each do |education| %>
                 <div class="">
-                  <h4 class="display-inline"><%= education.title + ' @ ' + education.organization %></h4>
-                    <% if @candidate == current_candidate %>
-                      <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
-                      <%= link_to "Delete", root_path, method: :delete %>
-                    <% end %>
+                  <h4 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h4>
+                  <!-- button de modal: Add XP -->
+                  <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#EditEducationModal">Edit /</button>
+
+                              <!-- modal Edit Experience -->
+                              <div class="modal fade" id="EditEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <h4 class="modal-title" id="myModalLabel">Edit Experience</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <%= simple_form_for(education) do |field| %>
+                                        <%= field.input :degree_type %>
+                                        <%= field.input :degree_field %>
+                                        <%= field.input :organization %>
+                                        <%= field.input :start_date, discard_day: true, discard_month: true %>
+                                        <%= field.input :end_date, discard_day: true, discard_month: true %>
+                                        <%= field.input :description %>
+                                        <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+                                        <%= field.button :submit %>
+                                      <% end %>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                      <%= link_to "Delete", education_path(education), method: :delete %>
                   <p><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
                   <p><%= education.description %></p>
                 </div>
               <% end %>
             </div>
           <% end %>
-          <!-- button de modal: Add Education -->
-          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddEducationModal">Add Education</button>
+            <!-- button de modal: Add Education -->
+            <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddEducationModal">Add Education</button>
 
-          <!-- les langues -->
+          <!-- EDUCATIONS -->
           <% if @languages.empty? %>
           <% else %>
             <div class="">
               <h3><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h3>
               <ul><% @languages.each do |language| %>
                   <li><%= language.name + ' >> ' + language.proficiency %>
-                    <% if @candidate == current_candidate %>
                       <%= link_to "Edit /", root_path, class: "padded-left-5px" %>
                       <%= link_to "Delete", root_path, method: :delete %>
-                    <% end %>
                   </li>
               <% end %>
               </ul>
             </div>
           <% end %>
-          <!-- button de modal: Add Language -->
-          <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button>
+            <!-- button de modal: Add Language -->
+            <button type="button" id="booking-button" class="btn btn-primary" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button>
         </div> <!-- div englobbante du cv  -->
 
       </div> <!-- col de bootstrap -->

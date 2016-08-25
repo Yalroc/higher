@@ -18,15 +18,19 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
-    @job = current_user
     @experience = Experience.find(params[:id])
+    authorize @experience
   end
 
   def update
-    @user = current_user
     @experience = Experience.find(params[:id])
+    authorize @experience
     @experience.update(experience_params)
-    redirect_to candidate_path(current_user)
+
+    # redirection to same page
+    @job_application = @experience.job_application
+    @job_offer = @job_application.job_offer
+    redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
   end
 
   def destroy

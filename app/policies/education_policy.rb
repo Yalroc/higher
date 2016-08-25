@@ -1,4 +1,4 @@
-class ExperiencePolicy < ApplicationPolicy
+class EducationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope

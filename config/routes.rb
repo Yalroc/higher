@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   end
 
   # EXPERIENCES ROUTES
-  resources :experiences, only: [:new, :create, :destroy]
+  resources :experiences, only: [:new, :create, :edit, :update, :destroy]
 
   # EDUCATIONS ROUTES
-  resources :educations, only: [:new, :create]
+  resources :educations, only: [:new, :create, :edit, :update, :destroy]
 
   # LANGUAGES ROUTES
   resources :languages, only: [:new, :create]
