@@ -62,7 +62,7 @@
               <% @experiences_sorted.each do |experience| %>
                 <div class="">
                   <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
-                  <button type="button" data-toggle="modal" data-target="#EditExperienceModal">Edit /</button>  <!-- button de modal: Add XP -->
+                  <a href="" data-toggle="modal" data-target="#EditExperienceModal">Edit /</a>  <!-- button de modal: Add XP -->
                   <div class="modal fade" id="EditExperienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">  <!-- modal Edit Experience -->
                       <div class="modal-content">
@@ -100,7 +100,7 @@
               <% end %>
             </div>
           <% end %>
-          <button type="button" id="booking-button" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</button> <!-- button de modal: Add XP -->
+          <a href="" data-toggle="modal" data-target="#AddExperienceModal">Add Experience</a> <!-- button de modal: Add XP -->
           <div class="modal fade" id="AddExperienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  <!-- modal Add Experience -->
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -134,7 +134,7 @@
               <% @educations_sorted.each do |education| %>
                 <div class="">
                   <h4 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h4>
-                  <button type="button" data-toggle="modal" data-target="#EditEducationModal">Edit /</button>   <!-- button de modal: Edit Education -->
+                  <a href="" data-toggle="modal" data-target="#EditEducationModal">Edit /</a>   <!-- button de modal: Edit Education -->
                   <div class="modal fade" id="EditEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Edit Education -->
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -164,7 +164,7 @@
               <% end %>
             </div>
           <% end %>
-          <button type="button" id="booking-button" data-toggle="modal" data-target="#AddEducationModal">Add Education</button> <!-- button de modal: Add Education -->
+          <a href="" data-toggle="modal" data-target="#AddEducationModal">Add Education</a> <!-- button de modal: Add Education -->
           <div class="modal fade" id="AddEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Add Education-->
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -195,7 +195,7 @@
               <h3><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h3>
               <ul><% @languages.each do |language| %>
                   <li><%= language.name + ' >> ' + language.proficiency %>
-                  <button type="button" data-toggle="modal" data-target="#EditLanguageModal">Edit /</button> <!-- button de modal: Edit Education -->
+                  <a href="" data-toggle="modal" data-target="#EditLanguageModal">Edit /</a> <!-- button de modal: Edit Education -->
                   <div class="modal fade" id="EditLanguageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Edit Education -->
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -220,7 +220,7 @@
               </ul>
             </div>
           <% end %>
-          <button type="button" data-toggle="modal" data-target="#AddLanguageModal">Add Language</button> <!-- button de modal: Add Language -->
+          <a href="" data-toggle="modal" data-target="#AddLanguageModal">Add Language</a> <!-- button de modal: Add Language -->
           <div class="modal fade" id="AddLanguageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Add Language -->
             <div class="modal-dialog" role="document">
               <div class="modal-content">
