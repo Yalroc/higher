@@ -1,7 +1,7 @@
 class JobApplication < ApplicationRecord
-  has_many :languages
-  has_many :experiences
-  has_many :educations
+  has_many :languages, dependent: :destroy
+  has_many :experiences, dependent: :destroy
+  has_many :educations, dependent: :destroy
 
   belongs_to :candidate
   belongs_to :job_offer
