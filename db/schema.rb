@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(version: 20160825102215) do
   create_table "job_applications", force: :cascade do |t|
     t.integer  "candidate_id"
     t.integer  "job_offer_id"
-    t.text     "cover_letter"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.text     "motivation_letter"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["candidate_id"], name: "index_job_applications_on_candidate_id", using: :btree
     t.index ["job_offer_id"], name: "index_job_applications_on_job_offer_id", using: :btree
   end
