@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # JOB OFFERS ROUTES
+  get '/search', to: 'pages#search', as: 'search' # search for job offers
   # :index => "as a recruiter, I can see all job offers made by my company"
   # :new & :create => "As a recruiter I can CREATE an offer"
   # :show => "As a candidate, I can view the offer while I am applying to it"
   resources :job_offers, only: [:index, :new, :create, :show] do
-    get 'search', on: :member
+
 
     # JOB APPLICATIONS ROUTES
     # job_applications routes must be nested in job_offers => it's the only way we can display all job_applications associated to an offer

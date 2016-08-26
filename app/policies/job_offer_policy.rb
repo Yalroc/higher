@@ -25,8 +25,4 @@ class JobOfferPolicy < ApplicationPolicy
     edit?
   end
 
-  def search?
-    true
-  end
-
 end
