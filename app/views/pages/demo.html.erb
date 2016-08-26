@@ -33,7 +33,7 @@
     </div>
   </div>
 </div>
-  <% if current_candidate.sign_in_count == 1 %>
+  <% if current_candidate && current_candidate.sign_in_count == 1 %>
     <div class="text-center">
       <%=  link_to "Apply Now", new_candidate_session_path, class: "btn btn-custom" %>
     </div>
