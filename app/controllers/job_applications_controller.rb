@@ -23,9 +23,6 @@ class JobApplicationsController < ApplicationController
     redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
   end
 
-
-
-
   def edit
     authorize(@job_application) # we tell Pundit to look for the authorization policies of JobApplication#edit record (once it is created)
     @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
