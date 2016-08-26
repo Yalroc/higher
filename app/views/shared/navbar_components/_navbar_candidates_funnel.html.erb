@@ -3,14 +3,14 @@
 <div class="navbar-higher-funnel navbar-higher-fixed">
 
   <!-- Logo Recruiter / relative<=>absolute to navbar-higher-funnel -->
-  <%= link_to 'job_offers#index', class: "navbar-higher-brand-recruiter" do %>
+  <div class="navbar-higher-brand-recruiter">
     <%= image_tag "LOreal_white_vector.png" %>
-  <%end %>
+  </div>
 
   <!-- Logo Higher / relative<=>absolute to navbar-higher-funnel -->
-  <%= link_to 'job_offers#index', class: "navbar-higher-brand-funnel" do %>
+  <div class="navbar-higher-brand-funnel">
     <%= image_tag "name-logo-small.png" %>
-  <%end %>
+  </div>
 
   <!-- dropdown / relative<=>absolute to navbar-higher-funnel -->
     <div class="dropdown" id="funnel-logout-triangle">
