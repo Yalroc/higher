@@ -9,9 +9,8 @@
 
   <!-- navigation links -->
   <div class="navbar-higher-links text-center">
+    <%= link_to "applications", root_path, class: "navbar-higher-link" %>
     <%= link_to "jobs", root_path, class: "navbar-higher-link" %>
-    <%= link_to "candidates", root_path, class: "navbar-higher-link" %>
-    <%= link_to "stats", root_path, class: "navbar-higher-link" %>
   </div>
 
   <!-- notification icons -->
@@ -38,18 +37,18 @@
 
  <!-- dropdown / relative<=>absolute to navbar-higher-funnel -->
   <div class="dropdown" id="funnel-logout-triangle">
-     <p class="navbar-higher-link">
+     <p class="navbar-higher-link navbar-higher-menu" data-toggle="dropdown" aria-hidden="true">
       <% if current_candidate.first_name %>
         <%= current_candidate.first_name %>
       <% elsif current_candidate.email %>
         <%= current_candidate.email %>
       <% end %>
-      <i class="fa fa-caret-down navbar-higher-menu" data-toggle="dropdown" aria-hidden="true"></i>
+      <i class="fa fa-caret-down"></i>
     </p>
 
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <li>
-        <%= link_to "#" do %>
+        <%= link_to candidate_path(current_candidate) do %>
           <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
         <% end %>
       </li>
