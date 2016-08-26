@@ -15,4 +15,8 @@ class JobApplicationPolicy < ApplicationPolicy
     edit?
   end
 
+  def submit?
+    record.candidate == user
+  end
+
 end
