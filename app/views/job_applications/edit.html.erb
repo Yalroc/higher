@@ -1,4 +1,4 @@
-<!-- JOB OFFER -->
+<!-- 1. JOB OFFER -->
 <div class="black-background tab-content" id="job-offer">
   <div class="container">
     <div class="row">
@@ -37,7 +37,7 @@
   </div>
 </div>
 
-<!-- RESUME -->
+<!-- 2. RESUME -->
 <div class="gray-background tab-content" id="resume"> <!-- couleur de fond grise -->
   <div class="container">
     <div class="row">
@@ -45,16 +45,8 @@
 
 
         <div class="cv-wrapper"> <!-- div englobbante  -->
-          <% if @candidate == current_candidate %>
-            <% if @experiences.empty? == false %>
-              <p><%= link_to "Add an Experience", new_experience_path %></p>
-            <% else %>
-              <br>
-              <%= link_to "Build your CV", new_experience_path, class: "text-center btn btn-primary", id: "booking-button" %>
-            <% end %>
-          <% end %>
 
-          <!-- EXPERIENCES   -->
+          <!-- experiences  -->
           <% if @experiences_sorted.empty? %>
           <% else %>
             <div class="">
@@ -126,7 +118,7 @@
             </div>
           </div> <!-- fin de experiences -->
 
-          <!-- EDUCATIONS -->
+          <!-- educations -->
           <% if @educations_sorted.empty? %>
           <% else %>
             <div class="">
@@ -174,21 +166,21 @@
                 </div>
                 <div class="modal-body">
                   <%= simple_form_for(@education) do |field| %>
-                      <%= field.input :degree_type %>
-                      <%= field.input :degree_field %>
-                      <%= field.input :organization %>
-                      <%= field.input :start_date, discard_day: true, discard_month: true %>
-                      <%= field.input :end_date, discard_day: true, discard_month: true %>
-                      <%= field.input :description %>
-                      <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
-                      <%= field.button :submit %>
-                    <% end %>
+                    <%= field.input :degree_type %>
+                    <%= field.input :degree_field %>
+                    <%= field.input :organization %>
+                    <%= field.input :start_date, discard_day: true, discard_month: true %>
+                    <%= field.input :end_date, discard_day: true, discard_month: true %>
+                    <%= field.input :description %>
+                    <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+                    <%= field.button :submit %>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div> <!-- fin de educations -->
 
-          <!-- LANGUAGES -->
+          <!-- Languages -->
           <% if @languages.empty? %>
           <% else %>
             <div class="">
@@ -230,11 +222,11 @@
                 </div>
                 <div class="modal-body">
                   <%= simple_form_for(@language) do |field| %>
-                      <%= field.input :name %>
-                      <%= field.input :proficiency %>
-                      <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
-                      <%= field.button :submit %>
-                    <% end %>
+                    <%= field.input :name %>
+                    <%= field.input :proficiency %>
+                    <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
+                    <%= field.button :submit %>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -247,7 +239,7 @@
 </div> <!-- couleur de fond grise -->
 
 
-<!-- MOTIVATION LETTER -->
+<!-- 3. MOTIVATION LETTER -->
 <div class="gray-background tab-content" id="cover-letter">
   <div class="container">
     <div class="row">
@@ -255,7 +247,7 @@
         <div class="cv-wrapper"> <!-- div englobbante -->
           <%= simple_form_for([@job_offer, @job_application]) do |field| %>
             <%= field.input :motivation_letter, input_html: { id: 'motivation_letter_field' } %>
-            <%= field.button :submit %>
+            <%= field.button :submit, "Save", class: "btn btn-primary" %>
           <% end %>
         </div> <!-- fin div englobbante  -->
       </div>
@@ -264,72 +256,74 @@
 </div>
 
 
-<!-- VIEW AS EMPLOYER MODAL -->
+<!-- ++ VIEW AS EMPLOYER MODAL -->
 <div class="modal fade" id="ViewAsEmployerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
+      <button type="button" class="close top-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <div class="modal-body">
-          <% if @candidate == current_candidate %>
-            <% if @experiences.empty? == false %>
-              <p><%= link_to "Add an Experience", new_experience_path %></p>
-            <% else %>
-              <br>
-              <%= link_to "Build your CV", new_experience_path, class: "text-center btn btn-primary", id: "booking-button" %>
+
+        <!-- experience  -->
+        <% if @experiences_sorted.empty? %>
+        <% else %>
+          <div class="">
+            <h5><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h5>
+            <% @experiences_sorted.each do |experience| %>
+              <div class="">
+                <h6 class="display-inline"><%= experience.title + " @ " + experience.organization %></h6>
+                <p class="display-inline small-text"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s + " >> " %>
+                <% if (((experience.end_date - experience.start_date)/30.5).to_i/12) != 0 %>
+                  <%=  (((experience.end_date - experience.start_date)/30.5).to_i/12).to_s + " year(s) " %>
+                <% end %>
+                <% if (((experience.end_date - experience.start_date)/30.5).to_i%12) != 0 %>
+                  <%= (((experience.end_date - experience.start_date)/30.5).to_i%12).to_s + " month(s)" %><p>
+                <% end %>
+                <p class="small-text"><%= experience.description %></p>
+              </div>
             <% end %>
-          <% end %>
+          </div>
+        <% end %> <!-- fin de experiences -->
 
-          <!-- experience  -->
-          <% if @experiences_sorted.empty? %>
-          <% else %>
-            <div class="">
-              <h3><i class="fa fa-wpforms" aria-hidden="true"></i> EXPERIENCES</h3>
-              <% @experiences_sorted.each do |experience| %>
-                <div class="">
-                  <h4 class="display-inline"><%= experience.title + " @ " + experience.organization %></h4>
-                  <p class="display-inline"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s + " >> " %>
-                  <% if (((experience.end_date - experience.start_date)/30.5).to_i/12) != 0 %>
-                    <%=  (((experience.end_date - experience.start_date)/30.5).to_i/12).to_s + " year(s) " %>
-                  <% end %>
-                  <% if (((experience.end_date - experience.start_date)/30.5).to_i%12) != 0 %>
-                    <%= (((experience.end_date - experience.start_date)/30.5).to_i%12).to_s + " month(s)" %><p>
-                  <% end %>
-                  <p><%= experience.description %></p>
-                </div>
-              <% end %>
-            </div>
-          <% end %> <!-- fin de experiences -->
+        <!-- education -->
+        <% if @educations_sorted.empty? %>
+        <% else %>
+          <div class="">
+            <h5><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h5>
+            <% @educations_sorted.each do |education| %>
+              <div class="">
+                <h6 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h6>
+                <p class="small-text"><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
+                <p class="small-text"><%= education.description %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %> <!-- fin de educations -->
 
-          <!-- education -->
-          <% if @educations_sorted.empty? %>
-          <% else %>
-            <div class="">
-              <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
-              <% @educations_sorted.each do |education| %>
-                <div class="">
-                  <h4 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h4>
-                  <p><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
-                  <p><%= education.description %></p>
-                </div>
-              <% end %>
-            </div>
-          <% end %> <!-- fin de educations -->
+        <!-- languages -->
+        <% if @languages.empty? %>
+        <% else %>
+          <div class="">
+            <h5><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h5>
+            <ul><% @languages.each do |language| %>
+                <li class="small-text">
+                  <%= language.name + ' >> ' + language.proficiency %>
+                </li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %> <!-- fin languages -->
 
-          <!-- languages -->
-          <% if @languages.empty? %>
-          <% else %>
-            <div class="">
-              <h3><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h3>
-              <ul><% @languages.each do |language| %>
-                  <li><%= language.name + ' >> ' + language.proficiency %>
-                  </li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %> <!-- fin languages -->
+
+        <!-- motivation letter -->
+        <div class="top-border">
+          <h5><i class="fa fa-pencil" aria-hidden="true"></i> COVER LETTER</h5>
+          <p class="small-text"><%= @job_application.motivation_letter %></p>
+        </div>
+        <!-- footer de modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
+          <button type="button" class="btn btn-primary">Submit Application</button>
+        </div>
 
       </div> <!-- fin div englobbante du cv  -->
     </div>

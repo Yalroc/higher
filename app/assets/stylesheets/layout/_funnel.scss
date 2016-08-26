@@ -21,3 +21,42 @@
 #motivation_letter_field {
   height: 30vh;
 }
+
+// CV modal
+
+#ViewAsEmployerModal {
+  top: 5vh;
+  outline: none;
+}
+
+#ViewAsEmployerModal .modal-dialog  {
+  width : 52%;
+}
+
+#ViewAsEmployerModal .modal-body  {
+  padding: 0 80px;
+  padding-top: 30px;
+  min-height: 125vh;
+
+}
+
+.cv-modal-footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.top-right {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  z-index: 1;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+.top-border {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
