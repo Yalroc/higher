@@ -14,6 +14,7 @@
   background: linear-gradient(#323a45, $black);
   transition: all 0.3s ease;
   height: 80px;
+  border-bottom: 4px solid $blue-lighter;
 }
 
 /* Text on visitor navbar */
@@ -55,19 +56,19 @@
 
 .navbar-higher-brand-funnel {
   position: absolute;
-  top: 7px;
-  right: 23px;
+  top: 8px;
+  right: 30px;
     img {
-      height: 47px;
+      height: 42px;
     }
 }
 
 .navbar-higher-brand-recruiter {
   position: absolute;
-  top: 14px;
+  top: 15px;
   left: 10px;
     img {
-      height: 23px;
+      height: 24px;
     }
 }
 
@@ -163,12 +164,63 @@
   justify-content: space-between;
 }
 
+.tabs {
+  flex: 0 0 33%;
+  text-align: center;
+}
+
 .circle {
   background-color: $gray-lighter;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  margin: auto;
+  margin-top: 9px;
+  text-align: center;
+}
 
+.circle-numbers {
+  font-family: 'Open Sans';
+  padding-top: 4px;
+}
+
+.funnel-titles {
+  color: white;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.funnel-title-options {
+  font-family: 'Arial Rounded MT Bold';
+  color: white;
+}
+
+.funnel-title-options-left {
+  padding-top: 2px;
+  margin-bottom: -10px;
+}
+
+.funnel-title-options-right {
+  padding-top: 4px;
+  margin-bottom: -14px;
+}
+
+
+.font-17 {
+  font-size: 17px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-21 {
+  font-size: 21px;
+}
+
+.font-23 {
+  font-size: 23px;
 }
 
 
@@ -214,6 +266,6 @@
 
 #funnel-logout-triangle {
   position: absolute;
-  top: 19px;
-  right: 10px;
+  top: 17px;
+  right: 11px;
 }

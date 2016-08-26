@@ -2,7 +2,7 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_offer, only: [:index, :edit, :update]
   before_action :set_job_application, only: [:update]
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit]
   skip_before_action :authenticate_candidate!, only: [:index]
 
   def index
@@ -34,6 +34,9 @@ class JobApplicationsController < ApplicationController
     @experience = Experience.new
     @education = Education.new
     @language = Language.new
+
+    # Data for motivation_letter form
+    # @job_application => already in the controller
   end
 
   def update
@@ -41,10 +44,17 @@ class JobApplicationsController < ApplicationController
 
     if @job_application.update(job_application_params)
       # TODO: make 'view as employer clickable'
-      redirect_to edit_job_offer_job_application(@job_offer, @job_application)
+      redirect_to edit_job_offer_job_application_path(@job_offer, @job_application, tab: "cover-letter")
     else
       render :edit
     end
+  end
+
+  def submit
+    raise
+    authorize @job_application
+    # TODO : @job_application.submit = true  // need to 'submit' attribute to db:structure
+    # TODO : redirect_to thank you page
   end
 
   private

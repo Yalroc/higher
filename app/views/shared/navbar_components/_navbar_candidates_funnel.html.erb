@@ -33,30 +33,49 @@
   <!-- FUNNEL STEPS DASHBOARD + IMPORT DATA + VIEW AS EMPLOYER -->
   <div class="container">
     <div class="row">
-      <div class="col-xs-1 col-xs-offset-2">
-        <h6 style="color: white">import</h6>
-        <h6 style="color: white">data</h6>
+
+      <!-- import data button -->
+      <div class="col-xs-2 col-xs-offset-2">
+        <h6 class="funnel-title-options funnel-title-options-left font-23">import</h6>
+        <h6 class="funnel-title-options font-17"><i class="fa fa-linkedin-square" aria-hidden="true"></i> data <i class="fa fa-folder-open" aria-hidden="true"></i></h6>
       </div>
-      <div class="col-xs-4 col-xs-offset-1">
-        <div class="funnel-steps-flexbox" > <!-- flex dev with 3 circles -->
-          <div>
-            <div class="circle text-center">1</div>
-            <h6 style="color: white", class="text-center">job</h6>
+
+      <!-- flex dev with 3 circles -->
+      <div class="col-xs-4">
+        <div class="funnel-steps-flexbox" >
+
+          <!-- job -->
+          <div class="tabs" data-target="#job-offer">
+            <div class="circle">
+              <p class="circle-numbers">1</p>
+            </div>
+            <h6 class="funnel-titles">job</h6>
           </div>
-          <div>
-            <div class="circle text-center">2</div>
-            <h6 style="color: white", class="text-center">résumé</h6>
+          <!-- resume -->
+          <div class="tabs" data-target="#resume">
+            <div class="circle text-center">
+              <p class="circle-numbers">2</p>
+            </div>
+            <h6 class="funnel-titles">résumé</h6>
           </div>
-          <div>
-            <div class="circle text-center">3</div>
-            <h6 style="color: white", class="text-center">details</h6>
+          <!-- cover letter -->
+          <div class="tabs" data-target="#cover-letter">
+            <div class="circle text-center">
+              <p class="circle-numbers">3</p>
+            </div>
+            <h6 class="funnel-titles">details</h6>
           </div>
+
         </div>
       </div>
-      <div class="col-xs-1 col-xs-offset-1">
-        <h6 style="color: white", class="text-right">view as</h6>
-        <h6 style="color: white" class="text-right">employer</h6>
-      </div>
+
+      <!-- view as employer button -->
+      <a href="" data-toggle="modal" data-target="#ViewAsEmployerModal">
+        <div class="col-xs-2" id="button-view-as-employer">
+          <h6 class="funnel-title-options funnel-title-options-right text-right font-20"><i class="fa fa-eye" aria-hidden="true"></i> view as</h6>
+          <h6 class="funnel-title-options text-right font-21">employer</h6>
+        </div>
+      </a>
     </div> <!-- end of row -->
   </div> <!-- end of container -->
 

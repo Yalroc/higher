@@ -1,37 +1,37 @@
 
-  <div class="wrapper">
-    <div class="">
-      <div class="row">
-  <!--       <div class="col-xs-4"> -->
-          <div class="tableau-offer">
-          <% if @job_offers.any? == true %>
-            <table class="vw">
-              <thead class="head-fixed text-center">
-                <tr class="flex">
-                  <th class="column-1 text-center"><%= @organization %></th>
-                  <th class="column-2 text-center">Offers</th>
-                  <th class="column-3 text-center">Candidates</th>
-                  <th class="column-4 text-center">Contacted</th>
-                  <th class="column-5 text-center">Average fit</th>
-                </tr>
-              </thead>
-              <tbody class="offers-body">
-                <% @job_offers.each do |offer| %>
-                  <tr class= "border">
-                    <td class="column-1"><%= image_tag "noun_job.png", :width => '25' %> <span class="noun_job"><%= offer.title %></span></td>
-                    <td class="column-2"><%= Date.today %></td>
-                    <td class="column-3"><%= offer.job_applications.count %></td>
-                    <td class="column-4">50</td>
-                    <td class="column-5">75%</td>
-                    <%end%>
-                  </tr>
-              </tbody>
-            </table>
-            <% else %>
-
-            <% end %>
-          </div>
-      </div>
+<div class="wrapper">
+  <div class="row">
+    <div class="tableau-offer">
+      <% if @job_offers.any? == true %>
+        <table class="vw">
+          <thead class="head-fixed text-center">
+            <tr class="flex">
+              <th class="column-1 text-center"><%= @organization.name %></th>
+              <th class="column-2 text-center">Offers</th>
+              <th class="column-3 text-center">Candidates</th>
+              <th class="column-4 text-center">Contacted</th>
+              <th class="column-5 text-center">Average fit</th>
+            </tr>
+          </thead>
+          <tbody class="offers-body">
+            <% @job_offers.each do |offer| %>
+              <tr class= "border">
+                <td class="column-1">
+                  <%= link_to job_offer_job_applications_path(offer) do %>
+                    <%= image_tag "noun_job.png", :width => '25' %>
+                    <span class="noun_job"><%= offer.title %></span>
+                 <% end %>
+                </td>
+                <td class="column-2"><%= Date.today %></td>
+                <td class="column-3"><%= offer.job_applications.count %></td>
+                <td class="column-4">50</td>
+                <td class="column-5">75%</td>
+            <%end%>
+              </tr>
+          </tbody>
+        </table>
+      <% else %>
+      <% end %>
     </div>
     <br>
     <br>
@@ -39,6 +39,12 @@
     create an offer
   </button>
   </div>
+  <br>
+  <br>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TableModal">
+    create an offer
+  </button>
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="TableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
