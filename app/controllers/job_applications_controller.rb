@@ -2,7 +2,7 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_offer, only: [:index, :edit, :update]
   before_action :set_job_application, only: [:update]
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update]
   skip_before_action :authenticate_candidate!, only: [:index]
 
   def index
@@ -48,13 +48,6 @@ class JobApplicationsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def submit
-    raise
-    authorize @job_application
-    # TODO : @job_application.submit = true  // need to 'submit' attribute to db:structure
-    # TODO : redirect_to thank you page
   end
 
   private

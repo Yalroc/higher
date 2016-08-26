@@ -16,29 +16,41 @@ Candidate.create!({
   })
 
 Organization.create!({
-  name: "Oracle",
+  name: "L'Oréal",
   size: 74000,
-  industry: "Information Technology and Services",
+  industry: "Cosmetics",
   })
 
 re_jd = Recruiter.create!({
   email: "tde@gmail.com",
   password: "123456",
-  title: "Thierry Delas @ Senior Recruiter - EMEA",
+  title: "Louise Turgot @ Talent Acquisition Specialist",
   organization: Organization.first,
   })
 
 re_jd = Recruiter.create!({
   email: "kate@gmail.com",
   password: "123456",
-  title: "Kate Smith @ Junior Recruiter - IT department",
+  title: "Thierry Delas @ Head of Category and Insights",
   organization: Organization.first,
   })
 
 jo_jd = JobOffer.create!({
   recruiter: Recruiter.first,
-  title: "Senior Account Manager - IT services - EMEA",
-  description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions."
+  title: "Senior Category Manager",
+  description: "You will be interfacing and developing relationships across various levels of management and key decision makers within both L’Oreal and our retail partners across multiple channels. Your role will bring significant opportunities to influence and shape our plans based on future growth potential and category direction. You will be working in conjunction with marketing, commercial, merchandising and the finance teams and you will have the ability to gain cross-functional knowledge and capabilities. The purpose is to build strong professional relationships and be considered the expert across your categories, and influential in your point of view. You will be measured on your ability to drive category growth and increase ranges within accounts. You will be responsible for developing retailer category strategies including creative solutions for optimising the use of space in store. This position will be an integral role within the Category & Insights Team. You will report into the Head of Category & Insights and the role will involve people management responsibilities."
+  })
+
+fdfdfd = JobOffer.create!({
+  recruiter: Recruiter.first,
+  title: "Purchasing Manager",
+  description: "You will be in charged of purchasing packagings for our products.",
+  })
+
+fdfdfd = JobOffer.create!({
+  recruiter: Recruiter.first,
+  title: "Product Manager",
+  description: "You will be in charged of several products.",
   })
 
 ja_jd = JobApplication.create!({
@@ -60,24 +72,24 @@ lasqf_jd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Microsoft",
+  organization: "Unilever",
   job_application: JobApplication.first,
-  title: "Account director",
-  start_date: "1-6-1994",
+  title: "Category Manager Assistant",
+  start_date: "1-6-1996",
   end_date: "1-6-2015",
-  description: "I managed a team of 10 account managers.",
+  description: "I worked mainly on Lipton products.",
   company_size: 100000,
-  industry: "Computer Software"
+  industry: "Consumer Goods"
   })
 
 ed_qsdqjd_1 = Education.create!({
-  organization: "ESSEC Business School",
+  organization: "Audencia Business School",
   job_application: JobApplication.first,
   start_date: "1-6-1992",
   degree_type: "Master",
   degree_field: "Grande Ecole",
   end_date: "1-6-1995",
-  description: "I graduated from this business school which belongs to the top 10 in Europe.",
+  description: "I did a specialization in Marketing.",
   })
 
 ####################################################
@@ -117,10 +129,10 @@ la_sssjd = Language.create!({
 Experience.create!({
   organization: "SAP",
   job_application: JobApplication.second,
-  title: "Account director",
+  title: "Product Manager",
   start_date: "1-6-2002",
   end_date: "1-6-2016",
-  description: "I was charged of the middle market clients.",
+  description: "It was a challenging experience.",
   company_size: 100000,
   industry: "Computer Software"
   })
@@ -130,7 +142,7 @@ ed_jsd_1 = Education.create!({
   job_application: JobApplication.second,
   start_date: "1-6-1996",
   degree_type: "Master",
-  degree_field: "in Finance",
+  degree_field: "Finance",
   end_date: "1-6-2001",
   description: "I have a specialization in IT services.",
   })
@@ -223,18 +235,18 @@ la_sssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "EY",
+  organization: "PepsiCo",
   job_application: JobApplication.fourth,
-  title: "Senior Auditor",
+  title: "Account Manager",
   start_date: "1-6-2002",
   end_date: "1-6-2016",
   description: "I managed a team of 15 collaborators.",
   company_size: 100000,
-  industry: "Accounting"
+  industry: "Food & Beverages"
   })
 
 ed_jsd_1 = Education.create!({
-  organization: "Trinity College",
+  organization: "SKEMA Business School",
   job_application: JobApplication.fourth,
   start_date: "1-6-1996",
   end_date: "1-6-2001",
@@ -256,7 +268,7 @@ Candidate.create!({
 ja_jdddd = JobApplication.create!({
   candidate: Candidate.fifth,
   job_offer: JobOffer.first,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  motivation_letter: "I have always been interested by your company since my childhood. I love L'Oréal."
   })
 
 la_jdddd = Language.create!({
@@ -278,29 +290,68 @@ la_sssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Capgemini",
+  organization: "Lactalis",
   job_application: JobApplication.fifth,
-  title: "Developer",
+  title: "Key Account Manager",
   start_date: "1-6-2002",
   end_date: "1-6-2016",
-  description: "Exciting experience in a dynamic SSII.",
+  description: "Exciting experience in a dynamic comapny.",
   company_size: 100000,
-  industry: "Accounting"
+  industry: "Dairy"
   })
 
 ed_jsd_1 = Education.create!({
-  organization: "TELECOM Paris Tech",
+  organization: "Trinity College",
   job_application: JobApplication.fifth,
   start_date: "1-6-1996",
   end_date: "1-6-2001",
-  description: "My specialization is about computer science.",
+  description: "My specialization is about key account management.",
   degree_type: "Master",
-  degree_field: "Computer Science",
+  degree_field: "Marketing",
   })
 
+###############
 
+Candidate.create!({
+  first_name: "Laura",
+  last_name: "Bidaud",
+  email: "laura@gmail.com",
+  password: "123456",
+  phone_number: "+33 9 31 94 88 66",
+  })
 
+ja_jdddd = JobApplication.create!({
+  candidate: Candidate.last,
+  job_offer: JobOffer.first,
+  motivation_letter: "I have always been interested by your company since my childhood. I love L'Oréal."
+  })
 
+la_jdddd = Language.create!({
+  job_application: JobApplication.last,
+  name: "French",
+  proficiency: "Native"
+  })
+
+Experience.create!({
+  organization: "P&G",
+  job_application: JobApplication.last,
+  title: "Junior Category Manager",
+  start_date: "1-6-2002",
+  end_date: "1-6-2016",
+  description: "Exciting experience in a challenging company. I worked on Gillette brand.",
+  company_size: 100000,
+  industry: "Marketing"
+  })
+
+ed_jsd_1 = Education.create!({
+  organization: "NEOMA Business School",
+  job_application: JobApplication.last,
+  start_date: "1-6-1996",
+  end_date: "1-6-2001",
+  description: "My specialization is about luxury marketing",
+  degree_type: "Master",
+  degree_field: "Marketing",
+  })
 
 
 
