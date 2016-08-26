@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   end
 
+
+
+
   # EXPERIENCES ROUTES
   resources :experiences, only: [:new, :create, :edit, :update, :destroy]
 
