@@ -1,7 +1,6 @@
   class JobOffersController < ApplicationController
   before_action :set_job_offers, only: [:show, :edit, :update]
   skip_before_action :authenticate_candidate!
-  skip_before_action :authenticate_recruiter!, only: [:index]
 
   def index
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
