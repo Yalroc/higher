@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # :show => "As a candidate, I can view the offer while I am applying to it"
   resources :job_offers, only: [:index, :new, :create, :show] do
 
+        resources :conversations, only: [:index, :show, :create]
     # JOB APPLICATIONS ROUTES
     # job_applications routes must be nested in job_offers => it's the only way we can display all job_offers associated to an offer
     # :index => "As a recruiter I can VIEW profiles (candidate) associated to an offer" // will change to a custom 'dashboard route for recruiters'
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
     resources :job_applications, only: [:index, :show, :edit, :update]
 
   end
+
+
 
 
 

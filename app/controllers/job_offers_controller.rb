@@ -8,6 +8,7 @@
     @job_offer = JobOffer.new
     @job_offers = policy_scope(JobOffer)
 
+    # current_user = current_recruiter || current_candidate
     if @job_offers.any?
       @organization = @job_offers.first.recruiter.organization
     else
