@@ -10,9 +10,8 @@ class JobApplicationPolicy < ApplicationPolicy
   end
 
   def edit?
-    # user = current_candidate  => automatically given by Pundit
-    # record = @job_application => automatically given by Pundit
-    record.candidate == user
+    # a user cannot edit somebody else's job application && # a candidate cannot edit his or her application once it's sent
+    record.candidate == user && record.submit == false
   end
 
   def update?

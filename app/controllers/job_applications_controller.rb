@@ -51,6 +51,7 @@ class JobApplicationsController < ApplicationController
   def submit
     authorize @job_application
     @job_application.submit = true
+    @job_application.save
   end
 
   private
