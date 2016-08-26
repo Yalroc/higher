@@ -14,7 +14,7 @@
   background: linear-gradient(#323a45, $black);
   transition: all 0.3s ease;
   height: 80px;
-  border-bottom: 4px solid $blue;
+  border-bottom: 4px solid $blue-lighter;
 }
 
 /* Text on visitor navbar */
@@ -56,19 +56,19 @@
 
 .navbar-higher-brand-funnel {
   position: absolute;
-  top: 7px;
-  right: 23px;
+  top: 8px;
+  right: 30px;
     img {
-      height: 47px;
+      height: 42px;
     }
 }
 
 .navbar-higher-brand-recruiter {
   position: absolute;
-  top: 14px;
+  top: 15px;
   left: 10px;
     img {
-      height: 23px;
+      height: 24px;
     }
 }
 
@@ -179,6 +179,11 @@
   text-align: center;
 }
 
+.circle-numbers {
+  font-family: 'Open Sans';
+  padding-top: 4px;
+}
+
 .funnel-titles {
   color: white;
   text-align: center;
@@ -261,6 +266,6 @@
 
 #funnel-logout-triangle {
   position: absolute;
-  top: 19px;
-  right: 10px;
+  top: 17px;
+  right: 11px;
 }
