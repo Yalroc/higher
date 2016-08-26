@@ -27,10 +27,10 @@
     <div class="text-center">
       <div class="col-xs-4 col-xs-offset-4">
 
-      <h3>You candidate for</h3>
+      <h3 id="padding-title">You candidate for</h3>
           <% @candidate.job_applications.each do |job_application| %>
 
-              <button type="button" id="button-candidate" class="btn btn-custom" data-toggle="modal" data-target="#ShowInfoModal"><%= job_application.job_offer.title %></button>
+              <button type="button" id="button-candidate" class="btn-show-application" data-toggle="modal" data-target="#ShowInfoModal"><i class="glyphicon glyphicon-flash"></i><%= " " + job_application.job_offer.title + " " %><i class="glyphicon glyphicon-flash"></i></button>
 
           <% end %>
       </div>
@@ -60,7 +60,7 @@
   </div>
 </div>
 
-<!-- Modal Show info of application -->
+<!-- Modal Show infos of applications -->
 
 <div class="modal fade" id="ShowInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

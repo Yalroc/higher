@@ -1,4 +1,27 @@
+// Separation between candidate info and his applications
+
 .line {
-  margin: 20px 0;
+  margin-top: 40px;
+  margin-bottom: 20px;
   border: 1px solid $gray-lighter;
 }
+
+//  Padding underneath title candidate#show
+
+#padding-title {
+  margin-bottom: 20px;
+}
+
+
+.glyphicon-flash {
+  color: $gray-lighter;
+}
+
+.btn-show-application:hover {
+  .glyphicon-flash {
+      color: $yellow;
+  }
+}
+
+
+
