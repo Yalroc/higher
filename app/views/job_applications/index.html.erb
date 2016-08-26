@@ -1,9 +1,12 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+
   <!-- Second navbar -->
   <div class="second-navbar-job-applications">
       <div class="navbar-higher-brand-recruiter2">
       <%= image_tag "LOreal_black_vector.png" %>
       </div>
-      <div class="job-offer-title-job-applications">Senior Recruiter</div>
+      <div class="job-offer-title-job-applications"><%= @job_applications.first.job_offer.title %></div>
       <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
       <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
 
