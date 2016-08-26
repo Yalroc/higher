@@ -17,13 +17,16 @@ class JobOfferPolicy < ApplicationPolicy
     new?
   end
 
-
   def edit?
     record.recruiter == user
   end
 
   def update?
     edit?
+  end
+
+  def search?
+    true
   end
 
 end
