@@ -322,6 +322,7 @@
         <!-- footer de modal -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
+          <%= button_to "Submit Application", submit_job_offer_job_application_path(@job_offer, @job_application), method: :get, class: "btn btn-primary" %>
           <button type="button" class="btn btn-primary">Submit Application</button>
         </div>
 
