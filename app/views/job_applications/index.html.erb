@@ -1,23 +1,18 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 
-  <!-- Second navbar -->
-  <div class="second-navbar-job-applications">
-      <div class="navbar-higher-brand-recruiter2">
-      <%= image_tag "LOreal_black_vector.png" %>
-      </div>
-      <div class="job-offer-title-job-applications">Senior Recruiter</div>
-      <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
-      <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
-
-    <div class="bottom-second-navbar">
+<!-- Second navbar -->
+<div class="second-navbar-job-applications">
+    <div class="navbar-higher-brand-recruiter2">
+    <%= image_tag "LOreal_black_vector.png" %>
     </div>
-
     <div class="job-offer-title-job-applications"><%= @job_applications.first.job_offer.title %></div>
     <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
     <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
 
   <div class="bottom-second-navbar">
   </div>
-
+</div>
 
 <!-- Side bar -->
 <div class="menu-job-applications">
@@ -28,38 +23,57 @@
       <p>Contacted (0)</p>
       <p>New (0)</p>
     </div>
-    <div class="menu-profils">
-        <% current_recruiter.organization.recruiters.each do |recruiter| %>
-      <div class="mini-menu-profils">
-        <%= recruiter.title %><br>
-        <% if recruiter == current_recruiter %>
-          <i class="fa fa-circle green-point" aria-hidden="true"></i>
-        <% else %>
-          <i class="fa fa-circle red-point" aria-hidden="true"></i>
-        <% end %>
-          <i class="fa fa-comment-o text-center" aria-hidden="true"></i>
-      </div>
-        <% end %>
-    </div>
   </div>
+  <div class="menu-profils">
+      <% current_recruiter.organization.recruiters.each do |recruiter| %>
+    <div class="mini-menu-profils">
+      <%= recruiter.title %><br>
+      <% if recruiter == current_recruiter %>
+        <i class="fa fa-circle green-point" aria-hidden="true"></i>
+      <% else %>
+        <i class="fa fa-circle red-point" aria-hidden="true"></i>
+      <% end %>
+        <i class="fa fa-comment-o text-center" aria-hidden="true"></i>
+    </div>
+      <% end %>
+  </div>
+</div>
 
-  <!-- Table -->
-  <div class="wrapper-table-job-offer text-center">
-    <div>
-      <div class="table-applications-wrapper">
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
-          <thead>
+<!-- Table -->
+<div class="wrapper-table-job-offer text-center">
+  <div>
+    <div class="table-applications-wrapper">
+      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="mdl-data-table__cell--non-numeric">Candidate</th>
+            <th>Fit</th>
+            <th>XP</th>
+            <th>Companies</th>
+            <th>Education</th>
+            <th>Languages</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @job_applications.each_with_index do |job_application, y| %>
             <tr>
-              <th></th>
-              <th class="mdl-data-table__cell--non-numeric">Candidate</th>
-              <th>Fit</th>
-              <th>XP</th>
-              <th>Companies</th>
-              <th>Education</th>
-              <th>Languages</th>
-              <th>Date</th>
+              <td><%= y + 1 %></td>
+              <td class="mdl-data-table__cell--non-numeric"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></td>
+              <td class="mdl-data-table__cell--non-numeric">86.7%</td>
+              <td>5y +</td>
+              <td><% job_application.experiences.each do |experience| %>
+                  <%= experience.organization %>
+                  <% end %>
+              </td>
+              <td><%= job_application.educations.first.organization %></td>
+              <td><% job_application.languages.each do |language| %>
+                  <%= language.name %>
+                  <% end %>
+              </td>
+              <td><%= job_application.created_at.strftime("%A") %></td>
             </tr>
-
            <% end %>
         </tbody>
       </table>
@@ -83,21 +97,9 @@
   </script>
 <% end %>
 
-  <!-- Modal to show the profil -->
-  <div class="modal">
 
-  </div>
 
-  <% content_for :after_js do %>
-    <script>
-    window.onload = function(){
-      $(".delete-but").click(function() {
-        $('.is-selected').remove();
-        <% @job_applications %>
-     });
-    }
-    </script>
-  <% end %>
+
 
 
 
