@@ -1,3 +1,4 @@
+
 <div class="wrapper">
   <div class="row">
     <div class="tableau-offer">
@@ -32,6 +33,11 @@
       <% else %>
       <% end %>
     </div>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TableModal">
+    create an offer
+  </button>
   </div>
   <br>
   <br>
@@ -40,23 +46,24 @@
   </button>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="TableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Créez votre offre</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for([ @job_offer ]) do |form| %>
-          <%= form.input :title %>
-          <%= form.input :description %>
-          <%= form.button :submit %>
-        <% end %>
+  <!-- Modal -->
+  <div class="modal fade" id="TableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Créez votre offre</h4>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(@job_offer) do |form| %>
+            <%= form.input :title %>
+            <%= form.input :description %>
+            <%= form.button :submit %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
