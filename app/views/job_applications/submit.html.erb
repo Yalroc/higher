@@ -1,0 +1,27 @@
+<div class="gray-background"> <!-- couleur de fond grise -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="cv-wrapper"> <!-- div englobbante  -->
+
+          <p>Application submitted! A confirmation has been sent to <%= current_candidate.email %>. You will receive another email when the employer invites you for an interview.</p>
+          <p>Would you like to be notified when recruiters look at your résumé? Then try our commitment-free premium membership for a week.</p>
+          <p>Improve your chances of getting a call-back by 37% on all applications, past & new!</p>
+          <div class="text-center">
+            <%= link_to "Get verified", root_path, class: "btn btn-primary" %>
+            <p>or</p>
+            <p>Apply to another job:</p>
+            <div>TODO: SEARCH BAR</div>
+            <br>
+            <br>
+            <p>Related job offers:</p>
+            <div>TODO: JOB ADDS</div>
+          </div>
+
+
+        </div> <!-- div englobbante cv-wrapper  -->
+      </div>
+    </div>
+  </div> <!-- fin boostrap container  -->
+</div> <!-- fin couleur de fond grise  -->
+

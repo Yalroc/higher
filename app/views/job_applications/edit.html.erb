@@ -4,6 +4,10 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="cv-wrapper"> <!-- div englobbante  -->
+          <% if  %>
+            <p><%= simple_format @job_offer.description %></p>
+          <% else %>
+
           <h4>WHAT CAN YOU EXPECT AS A DIGITAL MARKETING INTERN AT L'ORÉAL</h4>
           <ul>
             <li>You will work in close collaboration with the product manager on the digital strategy of the brand</li>
@@ -31,6 +35,8 @@
 
           <p>Do you want to kick off your career ?</p>
           <p>Join us !</p>
+
+          <% end %>
         </div> <!-- fin div englobbante  -->
       </div>
     </div>
@@ -317,13 +323,12 @@
         <!-- motivation letter -->
         <div class="top-border">
           <h5><i class="fa fa-pencil" aria-hidden="true"></i> COVER LETTER</h5>
-          <p class="small-text"><%= @job_application.motivation_letter %></p>
+          <p class="small-text"><%= simple_format @job_application.motivation_letter %></p>
         </div>
         <!-- footer de modal -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
           <%= button_to "Submit Application", submit_job_offer_job_application_path(@job_offer, @job_application), method: :get, class: "btn btn-primary" %>
-          <button type="button" class="btn btn-primary">Submit Application</button>
         </div>
 
       </div> <!-- fin div englobbante du cv  -->

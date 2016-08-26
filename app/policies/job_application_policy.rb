@@ -5,6 +5,10 @@ class JobApplicationPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    record.candidate == user
+  end
+
   def edit?
     # user = current_candidate  => automatically given by Pundit
     # record = @job_application => automatically given by Pundit

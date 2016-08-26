@@ -35,11 +35,12 @@
 </div>
   <% if current_candidate.sign_in_count == 1 %>
     <div class="text-center">
-      <%=  link_to "Apply Now", new_candidate_session_path, class: "btn btn-custom" %>
+      <%=  link_to "Apply Now", new_job_offer_job_application_path(@job_offer), class: "btn btn-custom" %>
+      <!-- url => higher-wagon.heroku-app.com/job_offers/#{@job_offer.id}/job_applications/new -->
     </div>
   <% else %>
     <div class="text-center">
-      <%=  link_to "Apply Now", new_candidate_session_path, class: "btn btn-custom" %>
+      <%=  link_to "Apply Now", new_job_offer_job_application_path(@job_offer), class: "btn btn-custom" %>
     </div>
   <% end %>
 <br>
