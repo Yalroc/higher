@@ -10,23 +10,17 @@
 
     <div class="bottom-second-navbar">
     </div>
-
-    <div class="job-offer-title-job-applications"><%= @job_applications.first.job_offer.title %></div>
-    <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
-    <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
-
-  <div class="bottom-second-navbar">
   </div>
 
-
-<!-- Side bar -->
-<div class="menu-job-applications">
-  <div class="menu-header">
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="padding-button">Filters</button>
-    <div class="menu-header-text">
-      <strong><p>All (<%= @job_applications.all.length %>)</p></strong>
-      <p>Contacted (0)</p>
-      <p>New (0)</p>
+  <!-- Side bar -->
+  <div class="menu-job-applications">
+    <div class="menu-header">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="padding-button">Filters</button>
+      <div class="menu-header-text">
+        <strong><p>All (<%= @job_applications.all.length %>)</p></strong>
+        <p>Contacted (0)</p>
+        <p>New (0)</p>
+      </div>
     </div>
     <div class="menu-profils">
         <% current_recruiter.organization.recruiters.each do |recruiter| %>
@@ -59,29 +53,31 @@
               <th>Languages</th>
               <th>Date</th>
             </tr>
-
-           <% end %>
-        </tbody>
-      </table>
-    </div>
-   </div>
-</div>
-
-<!-- Modal to show the profil -->
-<div class="modal">
-
-</div>
-
-<% content_for :after_js do %>
-  <script>
-  window.onload = function(){
-    $(".delete-but").click(function() {
-      $('.is-selected').remove();
-      <% @job_applications %>
-   });
-  }
-  </script>
-<% end %>
+          </thead>
+          <tbody>
+            <% @job_applications.each_with_index do |job_application, y| %>
+              <tr>
+                <td><%= y + 1 %></td>
+                <td class="mdl-data-table__cell--non-numeric"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></td>
+                <td class="mdl-data-table__cell--non-numeric">86.7%</td>
+                <td>5y +</td>
+                <td><% job_application.experiences.each do |experience| %>
+                    <%= experience.organization %>
+                    <% end %>
+                </td>
+                <td><%= job_application.educations.first.organization %></td>
+                <td><% job_application.languages.each do |language| %>
+                    <%= language.name %>
+                    <% end %>
+                </td>
+                <td><%= job_application.created_at.strftime("%A") %></td>
+              </tr>
+             <% end %>
+          </tbody>
+        </table>
+      </div>
+     </div>
+  </div>
 
   <!-- Modal to show the profil -->
   <div class="modal">
@@ -98,8 +94,3 @@
     }
     </script>
   <% end %>
-
-
-
-
-
