@@ -1,9 +1,23 @@
+
+<div class="blue-sub-search-navbar">
+ <!-- try with simple form -->
+  <form action="/search" class="navbar-higher-search">
+    <input type="text" class="navbar-higher-search-input">
+    <button type="submit" class="navbar-higher-search-btn">
+      <i class="fa fa-search"></i>
+    </button>
+  </form>
+</div>
+<br>
+<br>
 <br>
 <h2>Search Results for <%= params[:query] %></h2>
 <ol>
   <% @job_offers.each do |job_offer| %>
     <li>
-      <%= link_to "#{" " + job_offer.title}", job_offer_path(job_offer) %>
+      <%= link_to job_offer_path(job_offer) do %>
+        <%=  job_offer.recruiter.organization.name + " >> " + job_offer.title %>
+      <% end %>
     </li>
   <% end %>
 </ol>

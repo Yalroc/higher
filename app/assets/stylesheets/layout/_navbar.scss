@@ -11,7 +11,8 @@
 }
 
 .blue-bottom-border {
-  border-bottom: 4px solid $blue-lighter;
+  border-bottom: 2px solid $blue-lighter;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
 
 .navbar-higher-funnel {
@@ -36,6 +37,20 @@
   top: 0px;
   z-index: 1;
   width: 100%;
+}
+
+// sub search navbar on jobs search results page
+.blue-sub-search-navbar {
+  height: 55px;
+  background: $blue-lighter;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 43px;
+  width: 100%;
+  z-index: 2;
+
 }
 
 /* Navbar right section (with form, links, button) */
