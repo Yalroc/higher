@@ -12,12 +12,14 @@
     </div>
     <div class="btn-inscription">
       <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <%= link_to "connect as recruiter", job_offers_path, class: "btn-recruiter" %>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <%= link_to "connect as candidate", new_candidate_session_path, class: "btn-candidate" %>
-        </div>
+        <% unless candidate_signed_in? || recruiter_signed_in? %>
+          <div class="col-xs-12 col-md-6">
+            <%= link_to "connect as recruiter", job_offers_path, class: "btn-recruiter" %>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <%= link_to "connect as candidate", new_candidate_session_path, class: "btn-candidate" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

@@ -10,6 +10,10 @@
   justify-content: space-between;
 }
 
+.blue-bottom-border {
+  border-bottom: 4px solid $blue-lighter;
+}
+
 .navbar-higher-funnel {
   background: linear-gradient(#323a45, $black);
   transition: all 0.3s ease;
@@ -61,7 +65,7 @@
 
 /* Navbar logo */
 .navbar-higher-brand img {
-  height: 39px;
+  height: 37px;
 }
 
 .navbar-higher-brand-funnel {
