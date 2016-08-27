@@ -1,1 +1,12 @@
 // Your footer style
+
+.apply-now-bar {
+  height: 7vh;
+  width: 100%;
+  background-color: $black;
+  border-top: 4px solid $blue-lighter;
+  position: fixed;
+  top: 93vh;
+  display: flex;
+  align-items: center;
+}

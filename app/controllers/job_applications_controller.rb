@@ -1,8 +1,8 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_offer, only: [:index, :edit, :update]
-  before_action :set_job_application, only: [:update]
+  before_action :set_job_application, only: [:update, :submit, :edit]
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new]
   skip_before_action :authenticate_candidate!, only: [:index]
 
   def index
@@ -10,21 +10,20 @@ class JobApplicationsController < ApplicationController
     @job_applications = set_job_offer.job_applications
   end
 
-  def edit
-    # SELECT @job_application
-    # Check IF a job application already exists
-    if JobApplication.find(params[:id])
-      # a job application already exists
-      @job_application = JobApplication.find(params[:id])
-
+  def new
+    @job_offer = JobOffer.find(params[:job_offer_id])
+    if JobApplication.where(candidate: current_candidate, job_offer: @job_offer).first
+      @job_application = JobApplication.where(candidate: current_candidate, job_offer: @job_offer).first
     else
-      # a job application does not existe => Create new job_application
-      @job_application = JobApplication.new # =>  <# JobApplication 358742, candidate: nil, job_offer: nil, motivation_letter: nil >
-      @job_application.candidate = current_candidate
-      @job_application.job_offer = @job_offer
+      @job_application = JobApplication.new(candidate: current_candidate, job_offer: @job_offer)
       @job_application.save
     end
+    authorize(@job_application)
 
+    redirect_to edit_job_offer_job_application_path(@job_offer, @job_application)
+  end
+
+  def edit
     authorize(@job_application) # we tell Pundit to look for the authorization policies of JobApplication#edit record (once it is created)
     @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
     @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
@@ -34,16 +33,12 @@ class JobApplicationsController < ApplicationController
     @experience = Experience.new
     @education = Education.new
     @language = Language.new
-
-    # Data for motivation_letter form
-    # @job_application => already in the controller
   end
 
   def update
     authorize(@job_application)
 
     if @job_application.update(job_application_params)
-      # TODO: make 'view as employer clickable'
       redirect_to edit_job_offer_job_application_path(@job_offer, @job_application, tab: "cover-letter")
     else
       render :edit
@@ -51,10 +46,9 @@ class JobApplicationsController < ApplicationController
   end
 
   def submit
-    raise
     authorize @job_application
-    # TODO : @job_application.submit = true  // need to 'submit' attribute to db:structure
-    # TODO : redirect_to thank you page
+    @job_application.submit = true
+    @job_application.save
   end
 
   private

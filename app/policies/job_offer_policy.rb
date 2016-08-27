@@ -17,7 +17,6 @@ class JobOfferPolicy < ApplicationPolicy
     new?
   end
 
-
   def edit?
     record.recruiter == user
   end
