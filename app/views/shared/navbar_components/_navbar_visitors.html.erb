@@ -1,4 +1,4 @@
-<!-- NAVBAR FOR RECRUITERS -->
+<!-- NAVBAR FOR VISITORS -->
 <div class="navbar-higher"></div> <!-- spacer to compensate the 'fixed navbar offset' -->
 <div class="navbar-higher navbar-higher-fixed">
 
@@ -16,5 +16,8 @@
     <div class="navbar-wagon-item job-content">
       <%= link_to "Jobs", root_path, class: "navbar-higher-link" %>
     </div>
-  </div>
-</div> <!-- end of navbar for recruiters -->
+    <%= link_to "connect as recruiter", job_offers_path, class: "btn btn-primary" %>
+    <%= link_to "connect as candidate", new_candidate_session_path, class: "btn btn-primary" %>
+
+</div> <!-- end of navbar -->
+

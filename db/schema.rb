@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825114650) do
+ActiveRecord::Schema.define(version: 20160826133807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20160825114650) do
     t.text     "motivation_letter"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.boolean  "submit"
+    t.boolean  "contact"
     t.index ["candidate_id"], name: "index_job_applications_on_candidate_id", using: :btree
     t.index ["job_offer_id"], name: "index_job_applications_on_job_offer_id", using: :btree
   end

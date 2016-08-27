@@ -1,6 +1,7 @@
   class JobOffersController < ApplicationController
   before_action :set_job_offers, only: [:show, :edit, :update]
   skip_before_action :authenticate_candidate!
+  skip_before_action :authenticate_recruiter!, only: [:show]
 
   def index
     @job_offers = JobOffer.where(recruiter: current_recruiter).all
@@ -15,6 +16,7 @@
   end
 
   def show
+    @job_offer = JobOffer.find(params[:id])
     authorize @job_offer
   end
 
@@ -27,14 +29,11 @@
     @job_offer = JobOffer.new(offer_params)
     @job_offer.recruiter = current_recruiter
     authorize @job_offer
-
     if @job_offer.save
       redirect_to job_offers_path
     else
       render :new
     end
-
-
   end
 
   def edit
@@ -43,7 +42,6 @@
 
   def update
     authorize @job_offer
-
     if @job_offer.update(offer_params)
       redirect_to job_offers
     else

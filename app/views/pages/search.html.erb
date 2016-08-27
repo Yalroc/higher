@@ -1,0 +1,9 @@
+<br>
+<h2>Search Results for <%= params[:query] %></h2>
+<ol>
+  <% @job_offers.each do |job_offer| %>
+    <li>
+      <%= link_to "#{" " + job_offer.title}", job_offer_path(job_offer) %>
+    </li>
+  <% end %>
+</ol>
