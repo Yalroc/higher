@@ -1,15 +1,16 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(52,73,94,0.5) 0%, rgba(255,255,255,0.3) 50%), url(<%= image_path 'higher.jpg' %>);">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(52,73,94,0.5) 0%, rgba(255,255,255,0.3) 50%), url(<%= image_path 'papers.jpg' %>);">
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <form action="/search" class="navbar-higher-search">
-          <input type="text" class="navbar-higher-search-input">
+        <form action="/search" class="navbar-higher-search" id="search">
+          <input type="text" class="navbar-higher-search-input" value="What is the position you are looking for ?">
           <button type="submit" class="navbar-higher-search-btn">
             <i class="fa fa-search"></i>
           </button>
         </form>
       </div>
     </div>
+
     <div class="btn-inscription">
       <div class="row">
         <% unless candidate_signed_in? || recruiter_signed_in? %>
@@ -24,3 +25,4 @@
     </div>
   </div>
 </div>
+
