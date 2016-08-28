@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Candidates::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def linkedin
     user = Candidate.find_for_linkedin_oauth(request.env['omniauth.auth'])
 
