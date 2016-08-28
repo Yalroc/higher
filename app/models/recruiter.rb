@@ -6,5 +6,5 @@ class Recruiter < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, omniauth_providers: [:linkedin]
+  # devise :omniauthable, omniauth_providers: [:linkedin]
 end

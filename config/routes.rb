@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # LOG IN & SIGN UP ROUTES
-  devise_for :recruiters, controllers: { omniauth_callbacks: 'recruiters/omniauth_callbacks' }
+  devise_for :recruiters
   devise_for :candidates, controllers: { omniauth_callbacks: 'candidates/omniauth_callbacks' }
 
   # authenticated :recruiter do
