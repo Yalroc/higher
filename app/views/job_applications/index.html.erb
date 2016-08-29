@@ -21,7 +21,7 @@
   <div class="menu-header">
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="padding-button">Filters</button>
     <div class="menu-header-text">
-      <strong><p>All (<%= @job_applications.all.length %>)</p></strong>
+      <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>Contacted (0)</p>
       <p>New (0)</p>
       <%= link_to "Messages", conversations_job_offer_job_applications_path(@job_offer, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
