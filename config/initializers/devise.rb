@@ -274,7 +274,7 @@ Devise.setup do |config|
 
   # OMNI AUTH LINKEDIN 2 CONNECT
   config.omniauth :linkedin, ENV["LINKEDIN_ID"], ENV["LINKEDIN_SECRET"],
-    scope: 'r_basicprofile r_emailaddress'
+    scope: 'r_fullprofile r_emailaddress'
     # fields: 'email-address, first-name, last-name'
     #
 end
