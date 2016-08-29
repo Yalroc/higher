@@ -273,9 +273,8 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # OMNI AUTH LINKEDIN 2 CONNECT
-  config.omniauth :linkedin, ENV["LINKEDIN_ID"], ENV["LINKEDIN_SECRET"]#,
-    # scope: 'r_emailaddress',
+  config.omniauth :linkedin, ENV["LINKEDIN_ID"], ENV["LINKEDIN_SECRET"],
+    scope: 'r_basicprofile r_emailaddress'
     # fields: 'email-address, first-name, last-name'
-    # image_size: 'square',  # 50x50, guaranteed ratio
-    # secure_image_url: true
+    #
 end
