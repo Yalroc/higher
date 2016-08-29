@@ -8,7 +8,7 @@ class Recruiter < ApplicationRecord
 
   def self.find_for_linkedin_oauth(auth)
     current_candidate_params = auth.to_h.slice(:provider, :uid)
-    current_candidate_params.merge! auth.info.slice(:email, :first_name, :last_name)
+    current_candidate_params.merge! auth.info.slice(:email)
     # current_candidate_params[:linkedin_picture_url] = auth.info.image
     current_candidate_params[:token] = auth.credentials.token
     current_candidate_params[:token_expiry] = Time.at(auth.credentials.expires_at)
