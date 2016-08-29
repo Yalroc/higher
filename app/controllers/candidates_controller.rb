@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:edit, :update, :show]
   skip_before_action :authenticate_recruiter!
+  skip_before_action :verify_authenticity_token
 
   def edit
     authorize @candidate
@@ -11,7 +12,7 @@ class CandidatesController < ApplicationController
 
     @candidate.update(candidate_params)
      if @candidate.save
-      redirect_to candidate_path
+      redirect_to edit_candidate_path
     else
       render :edit
     end

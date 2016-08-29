@@ -6,10 +6,12 @@
     <div class="navbar-higher-brand-recruiter2">
     <%= image_tag "LOreal_black_vector.png" %>
     </div>
-    <div class="job-offer-title-job-applications"><%= @job_applications.first.job_offer.title %></div>
-    <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
-    <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
-    <%= link_to "conversation", conversation_job_offer_job_application_path(@job_offer, @job_applications.first, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
+    <div class="job-offer-title-job-applications"><%= @job_offer.title %></div>
+    <%= form_tag batch_deletion_job_offer_job_applications_path, method: :delete do %>
+      <%= hidden_field_tag :job_application_ids %>
+      <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
+      <%= link_to "conversation", conversation_job_offer_job_application_path(@job_offer, @job_applications.first, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
+    <% end %>
   <div class="bottom-second-navbar">
   </div>
 </div>
@@ -59,7 +61,7 @@
         <tbody>
           <% @job_applications.each_with_index do |job_application, y| %>
             <tr>
-              <td><%= y + 1 %></td>
+              <td><span class="job-application-id" data-id="<%= job_application.id %>"><%= y + 1 %></span></td>
               <td class="mdl-data-table__cell--non-numeric"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></td>
               <td class="mdl-data-table__cell--non-numeric">86.7%</td>
               <td>5y +</td>
@@ -89,14 +91,20 @@
 <% content_for :after_js do %>
   <script>
   window.onload = function(){
-    $(".delete-but").click(function() {
-      $('.is-selected').remove();
-      <% @job_applications %>
-   });
+    $('.wrapper-table-job-offer .mdl-checkbox__input').click(function(){
+      var row = $(this).parents('tr');
+      var id = $(row).find('.job-application-id').data('id');
+      var checked_for_deletion = $(this).prop('checked');
+
+      if (checked_for_deletion) {
+        var hidden_field = $("#job_application_ids");
+        var new_value = $(hidden_field).val() + "," + id;
+        $(hidden_field).val(new_value);
+      }
+    });
   }
   </script>
 <% end %>
-
 
 
 

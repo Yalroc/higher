@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  min-height: 100vh;
+  min-height: 95vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -11,38 +11,36 @@
 .btn-inscription{
   padding-top: 100px;
 }
-.content h1 {
-  padding-top: 90px;
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-}
-.btn-recruiter {
-  padding: 10px 15px;
-  color: #34495E;
-  font-weight: bolder;
-  font-size: 20px;
-  border: 1px solid #34495E;
-  border-radius: 3px;
+
+#btn-recruiter {
+  margin-bottom: 1px;
+  border: none;
+  background-color: $gray-light;
   transition: all 0.5s ease;
-}
-.btn-recruiter:hover {
-  background-color: #1A2530;
-  color: white;
-  text-decoration: none;
+    &:hover {
+    background-color: $gray-mid-light;
+    color: white;
+    text-decoration: none;
+    }
 }
 
-.btn-candidate {
-  padding: 10px 15px;
-  color: #E74C3C;
-  font-weight: bolder;
-  font-size: 20px;
-  border: 1px solid #E74C3C;
-  border-radius: 3px;
+#btn-candidate {
+  border: none;
   transition: all 0.5s ease;
+  margin-left: 3px;
+  margin-bottom: 1px;
+    &:hover {
+      background-color: $blue-lighter;
+      color: white;
+      text-decoration: none;
+    }
 }
-.btn-candidate:hover {
-  background-color: #C4363E;
+
+.banner-core {
+  padding-bottom: 50px;
+}
+
+.banner-title {
+  padding-bottom: 15px;
   color: white;
-  text-decoration: none;
 }

@@ -12,9 +12,30 @@
   margin-bottom: 20px;
 }
 
-
 .glyphicon-flash {
   color: $gray-lighter;
+}
+
+.glyphicon-user {
+  font-size: 22px;
+  color: $gray-lighter;
+  &:hover {
+    color: white;
+  }
+}
+
+.glyphicon-flag {
+  color: $gray-lighter;
+  &:hover {
+    color: white;
+  }
+}
+
+.fa-comments {
+  color: $gray-lighter;
+  &:hover {
+    color: white;
+  }
 }
 
 .btn-show-application:hover {

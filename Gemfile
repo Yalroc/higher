@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'redis'
 gem 'pundit'
+gem 'omniauth-linkedin-oauth2', :git => 'https://github.com/decioferreira/omniauth-linkedin-oauth2.git', branch: :master
 
 gem 'sass-rails'
 gem 'jquery-rails'

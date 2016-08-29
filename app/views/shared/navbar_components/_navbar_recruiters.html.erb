@@ -3,7 +3,7 @@
 <div class="navbar-higher navbar-higher-fixed">
 
   <!-- Logo -->
-  <%= link_to 'job_offers#index', class: "navbar-higher-brand" do %>
+  <%= link_to '#', class: "navbar-higher-brand" do %>
     <%= image_tag "name-logo-small.png" %>
   <%end %>
 
@@ -28,35 +28,37 @@
       <%= link_to "stats", root_path, class: "navbar-higher-link" %>
     </div>
 
+
+    <!-- space:empty flex-box -->
+    <div class="blank-5-percent"></div>
+
     <!-- notification icons -->
     <div class="navbar-higher-notifications">
       <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
         <div class="badge-container inline">
-          <i class="fa fa-envelope-o"></i>
+          <i class="fa fa-comments" aria-hidden="true"></i>
           <div class="badge badge-blue">3</div>
         </div>
       <% end %>
       <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
         <div class="badge-container inline">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+          <i class="glyphicon glyphicon-flag"></i>
         </div>
       <% end %>
       <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
         <div class="badge-container inline">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+          <i class="glyphicon glyphicon-user"></i>
         </div>
       <% end %>
     </div>
 
     <!-- space:empty flex-box -->
-    <div class="blank-10-percent"></div>
+    <div class="blank-5-percent"></div>
 
     <!-- dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <i class="fa fa-caret-down navbar-higher-menu" data-toggle="dropdown" aria-hidden="true"></i>
+        <i class="fa fa-caret-down font-25 navbar-higher-menu" data-toggle="dropdown" aria-hidden="true"></i>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>

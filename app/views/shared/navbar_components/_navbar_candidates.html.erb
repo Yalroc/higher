@@ -1,63 +1,80 @@
 <!-- NAVBAR FOR CANDIDATES (managing their past applications) -->
 <div class="navbar-higher"></div> <!-- spacer to compensate the 'fixed navbar offset' -->
-<div class="navbar-higher navbar-higher-fixed">
+<div class="navbar-higher-no-flex navbar-higher-fixed blue-bottom-border">
 
   <!-- Logo -->
-  <%= link_to 'job_offers#index', class: "navbar-higher-brand" do %>
-    <%= image_tag "name-logo-small.png" %>
-  <%end %>
-
-  <!-- navigation links -->
-  <div class="navbar-higher-links text-center">
-    <%= link_to "applications", root_path, class: "navbar-higher-link" %>
-    <%= link_to "jobs", root_path, class: "navbar-higher-link" %>
+  <div class="margin-top-4px">
+    <%= link_to '#', class: "navbar-higher-brand" do %>
+      <%= image_tag "name-logo-small.png" %>
+    <%end %>
   </div>
 
-  <!-- notification icons -->
-  <div class="navbar-higher-notifications">
-    <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
-      <div class="badge-container inline">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
+
+  <div class="container"> <!-- notification & links wrapper -->
+    <div class="row margin-top-neg-38px">
+
+      <!-- navigation links -->
+      <div class="col-xs-4 col-xs-offset-2 margin-top-4px">
+        <div class="navbar-higher-links-candidates inline">
+          <%= link_to "profile", root_path, class: "navbar-higher-link" %>
+          <%= link_to "applications", root_path, class: "navbar-higher-link" %>
+          <%= link_to "jobs", root_path, class: "navbar-higher-link" %>
+        </div>
       </div>
-    <% end %>
-    <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
-      <div class="badge-container inline">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
+
+     <!-- notification icons -->
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="navbar-higher-notifications-candidates">
+          <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
+            <div class="badge-container inline">
+              <i class="fa fa-comments glyphicon-white"></i>
+              <div class="badge badge-blue">3</div>
+            </div>
+          <% end %>
+          <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
+            <div class="badge-container inline glyphicon-white">
+              <i class="glyphicon glyphicon-flag"></i>
+            </div>
+          <% end %>
+          <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
+            <div class="badge-container inline">
+              <i class="glyphicon glyphicon-user glyphicon-white"></i>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-    <%= link_to "#", id: "navbar-higher-notification", class: "navbar-higher-link" do %>
-      <div class="badge-container inline">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
-      </div>
-    <% end %>
+
+    </div>
+  </div> <!-- end of links & notfications bootsrap -->
+
+
+  <!-- dropdown / relative<=>absolute to navbar-higher-funnel -->
+  <div>
+    <div class="dropdown" id="funnel-logout-triangle-and-name">
+      <p class="navbar-higher-link navbar-higher-menu font-20" data-toggle="dropdown" aria-hidden="true">
+        <% if current_candidate.first_name %>
+          <%= current_candidate.first_name %>
+        <% elsif current_candidate.email %>
+          <%= current_candidate.email %>
+        <% end %>
+        <i class="fa fa-caret-down font-25 margin-top-4px"></i>
+      </p>
+
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+          <%= link_to candidate_path(current_candidate) do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Account") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_candidate_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
+      </ul>
+    </div> <!-- end of name + dropdown -->
   </div>
 
- <!-- dropdown / relative<=>absolute to navbar-higher-funnel -->
-  <div class="dropdown" id="funnel-logout-triangle">
-     <p class="navbar-higher-link navbar-higher-menu" data-toggle="dropdown" aria-hidden="true">
-      <% if current_candidate.first_name %>
-        <%= current_candidate.first_name %>
-      <% elsif current_candidate.email %>
-        <%= current_candidate.email %>
-      <% end %>
-      <i class="fa fa-caret-down"></i>
-    </p>
 
-    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li>
-        <%= link_to candidate_path(current_candidate) do %>
-          <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_candidate_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-        <% end %>
-      </li>
-    </ul>
-  </div> <!-- end of dropdown -->
 
-</div> <!-- end of navbar -->
+</div> <!-- end of navbar for candidates -->

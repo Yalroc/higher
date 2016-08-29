@@ -10,6 +10,21 @@
   justify-content: space-between;
 }
 
+.navbar-higher-no-flex {
+  // background: #323a45;
+  background: linear-gradient(#323a45, $black);
+  transition: all 0.3s ease;
+  height: 45px;
+  padding: 0px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blue-bottom-border {
+  border-bottom: 2px solid $blue-lighter;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+
 .navbar-higher-funnel {
   background: linear-gradient(#323a45, $black);
   transition: all 0.3s ease;
@@ -19,10 +34,12 @@
 
 /* Text on visitor navbar */
 
-.hr-content {
+.navbar-content-visitor {
+  position: absolute;
+  padding-top: 10px;
+  margin-left: 22.5%;
   color: white;
   font-weight: lighter;
-  padding-top: 10px;
 }
 
 /* Optional class to fix the navbar on top */
@@ -32,6 +49,20 @@
   top: 0px;
   z-index: 1;
   width: 100%;
+}
+
+// sub search navbar on jobs search results page
+.blue-sub-search-navbar {
+  height: 55px;
+  background: $blue-lighter;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 43px;
+  width: 100%;
+  z-index: 2;
+
 }
 
 /* Navbar right section (with form, links, button) */
@@ -47,11 +78,36 @@
   flex: 0 0 10%;
 }
 
+// blank flex-boxes
+.blank-5-percent {
+  flex: 0 0 5%;
+}
+
+// blank flex-boxes
+.blank-1-percent {
+  flex: 0 0 5%;
+}
+
+.margin-top-neg-38px {
+  margin-top: -38px;
+}
+
+
+.margin-top-4px {
+  margin-top: 4px;
+}
+
 // LOGOS
 
 /* Navbar logo */
+.navbar-higher-brand {
+
+  top: 4px;
+}
+
+
 .navbar-higher-brand img {
-  height: 39px;
+  height: 37px;
 }
 
 .navbar-higher-brand-funnel {
@@ -114,6 +170,12 @@
 .navbar-higher-notifications {
   flex: 0 1 13%;
   display: flex;
+  margin-top: 6px;
+}
+
+.navbar-higher-notifications-candidates {
+  display: flex;
+  margin-top: 6px;
 }
 
 #navbar-higher-notification {
@@ -124,27 +186,35 @@
 
 /* Navbar standard link */
 .navbar-higher-links {
-  flex: 0 0 290px;
+  flex: 0 0 310px;
   margin-right: -16px;
   cursor: pointer;
   padding: 0 20px;
   margin-bottom: 2px;
 }
 
+.navbar-higher-links-candidates {
+  // width: 350px;
+ // margin-right: -16px;
+  cursor: pointer;
+ // padding: 0 20px;
+ // margin-bottom: 2px;
+}
+
 .navbar-higher-link {
   text-decoration: none;
   color: white;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: lighter;
-  opacity: 0.8;
+  opacity: 0.85;
   padding: 0 13px;
   &:hover {
     text-decoration: none;
     // font-weight: normal;
     opacity: 1;
     color: white;
-    border-bottom: 2px solid white;
-    padding-bottom: 11px;
+    // border-bottom: 2px solid white;
+    // padding-bottom: 11px;
   }
   &:active {
     text-decoration: none;
@@ -223,6 +293,9 @@
   font-size: 23px;
 }
 
+.font-25 {
+  font-size: 25px;
+}
 
 // DROPDOWN
 
@@ -231,7 +304,6 @@
 .navbar-higher-menu {
   cursor: pointer;
   color: white;
-  font-size: 25px;
 }
 
 .navbar-wagon-dropdown-menu {
@@ -267,5 +339,11 @@
 #funnel-logout-triangle {
   position: absolute;
   top: 17px;
+  right: 11px;
+}
+
+#funnel-logout-triangle-and-name {
+  position: absolute;
+  top: 4px;
   right: 11px;
 }

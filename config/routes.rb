@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # LOG IN & SIGN UP ROUTES
   devise_for :recruiters
-  devise_for :candidates
+  devise_for :candidates, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   # authenticated :recruiter do
   #     root 'job_offers#index', as: :authenticated_root
@@ -24,11 +24,20 @@ Rails.application.routes.draw do
     # :show => "As a recruiter, I can SEE a job application to one of my job offers && As a candidate, I can SEE my application as an employer"
     # :edit => "As a candidate I can APPLY to a job offer" // QUESTION: how to make the 'new' page fit on two pages? ANSWSER: js
     resources :job_applications, only: [:index, :show, :edit, :update, :new] do
+
       get 'submit', on: :member
       get 'conversation', on: :member
         resources :messages, only: [:create]
+
+      collection do
+        delete :batch_deletion
     end
 
+      member do
+        get 'submit'
+      end
+
+    end
   end
 
   # EXPERIENCES ROUTES
