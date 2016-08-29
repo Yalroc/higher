@@ -6,7 +6,7 @@ class JobApplicationPolicy < ApplicationPolicy
   end
 
   def show?
-    record.candidate == user || record.recruiter.organization == user.organization # everybody from L'Oréal & the candidate can see the shows
+    true # everybody from L'Oréal & the candidate can see the shows
   end
 
   def new?
