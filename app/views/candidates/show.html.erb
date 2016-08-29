@@ -1,4 +1,4 @@
-<div  id="content-padded" >
+<div  id="content-padded">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
@@ -14,75 +14,78 @@
 
 <% if @candidate.job_applications.any? %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="line">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="line">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
-    <div class="text-center">
-      <div class="col-xs-4 col-xs-offset-4">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <div class="col-xs-4 col-xs-offset-4">
+
 
       <h3 id="padding-title">You candidate for</h3>
           <% @candidate.job_applications.each do |job_application| %>
+          <%= link_to "job application", job_offer_job_application_path(job_application.job_offer, job_application) %>
 
-            <button type="button" id="button-candidate" class="btn-show-application" data-toggle="modal" data-target="#ShowInfoModal"><i class="glyphicon glyphicon-flash"></i><%= " " + job_application.job_offer.title + " " %><i class="glyphicon glyphicon-flash"></i></button>
 
-          <% end %>
+                <button type="button" id="button-candidate" class="btn-show-application" data-toggle="modal" data-target="#ShowInfoJobApp_<%= job_application.id %>"><i class="glyphicon glyphicon-flash"></i><%= " " + job_application.job_offer.title + " " %><i class="glyphicon glyphicon-flash"></i></button>
+
+            <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 <% else %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="line">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="line">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
-    <div class="text-center">
-      <div class="col-xs-4 col-xs-offset-4">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <div class="col-xs-4 col-xs-offset-4">
 
-        <h3 id="padding-title">You haven't applied to a job yet</h3>
-        <p>See all the job offers we have for you</p>
+          <h3 id="padding-title">You haven't applied to a job yet</h3>
+          <p>See all the job offers we have for you</p>
 
-      <!-- Need to ajust the path -->
-          <%= link_to  "Have a look !", search_path %>
+        <!-- Need to ajust the path -->
+            <%= link_to  "Have a look !", search_path %>
 
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <% end %>
 
 <!-- Modal Show infos of applications -->
-
-<div class="modal fade" id="ShowInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <% @candidate.job_applications.each do |job_application| %>
-        <h4 class="modal-title text-center" id="myModalLabel"><%= job_application.job_offer.title %></h4>
-      </div>
-      <div class="modal-body">
-            <%= job_application.job_offer.description %>
-            <p> <%= " " %> </p>
-            <p>You applied on : <%= job_application.created_at.strftime("%b %d, %Y") %></p>
-        <% end %>
+<% @candidate.job_applications.each do |job_application| %>
+  <div class="modal fade" id="ShowInfoJobApp_<%= job_application.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel"><%= job_application.job_offer.title %></h4>
+        </div>
+        <div class="modal-body">
+          <%= job_application.job_offer.description %>
+          <p> <%= " " %> </p>
+          <p>You applied on : <%= job_application.created_at.strftime("%b %d, %Y") %></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

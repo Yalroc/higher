@@ -5,6 +5,10 @@ class JobApplicationPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true # everybody from L'Oréal & the candidate can see the shows
+  end
+
   def new?
     record.candidate == user
   end
@@ -22,4 +26,7 @@ class JobApplicationPolicy < ApplicationPolicy
     record.candidate == user
   end
 
+  def conversation?
+    true
+  end
 end
