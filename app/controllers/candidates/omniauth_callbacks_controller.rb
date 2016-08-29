@@ -1,6 +1,9 @@
 class Candidates::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def linkedin
-    user = Candidate.find_for_linkedin_oauth(request.env['omniauth.auth'])
+    type = request.env['omniauth.params']['type']
+    # si type == candidate on recupere la classe <Candidate>
+    class_type = type.capitalize.constantize
+    user = class_type.find_for_linkedin_oauth(request.env['omniauth.auth'])
 
     if user.persisted?
       sign_in_and_redirect user, event: :authentication
