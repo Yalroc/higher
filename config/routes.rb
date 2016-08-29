@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # LOG IN & SIGN UP ROUTES
   devise_for :recruiters
-  devise_for :candidates, controllers: { omniauth_callbacks: 'candidates/omniauth_callbacks' }
+  devise_for :candidates, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   # authenticated :recruiter do
   #     root 'job_offers#index', as: :authenticated_root
