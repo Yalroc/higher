@@ -12,14 +12,12 @@
       <%= hidden_field_tag :job_application_ids %>
       <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
     <% end %>
-  <div class="bottom-second-navbar">
-  </div>
 </div>
 
 <!-- Side bar -->
 <div class="menu-job-applications">
   <div class="menu-header">
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="padding-button">Filters</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored text-center" id="padding-button">Filters</button>
     <div class="menu-header-text">
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>Contacted (0)</p>
@@ -43,10 +41,10 @@
 </div>
 
 <!-- Table -->
-<div class="wrapper-table-job-offer text-center">
+<div class="wrapper-table-job-offer text-center ">
   <div>
     <div class="table-applications-wrapper">
-      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable width-95-percent ">
         <thead>
           <tr>
             <th></th>
