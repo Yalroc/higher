@@ -1,13 +1,14 @@
 class JobApplicationsController < ApplicationController
 
-  before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :batch_deletion]
+  before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :conversations, :batch_deletion]
   before_action :set_job_application, only: [:update, :submit, :edit, :conversation, :show]
   before_action :authenticate_recruiter_and_candidate, only: [:show]
+  after_action :verify_policy_scoped, only: [:index, :conversations], unless: :skip_pundit?
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation, :show]
-  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation, :show]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation, :conversations, :show]
+  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation, :conversations, :show]
 
-  skip_after_action :verify_authorized, only: [:batch_deletion]
+  skip_after_action :verify_authorized, only: [:batch_deletion, :conversations]
 
 
 
@@ -68,11 +69,15 @@ class JobApplicationsController < ApplicationController
     @job_application.save
   end
 
-  #rajouter conversation dans les before_action
-   def conversation
-    authorize @job_application #pundit
-    @messages = @job_application.messages #on veut les messages de la job_application dans un conversation
-    @new_message = Message.new #pour l'utiliser dans sa view index
+  #rajouter conversation  et conversations dans les before_action, skip et after_action
+   def conversations
+    @conversations = policy_scope(JobApplication) #afficher toutes mes job_applications
+  end
+
+  def conversation #afficher une conversation + en créé une
+    authorize @job_application
+    @messages = @job_application.messages #on veut tous les messages de la job_application dans une conversation
+    @new_message = Message.new             #pour l'utiliser dans sa view index
    end
 
   def destroy
