@@ -4,8 +4,8 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:update, :submit, :edit, :conversation]
 
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new]
-  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation]
+  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation]
   skip_after_action :verify_authorized, only: [:batch_deletion]
 
   def index
@@ -54,14 +54,14 @@ class JobApplicationsController < ApplicationController
     @job_application.save
   end
 
-<<<<<<< HEAD
+
   #rajouter conversation dans les before_action
    def conversation
     authorize @job_application #pundit
     @messages = @job_application.messages #on veut les messages de la job_application dans un conversation
     @new_message = Message.new #pour l'utiliser dans sa view index
    end
-=======
+
   def destroy
     authorize @job_application
     @job_application.delete
@@ -77,7 +77,7 @@ class JobApplicationsController < ApplicationController
       format.html { redirect_to job_offer_job_applications_path }
     end
   end
->>>>>>> master
+
 
   private
 
