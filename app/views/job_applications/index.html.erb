@@ -9,7 +9,7 @@
     <div class="job-offer-title-job-applications"><%= @job_applications.first.job_offer.title %></div>
     <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
     <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
-  <%= link_to "conversation", conversation_job_offer_job_application_path(@job_offer, @job_applications.first) %>
+    <%= link_to "conversation", conversation_job_offer_job_application_path(@job_offer, @job_applications.first, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
   <div class="bottom-second-navbar">
   </div>
 </div>
