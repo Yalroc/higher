@@ -23,6 +23,9 @@ class JobApplicationsController < ApplicationController
       @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
       @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
       @languages = @job_application.languages
+      # if current_recruiter
+      #   @job_application.reviewed = true    // waiting for 'reviewed' to be created
+      # end
     else
       redirect_to :back
     end

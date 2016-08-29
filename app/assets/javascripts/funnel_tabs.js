@@ -12,6 +12,8 @@ $(document).ready(function() {
     var id = $(this).data('target')
     $('.tab-content').hide();
     $(id).show();
+    $('.tabs').find(".circle").removeClass("active-funnel-steps");
+    $(this).find(".circle").addClass("active-funnel-steps");
   })
 
 
@@ -26,3 +28,10 @@ function getJsonFromUrl() {
   });
   return result;
 }
+
+
+
+ // $(".tab").on("click", function(e){
+ //    // Change active tab
+ //    $(".tab").removeClass("active");
+ //    $(this).addClass("active");
