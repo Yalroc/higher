@@ -8,7 +8,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = policy_scope(JobApplication)
-    @job_applications = set_job_offer.job_applications
+    @job_applicationss = set_job_offer.job_applications.where(rejected: true)
   end
 
   def new
@@ -61,7 +61,11 @@ class JobApplicationsController < ApplicationController
     job_application_ids = params[:job_application_ids].gsub(/^,/, '').split(",")
 
     job_applications = @job_offer.job_applications.where(id: job_application_ids)
-    job_applications.destroy_all # FIXME: DO NOT DESTROY
+    job_applications.each do |job_application|
+      job = job_application
+      job.rejected = true
+      job.save
+    end
 
     respond_to do |format|
       format.html { redirect_to job_offer_job_applications_path }
