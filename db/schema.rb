@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160829092552) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +101,15 @@ ActiveRecord::Schema.define(version: 20160829092552) do
     t.index ["job_application_id"], name: "index_languages_on_job_application_id", using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "job_application_id"
+    t.string   "author_role"
+    t.text     "content"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["job_application_id"], name: "index_messages_on_job_application_id", using: :btree
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.integer  "size"
@@ -134,5 +145,6 @@ ActiveRecord::Schema.define(version: 20160829092552) do
   add_foreign_key "educations", "job_applications"
   add_foreign_key "experiences", "job_applications"
   add_foreign_key "languages", "job_applications"
+  add_foreign_key "messages", "job_applications"
   add_foreign_key "recruiters", "organizations"
 end

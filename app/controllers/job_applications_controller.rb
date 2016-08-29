@@ -1,9 +1,12 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job_offer, only: [:index, :edit, :update]
-  before_action :set_job_application, only: [:update, :submit, :edit]
+
+  before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :batch_deletion]
+  before_action :set_job_application, only: [:update, :submit, :edit, :conversation]
+
 
   skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new]
-  skip_before_action :authenticate_candidate!, only: [:index]
+  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion]
+  skip_after_action :verify_authorized, only: [:batch_deletion]
 
   def index
     @job_applications = policy_scope(JobApplication)
@@ -54,6 +57,31 @@ class JobApplicationsController < ApplicationController
     @job_application.submit = true
     @job_application.save
   end
+
+<<<<<<< HEAD
+  #rajouter conversation dans les before_action
+   def conversation
+    authorize @job_application #pundit
+    @messages = @job_application.messages #on veut les messages de la job_application dans un conversation
+    @new_message = Message.new #pour l'utiliser dans sa view index
+   end
+=======
+  def destroy
+    authorize @job_application
+    @job_application.delete
+  end
+
+  def batch_deletion
+    job_application_ids = params[:job_application_ids].gsub(/^,/, '').split(",")
+
+    job_applications = @job_offer.job_applications.where(id: job_application_ids)
+    job_applications.destroy_all # FIXME: DO NOT DESTROY
+
+    respond_to do |format|
+      format.html { redirect_to job_offer_job_applications_path }
+    end
+  end
+>>>>>>> master
 
   private
 

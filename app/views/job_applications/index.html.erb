@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ee<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 
 <!-- Second navbar -->
@@ -7,9 +7,11 @@
     <%= image_tag "LOreal_black_vector.png" %>
     </div>
     <div class="job-offer-title-job-applications"><%= @job_offer.title %></div>
-    <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
-    <button class="mdl-button mdl-js-button mdl-button--raised send-but">Send</button>
-
+    <%= form_tag batch_deletion_job_offer_job_applications_path, method: :delete do %>
+      <%= hidden_field_tag :job_application_ids %>
+      <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
+      <%= link_to "conversation", conversation_job_offer_job_application_path(@job_offer, @job_applications.first, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
+    <% end %>
   <div class="bottom-second-navbar">
   </div>
 </div>
@@ -59,6 +61,7 @@
         <tbody>
           <% @job_applications.each_with_index do |job_application, y| %>
             <tr>
+<<<<<<< HEAD
               <td><%= y + 1 %></td>
                 <!-- iterate over experiences -->
                 <% if job_application.experiences.first %>
@@ -108,14 +111,20 @@
 <% content_for :after_js do %>
   <script>
   window.onload = function(){
-    $(".delete-but").click(function() {
-      $('.is-selected').remove();
-      <% @job_applications %>
-   });
+    $('.wrapper-table-job-offer .mdl-checkbox__input').click(function(){
+      var row = $(this).parents('tr');
+      var id = $(row).find('.job-application-id').data('id');
+      var checked_for_deletion = $(this).prop('checked');
+
+      if (checked_for_deletion) {
+        var hidden_field = $("#job_application_ids");
+        var new_value = $(hidden_field).val() + "," + id;
+        $(hidden_field).val(new_value);
+      }
+    });
   }
   </script>
 <% end %>
-
 
 
 
