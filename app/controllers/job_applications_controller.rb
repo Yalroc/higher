@@ -1,12 +1,15 @@
 class JobApplicationsController < ApplicationController
 
   before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :batch_deletion]
-  before_action :set_job_application, only: [:update, :submit, :edit, :conversation]
+  before_action :set_job_application, only: [:update, :submit, :edit, :conversation, :show]
+  before_action :authenticate_recruiter_and_candidate, only: [:show]
 
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation, :show]
+  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation, :show]
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation]
-  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation]
   skip_after_action :verify_authorized, only: [:batch_deletion]
+
+
 
   def index
     @job_applications = policy_scope(JobApplication)
@@ -15,6 +18,13 @@ class JobApplicationsController < ApplicationController
 
   def show
     authorize(@job_application)
+    if current_candidate == @job_application.candidate || current_recruiter.organization == @job_application.job_offer.recruiter.organization
+      @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
+      @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
+      @languages = @job_application.languages
+    else
+      redirect_to :back
+    end
   end
 
   def new
@@ -82,6 +92,10 @@ class JobApplicationsController < ApplicationController
   end
 
   private
+
+  def authenticate_recruiter_and_candidate
+    :authenticate_recruiter! || :authenticate_candidate!
+  end
 
   def pundit_user
     current_candidate

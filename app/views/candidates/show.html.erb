@@ -28,8 +28,11 @@
       <div class="text-center">
         <div class="col-xs-4 col-xs-offset-4">
 
-        <h3 id="padding-title">You candidate for</h3>
-            <% @candidate.job_applications.each do |job_application| %>
+
+      <h3 id="padding-title">You candidate for</h3>
+          <% @candidate.job_applications.each do |job_application| %>
+          <%= link_to "job application", job_offer_job_application_path(job_application.job_offer, job_application) %>
+
 
                 <button type="button" id="button-candidate" class="btn-show-application" data-toggle="modal" data-target="#ShowInfoJobApp_<%= job_application.id %>"><i class="glyphicon glyphicon-flash"></i><%= " " + job_application.job_offer.title + " " %><i class="glyphicon glyphicon-flash"></i></button>
 
