@@ -34,10 +34,12 @@
 
 /* Text on visitor navbar */
 
-.hr-content {
+.navbar-content-visitor {
+  position: absolute;
+  padding-top: 10px;
+  margin-left: 22.5%;
   color: white;
   font-weight: lighter;
-  padding-top: 10px;
 }
 
 /* Optional class to fix the navbar on top */

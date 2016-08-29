@@ -7,17 +7,19 @@
     <%= image_tag "name-logo-small.png" %>
   <%end %>
 
-    <!-- info -->
-    <div class="text-center hr-content">
-      <p>HR solution of the future</p>
-    </div>
+  <div class="navbar-content-visitor">
+    <p>The superior way to hire</p>
+  </div>
 
-    <!-- Jobs links & about -->
-    <div class="navbar-wagon-item job-content">
-      <%= link_to "Jobs", job_offers_path, class: "navbar-higher-link" %>
-    </div>
-    <%= link_to "connect as recruiter", job_offers_path, class: "btn btn-primary" %>
-    <%= link_to "connect as candidate", new_candidate_session_path, class: "btn btn-primary" %>
+  <!-- Jobs links & about -->
+  <div>
+    <%= link_to "connect as recruiter", job_offers_path, class: "btn btn-primary", id: "btn-recruiter" %>
+    <%= link_to "connect as candidate", new_candidate_session_path, class: "btn btn-primary", id: "btn-candidate" %>
+  </div>
+
+
 
 </div> <!-- end of navbar -->
+
+
 
