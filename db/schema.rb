@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829083010) do
+ActiveRecord::Schema.define(version: 20160829091624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 20160829083010) do
     t.string   "phone_number"
     t.index ["email"], name: "index_candidates_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "candidate_id"
-    t.integer  "job_offer_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["candidate_id"], name: "index_conversations_on_candidate_id", using: :btree
-    t.index ["job_offer_id"], name: "index_conversations_on_job_offer_id", using: :btree
   end
 
   create_table "educations", force: :cascade do |t|
@@ -104,6 +95,15 @@ ActiveRecord::Schema.define(version: 20160829083010) do
     t.index ["job_application_id"], name: "index_languages_on_job_application_id", using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "job_application_id"
+    t.string   "author_role"
+    t.text     "content"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["job_application_id"], name: "index_messages_on_job_application_id", using: :btree
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.integer  "size"
@@ -132,10 +132,9 @@ ActiveRecord::Schema.define(version: 20160829083010) do
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "conversations", "candidates"
-  add_foreign_key "conversations", "job_offers"
   add_foreign_key "educations", "job_applications"
   add_foreign_key "experiences", "job_applications"
   add_foreign_key "languages", "job_applications"
+  add_foreign_key "messages", "job_applications"
   add_foreign_key "recruiters", "organizations"
 end
