@@ -69,47 +69,14 @@
               <td>5y +</td>
               <td><% job_application.experiences.each do |experience| %>
                   <%= experience.organization %>
-            <%= link_to job_offer_job_application_path(@job_offer, job_application) do %>
-              <tr>
-                <td><%= y + 1 %></td>
-                  <!-- iterate over experiences -->
-                  <% if job_application.experiences.first %>
-                    <td class="mdl-data-table__cell--non-numeric"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></td>
-                    <td class="mdl-data-table__cell--non-numeric"><%= link_to "86.7%", job_offer_job_application_path(@job_offer, job_application) %></td>
-                    <td>5y +</td>
-                    <td><% job_application.experiences.each do |experience| %>
-                        <%= experience.organization %>
-                        <% end %>
-                    </td>
-                  <% else %>
-                    <td class="mdl-data-table__cell--non-numeric"> - </td>
-                    <td class="mdl-data-table__cell--non-numeric">86.7%</td>
-                    <td>0</td>
-                    <td> - </td>
-                  <% end %>
-                  <!-- iterate over educations -->
-                  <% if job_application.educations.first %>
-                    <td><%= job_application.educations.first.organization %></td>
-                  <% else %>
-                    <td> - </td>
                   <% end %>
               </td>
+              <td><%= job_application.educations.first.organization %></td>
+              <td><% job_application.languages.each do |language|%>
+                <%= language.name %>
+                <% end %>
+              </td>
               <td><%= job_application.created_at.strftime("%A") %></td>
-            </tr>
-            <% end %>
-           <% end %>
-                  <!-- iterate over languages -->
-                  <% if job_application.languages %>
-                    <td><% job_application.languages.each do |language| %>
-                    <%= language.name %>
-                    <% end %>
-                  <% else %>
-                    <td> - </td>
-                  <% end %>
-
-                </td>
-                <td><%= job_application.created_at.strftime("%A") %></td>
-              </tr>
             <% end %>
           <% end %>
         </tbody>
