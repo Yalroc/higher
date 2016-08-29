@@ -1,7 +1,7 @@
 .wrapper-table-job-offer {
   padding: 10px;
   margin-left: 200px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .job-offer-title-job-applications {
@@ -11,10 +11,15 @@
 
 .second-navbar-job-applications {
   position: fixed;
-  position: relative;
   width: 100%;
   height: 50px;
   background: white;
+  border-bottom: 3px solid $blue-lighter;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  position: fixed;
+  width: 100%;
+  top: 45px;
+  z-index: 10;
 }
 
 .navbar-higher-brand-recruiter2 {
@@ -34,8 +39,11 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background: #34495e;
+  background: $blue-lighter;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.3);
   width: 100%;
+  z-index: 5;
+
 }
 
 .menu-job-applications {
@@ -70,9 +78,15 @@
 }
 
 #padding-button {
-  margin-left: 62px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  width: 120px;
+  height: 32px;
+  padding-right: 45px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+  border-radius: 1px;
+  z-index: 0;
+  background-color: $blue;
 }
 
 .table-th-job-applications {
@@ -209,7 +223,9 @@
   top: -29px;
 }
 
-
+.width-95-percent {
+  width: 95%;
+}
 
 
 
