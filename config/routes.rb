@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :job_applications, only: [:index, :show, :edit, :update, :new] do
 
       get 'submit', on: :member
+      get 'conversations', on: :collection
       get 'conversation', on: :member
         resources :messages, only: [:create]
 

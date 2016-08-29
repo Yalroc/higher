@@ -1,0 +1,10 @@
+<ul>
+<% @conversations.each do |conversation| %>
+  <li>
+    <%= link_to conversation_job_offer_job_application_path(@job_offer, conversation) do %>
+      Conversation with <%= conversation.candidate.email %>
+      Number of messages : <%= conversation.messages.count %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
