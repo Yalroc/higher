@@ -1,4 +1,4 @@
-class Candidates::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def linkedin
     type = request.env['omniauth.params']['type']
     # si type == candidate on recupere la classe <Candidate>
