@@ -4,8 +4,9 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:update, :submit, :edit, :conversation, :show]
   before_action :authenticate_recruiter_and_candidate, only: [:show]
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :show]
-  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :show]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation, :show]
+  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation, :show]
+
   skip_after_action :verify_authorized, only: [:batch_deletion]
 
 
