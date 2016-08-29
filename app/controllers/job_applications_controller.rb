@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job_offer, only: [:index, :edit, :update]
-  before_action :set_job_application, only: [:update, :submit, :edit]
+  before_action :set_job_offer, only: [:index, :edit, :update, :conversation]
+  before_action :set_job_application, only: [:update, :submit, :edit, :conversation]
 
   skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new]
   skip_before_action :authenticate_candidate!, only: [:index]
@@ -50,6 +50,13 @@ class JobApplicationsController < ApplicationController
     @job_application.submit = true
     @job_application.save
   end
+
+  #rajouter conversation dans les before_action
+   def conversation
+    authorize @job_application #pundit
+    @messages = @job_application.messages #on veut les messages de la job_application dans un conversation
+    @new_message = Message.new #pour l'utiliser dans sa view index
+   end
 
   private
 

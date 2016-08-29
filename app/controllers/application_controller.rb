@@ -13,6 +13,10 @@
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def current_user
+    current_user = current_candidate || current_recruiter #pour messaging system
+  end
+
   def user_not_authorized
     flash[:alert] = "It seems you are not authorized to perform this action...Sorry!"
     redirect_to(root_path)
