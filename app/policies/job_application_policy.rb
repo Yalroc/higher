@@ -22,4 +22,7 @@ class JobApplicationPolicy < ApplicationPolicy
     record.candidate == user
   end
 
+  def conversation?
+    true
+  end
 end

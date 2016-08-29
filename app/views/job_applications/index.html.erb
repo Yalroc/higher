@@ -10,6 +10,7 @@
     <%= form_tag batch_deletion_job_offer_job_applications_path, method: :delete do %>
       <%= hidden_field_tag :job_application_ids %>
       <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
+      <%= link_to "conversation", conversation_job_offer_job_application_path(@job_offer, @job_applications.first, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
     <% end %>
   <div class="bottom-second-navbar">
   </div>
