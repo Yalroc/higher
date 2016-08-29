@@ -10,6 +10,10 @@ class JobApplicationsController < ApplicationController
     @job_applications = set_job_offer.job_applications
   end
 
+  def show
+    authorize(@job_application)
+  end
+
   def new
     @job_offer = JobOffer.find(params[:job_offer_id])
     if JobApplication.where(candidate: current_candidate, job_offer: @job_offer).first
