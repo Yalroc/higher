@@ -1,20 +1,20 @@
 class JobApplicationsController < ApplicationController
 
-  before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :conversations, :batch_deletion]
+  before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :job_applications, :batch_deletion]
   before_action :set_job_application, only: [:update, :submit, :edit, :conversation, :show]
   before_action :authenticate_recruiter_and_candidate, only: [:show]
-  after_action :verify_policy_scoped, only: [:index, :conversations], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: [:index, :job_applications], unless: :skip_pundit?
 
-  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation, :conversations, :show]
-  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation, :conversations, :show]
+  skip_before_action :authenticate_recruiter!, only: [:edit, :update, :submit, :new, :conversation, :job_applications, :show]
+  skip_before_action :authenticate_candidate!, only: [:index, :destroy, :batch_deletion, :conversation, :job_applications, :show]
 
-  skip_after_action :verify_authorized, only: [:batch_deletion, :conversations]
+  skip_after_action :verify_authorized, only: [:batch_deletion, :job_applications]
 
 
 
   def index
     @job_applications = policy_scope(JobApplication)
-    @job_applicationss = set_job_offer.job_applications.where(rejected: true)
+    @job_applications = set_job_offer.job_applications.where(rejected: true)
   end
 
   def show
@@ -72,9 +72,9 @@ class JobApplicationsController < ApplicationController
     @job_application.save
   end
 
-  #rajouter conversation  et conversations dans les before_action, skip et after_action
+  #rajouter conversation  et job_applications dans les before_action, skip et after_action
    def conversations
-    @conversations = policy_scope(JobApplication) #afficher toutes mes job_applications
+    @job_applications = policy_scope(JobApplication) #afficher toutes mes job_applications
   end
 
   def conversation #afficher une conversation + en créé une
