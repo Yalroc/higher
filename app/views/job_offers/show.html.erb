@@ -47,7 +47,8 @@
           <% if recruiter_signed_in? %>
             <%= link_to "Edit offer", edit_job_offer_path(@job_offer), class: "btn btn-primary" %> <!-- replace with modal soon -->
           <% else %>
-            <%= link_to "Apply now", new_job_offer_job_application_path(@job_offer), class: "btn btn-primary" %>
+            <% JobApplication.where(job_offer: @job_offer, candidate: current_candidate).first ? call_to_action = "Finish application" : call_to_action = "Apply now" %>
+            <%= link_to call_to_action, new_job_offer_job_application_path(@job_offer), class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>

@@ -2,27 +2,23 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <form action="/search" class="navbar-higher-search" id="search">
-          <input type="text" class="navbar-higher-search-input" value="What is the position you are looking for ?">
-          <button type="submit" class="navbar-higher-search-btn">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-      </div>
-    </div>
 
-    <div class="btn-inscription">
-      <div class="row">
-        <% unless candidate_signed_in? || recruiter_signed_in? %>
-          <div class="col-xs-12 col-md-6">
-            <%= link_to "connect as recruiter", job_offers_path, class: "btn-recruiter" %>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <%= link_to "connect as candidate", new_candidate_session_path, class: "btn-candidate" %>
-          </div>
-        <% end %>
+        <div class="banner-core">
+
+          <!-- banner title -->
+          <h1 class="banner-title">Find a Job. No Excuses.</h1>
+
+          <!-- search bar -->
+          <form action="/search" class="navbar-higher-search" id="search">
+            <input type="text" class="navbar-higher-search-input" value="What is the position you are looking for ?">
+            <button type="submit" class="navbar-higher-search-btn">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+
       </div>
     </div>
-  </div>
-</div>
+  </div>  <!-- end of bootstrap -->
+</div> <!-- end of banner -->
 
