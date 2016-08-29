@@ -61,6 +61,14 @@
         </thead>
         <tbody>
           <% @job_applications.each_with_index do |job_application, y| %>
+            <% unless job_application.rejected == true %>
+            <tr>
+              <td><span class="job-application-id" data-id="<%= job_application.id %>"><%= y + 1 %></span></td>
+              <td class="mdl-data-table__cell--non-numeric"><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></td>
+              <td class="mdl-data-table__cell--non-numeric">86.7%</td>
+              <td>5y +</td>
+              <td><% job_application.experiences.each do |experience| %>
+                  <%= experience.organization %>
             <%= link_to job_offer_job_application_path(@job_offer, job_application) do %>
               <tr>
                 <td><%= y + 1 %></td>
@@ -85,6 +93,11 @@
                   <% else %>
                     <td> - </td>
                   <% end %>
+              </td>
+              <td><%= job_application.created_at.strftime("%A") %></td>
+            </tr>
+            <% end %>
+           <% end %>
                   <!-- iterate over languages -->
                   <% if job_application.languages %>
                     <td><% job_application.languages.each do |language| %>
