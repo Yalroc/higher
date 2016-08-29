@@ -13,6 +13,10 @@ class JobApplicationsController < ApplicationController
     @job_applications = set_job_offer.job_applications
   end
 
+  def show
+    authorize(@job_application)
+  end
+
   def new
     @job_offer = JobOffer.find(params[:job_offer_id])
     if JobApplication.where(candidate: current_candidate, job_offer: @job_offer).first
@@ -54,7 +58,6 @@ class JobApplicationsController < ApplicationController
     @job_application.save
   end
 
-
   #rajouter conversation dans les before_action
    def conversation
     authorize @job_application #pundit
@@ -77,7 +80,6 @@ class JobApplicationsController < ApplicationController
       format.html { redirect_to job_offer_job_applications_path }
     end
   end
-
 
   private
 
