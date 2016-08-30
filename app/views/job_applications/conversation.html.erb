@@ -3,16 +3,16 @@
 
     <div class="clearfix">
       <div class="people-list" id="people-list">
-        <div class="search">
-          <input type="text" placeholder="search" class="search-list" />
-            <!-- <i class="fa fa-search"></i> -->
-        </div>
         <div class="retour">
         <% if @user = current_recruiter %>
             <%= link_to "retour", job_offer_job_applications_path(@job_application.job_offer), class:"btn btn-danger" %>
          <% else %>
             <%= link_to "retour", root_path, class:"btn btn-danger" %>
         <% end %>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="search" class="search-list" />
+            <!-- <i class="fa fa-search"></i> -->
         </div>
 
         <% if @user = current_recruiter %>
@@ -55,25 +55,24 @@
           <div class="chat-history">
             <% @job_application.messages.each do |message| %>
               <% if @user = current_recruiter %>
-                <div class="recruiter-messages text-right">
+                <div class="text-right">
                   <p><%= message.content %></p>
                 </div>
-                  <p><%= message.content %></p>
+                  <!-- <p><%= message.content %></p> -->
               <% else %>
                 <div class="candidate-messages text-left">
-                 <p><%= message.content %></p>
+                 <p><%#= message.content %></p>
                 </div>
-                 <p><%= message.content %></p>
+                 <!-- <p><%= message.content %></p> -->
               <% end %>
             <% end %>
-          <div class="chat-message">
-            <%= simple_form_for [@job_application, @new_message] do |f| %>
-              <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
-              <%= f.button :submit, class:"button-send" %>
-            <% end %>
-          </div>
         </div>
-
+        <div class="chat-message">
+          <%= simple_form_for [@job_application, @new_message] do |f| %>
+            <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
+            <%= f.button :submit, class:"button-send" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
