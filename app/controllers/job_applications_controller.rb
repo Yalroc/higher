@@ -14,18 +14,20 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = policy_scope(JobApplication)
-    @job_applications = set_job_offer.job_applications.where(rejected: true)
+    @job_applications = set_job_offer.job_applications.where(rejected: nil)
   end
 
   def show
     authorize(@job_application)
+    if current_recruiter
+      @job_application.viewed = true
+      @job_application.save
+    end
+
     if current_candidate == @job_application.candidate || current_recruiter.organization == @job_application.job_offer.recruiter.organization
       @experiences_sorted = @job_application.experiences.sort { |a,b| b.end_date <=> a.end_date }
       @educations_sorted = @job_application.educations.sort { |a,b| b.end_date <=> a.end_date }
       @languages = @job_application.languages
-      # if current_recruiter
-      #   @job_application.reviewed = true    // waiting for 'reviewed' to be created
-      # end
     else
       redirect_to :back
     end
