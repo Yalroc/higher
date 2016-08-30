@@ -1,24 +1,65 @@
 <div class="wrapper-message">
-  <div class="container">
+<div class="messages">
+  <div class="clearfix">
+    <div class="people-list" id="people-list">
+      <div class="search">
+        <input type="text" placeholder="search" class="search-list" />
+          <!-- <i class="fa fa-search"></i> -->
+      </div>
+      <div class="people">
+        <ul>
+        <% @job_applications.each do |conversation| %>
+          <li>
+            <%= link_to conversation_job_offer_job_application_path(@job_offer, conversation) do %>
+              <%= conversation.candidate.email %>
+              <%= conversation.messages.count %>
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="chat">
+      <div class="chat-about">
+        <div class="chat-with">Chat with <%#= @conversations.candidate.email %></div>
+        <div class="chat-num-messages">already <%#= @conversations.messages.count %> messages</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <% @messages.each do |message| %>
           <p><%= message.content %></p>
         <% end %>
       </div>
-    </div>
+    </div> -->
 
 
-<!-- regarder les roots de l'action create de message, il nous faut les id de job_offer et job_application dans l'ordre, et @new_message (action messages#create)-->
-    <div class="row">
+ <!-- regarder les roots de l'action create de message, il nous faut les id de job_offer et job_application dans l'ordre, et @new_message (action messages#create) -->
+     <!-- <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <%= simple_form_for [@job_offer, @job_application, @new_message] do |f| %>
           <%= f.input :content %>
           <%= f.button :submit %>
         <% end %>
-      </div>
+     </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
