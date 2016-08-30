@@ -94,6 +94,7 @@
 }
 
 .table-applications-wrapper {
+  width: 90%;
 }
 
 .table-applications-header {
@@ -227,13 +228,24 @@
   width: 95%;
 }
 
+.link-candidate {
+  color: #376092
+}
 
+.color-icons {
+  color: gray;
+  font-weight: 14px;
+  position: absolute;
+  right: 0;
+}
 
+.font-size-table {
+font-size: 12px
+}
 
-
-
-
-
+.link-row {
+  position: relative;
+}
 
 
 
