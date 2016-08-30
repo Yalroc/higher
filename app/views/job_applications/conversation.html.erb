@@ -14,39 +14,66 @@
             <%= link_to "retour", root_path, class:"btn btn-danger" %>
         <% end %>
         </div>
-        <div class="people">
-          <ul class="list-inline">
-          <% @job_applications.each do |conversation| %>
-            <li class="liste-email">
-              <%= link_to conversation_job_application_path(conversation) do %>
-              <div class="candidate-informations">
-                <p><%= conversation.candidate.email %> - <span id="status"><%= conversation.messages.count %> messages</span></p>
-              </div>
-              <% end %>
-            </li>
-          <% end %>
-          </ul>
-        </div>
+
+        <% if @user = current_recruiter %>
+          <div class="people">
+            <ul class="list-inline">
+            <% @job_applications.each do |conversation| %>
+              <li class="liste-email">
+                <%= link_to conversation_job_application_path(conversation) do %>
+                <div class="candidate-informations">
+                  <p><%= conversation.candidate.email %> - <span id="status"><%= conversation.messages.count %> messages</span></p>
+                </div>
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <% else %>
+          <div class="people">
+            <ul class="list-inline">
+            <% @job_applications.each do |job_application| %>
+              <li class="liste-email">
+                <%= link_to conversation_job_application_path(job_application) do %>
+                <div class="candidate-informations">
+                  <p><%= job_application.job_offer.recruiter.email %> - <span id="status"><%= job_application.messages.count %> messages</span></p>
+                </div>
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
 
-      <div class="chat">
-        <div class="chat-about">
-          <div class="chat-with">Chat with <%#= @job_applications.candidate.email %></div>
-          <div class="chat-num-messages">already <%#= @job_applications.messages.count %> messages</div>
+
+        <div class="chat">
+          <!-- <div class="chat-about">
+            <div class="chat-with">Chat with <%#= @job_applications.candidate.email %></div>
+            <div class="chat-num-messages">already <%#= @job_applications.messages.count %> messages</div>
+          </div> -->
+          <div class="chat-history">
+            <% @job_application.messages.each do |message| %>
+              <% if @user = current_recruiter %>
+                <div class="recruiter-messages text-right">
+                  <p><%= message.content %></p>
+                </div>
+                  <p><%= message.content %></p>
+              <% else %>
+                <div class="candidate-messages text-left">
+                 <p><%= message.content %></p>
+                </div>
+                 <p><%= message.content %></p>
+              <% end %>
+            <% end %>
+          <div class="chat-message">
+            <%= simple_form_for [@job_application, @new_message] do |f| %>
+              <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
+              <%= f.button :submit, class:"button-send" %>
+            <% end %>
+          </div>
         </div>
-        <div class="chat-history">
-          <% @job_application.messages.each do |message| %>
-            <div class="recruiter-messages">
-              <p class="text-right"><%= message.content %></p>
-            </div>
-          <% end %>
-        </div>
-        <div class="chat-message">
-          <%= simple_form_for [@job_application, @new_message] do |f| %>
-            <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
-            <%= f.button :submit, class:"button-send" %>
-          <% end %>
-        </div>
+
       </div>
     </div>
   </div>
