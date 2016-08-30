@@ -3,7 +3,7 @@
  }
 .clearfix {
   margin: 0 auto;
-  width: 950px;
+  width: 100%;
   background: #444753;
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,0.7);
@@ -17,15 +17,15 @@
     padding: 20px;
   }
 
-  // input {
-  //   border-radius: 3px;
-  //   border: none;
-  //   padding: 14px;
-  //   color: white;
-  //   background: #6A6C75;
-  //   width: 90%;
-  //   font-size: 14px;
-  // }
+.search-list {
+  border-radius: 3px;
+  border: none;
+  padding: 14px;
+  color: white;
+  background: #6A6C75;
+  width: 90%;
+  font-size: 14px;
+}
 .candidate-informations {
   color: white;
 }
@@ -33,16 +33,16 @@
  color:grey;
  font-size: 15px;
 }
-#list-inline {
+.list-inline {
   padding: 20px;
   height: 500px;
 }
 
-#liste-email {
+.liste-email {
   padding-bottom: 20px;
 }
 .chat {
-  width: 600px;
+  width: 790px;
   float:right;
   background: #F2F5F8;
   border-top-right-radius: 5px;
@@ -86,11 +86,11 @@
   font-weight: bold;
   background: #F2F5F8;
 }
-.align-left {
-  text-align: right;
-}
+// .align-left {
+//   text-align: right;
+// }
 .recruiter-messages {
-  background-color: #86bb71;
+  background-color: #4189c6;
   color: white;
   border-radius: 3px;
   padding: 18px 20px;
@@ -98,6 +98,18 @@
   font-size: 16px;
   border-radius: 7px;
   margin-bottom: 30px;
-  width: 90%;
+  width: 30%;
+  position: relative;
+}
+.candidate-messages {
+  background-color: #FF0000;
+  color: white;
+  border-radius: 3px;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  width: 30%;
   position: relative;
 }
