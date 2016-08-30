@@ -26,9 +26,6 @@ Rails.application.routes.draw do
     resources :job_applications, only: [:index, :show, :edit, :update, :new] do
 
       get 'submit', on: :member
-      get 'conversations', on: :collection
-      get 'conversation', on: :member
-        resources :messages, only: [:create]
 
       collection do
         delete :batch_deletion
@@ -39,6 +36,11 @@ Rails.application.routes.draw do
       end
 
     end
+  end
+
+  resources :job_applications, only: [] do
+      get 'conversation', on: :member
+      resources :messages, only: [:create]
   end
 
   # EXPERIENCES ROUTES

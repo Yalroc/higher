@@ -7,11 +7,14 @@
           <input type="text" placeholder="search" class="search-list" />
             <!-- <i class="fa fa-search"></i> -->
         </div>
+        <div class="retour">
+            <%= link_to "retour", job_offer_job_applications_path(@job_application.job_offer), class:"btn btn-danger" %>
+        </div>
         <div class="people">
           <ul class="list-inline">
           <% @job_applications.each do |conversation| %>
             <li class="liste-email">
-              <%= link_to conversation_job_offer_job_application_path(@job_offer, conversation) do %>
+              <%= link_to conversation_job_application_path(conversation) do %>
               <div class="candidate-informations">
                 <p><%= conversation.candidate.email %> - <span id="status"><%= conversation.messages.count %> messages</span></p>
               </div>
@@ -35,7 +38,7 @@
           <% end %>
         </div>
         <div class="chat-message">
-          <%= simple_form_for [@job_offer, @job_application, @new_message] do |f| %>
+          <%= simple_form_for [@job_application, @new_message] do |f| %>
             <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
             <%= f.button :submit, class:"button-send" %>
           <% end %>
