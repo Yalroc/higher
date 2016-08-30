@@ -44,5 +44,20 @@
   }
 }
 
+// On the devise forms
 
+.higher-logo-margin {
+  margin-top: 50px;
+}
 
+.form-control {
+  border-radius: 5px;
+}
+
+.links-form a {
+  color: $black;
+  opacity: 0.8;
+  &:hover {
+  opacity: 1;
+  }
+}

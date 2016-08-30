@@ -75,6 +75,7 @@
   border-left-width: 0;
   border-right-width: 0;
   border-color: $gray-light;
+  margin-top: 10%;
 }
 
 #padding-button {
@@ -94,6 +95,7 @@
 }
 
 .table-applications-wrapper {
+  width: 90%;
 }
 
 .table-applications-header {
@@ -227,13 +229,42 @@
   width: 95%;
 }
 
+.link-candidate {
+  color: #376092
+}
 
+.color-icon-mail {
+  color: gray;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  top: 15%
+}
 
+.color-icon-phone {
+  color: gray;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  bottom: 15%;
+}
 
+.font-size-table {
+font-size: 13px
+}
 
+.link-row {
+  position: relative;
+}
 
+.font-weight-experiences-under-name {
+  line-height: 10px;
+  font-size: 11px;
+}
 
-
+#tooltip {
+  background: $gray;
+}
 
 
 

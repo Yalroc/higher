@@ -38,3 +38,31 @@
     }
   }
 }
+
+//  simple form button
+
+.btn-form {
+  border-radius: 5px;
+  padding: 8px 14px;
+  width: 100%;
+  border: 2px solid $black;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  transition: .3s;
+  color: white;
+  background: $black;
+  border: 2px solid $black;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  margin-bottom: 20px;
+  &:hover {
+    cursor: pointer;
+    color: $black;
+    background: white;
+    border: 2px solid $black;
+  }
+}
+
+

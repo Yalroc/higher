@@ -20,9 +20,10 @@
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored text-center" id="padding-button">Filters</button>
     <div class="menu-header-text">
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
-      <p>Contacted (0)</p>
-      <p>New (0)</p>
-      <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
+      <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
+      <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
+
+      <%= link_to "Messages", conversation_job_offer_job_application_path(@job_offer, @job_applications.first), class: "" %>
     </div>
   </div>
   <div class="menu-profils">
@@ -57,16 +58,43 @@
             <th>Date</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="font-size-table">
           <% @job_applications.each_with_index do |job_application, y| %>
             <% unless job_application.rejected == true %>
             <tr>
               <td><span class="job-application-id" data-id="<%= job_application.id %>"><%= y + 1 %></span></td>
-                <% if job_application.experiences.first == nil %>
-                  <td class="text-center">-</td>
+              <!-- Triple condition : 1. Was the profil viewed ? 2.Was the profil contacted ? 3. Has the profil an experience ?-->
+                <% if job_application.viewed? != true  %>
+                  <% if job_application.experiences.first == nil %>
+                    <td class="text-center">-</td>
+                  <% else %>
+                    <% if job_application.contact == true %>
+                      <td class="mdl-data-table__cell--non-numeric link-row"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><strong><%= job_application.candidate.first_name %> <%= job_application.candidate.last_name %></strong><% end %><i class="fa fa-phone color-icon-phone" id="tool-number" aria-hidden="true"></i><i class="fa fa-envelope-o color-icon-mail" aria-hidden="true"></i><div class="font-weight-experiences-under-name link-candidate"><i><%= job_application.experiences.first.title %></i> @ <%= job_application.experiences.first.organization %></div></td>
+                    <% else %>
+                      <td class="mdl-data-table__cell--non-numeric link-row"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><strong><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></strong><% end %></td>
+                    <% end %>
+                  <% end %>
                 <% else %>
-                  <td class="mdl-data-table__cell--non-numeric"><%= link_to job_offer_job_application_path(@job_offer, job_application) do %><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %><% end %></td>
+                  <% if job_application.experiences.first == nil %>
+                    <% if job_application.contact == true %>
+                      <td class="text-center">-<i class="fa fa-envelope-o color-icons" aria-hidden="true"></i></td>
+                    <% else %>
+                      <td class="text-center">-</td>
+                    <% end %>
+                  <% else %>
+                   <% if job_application.contact == true %>
+                      <td class="mdl-data-table__cell--non-numeric"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><%= job_application.candidate.first_name %> <%= job_application.candidate.last_name %><% end %><i class="fa fa-phone color-icon-phone" id="tool-number" aria-hidden="true"></i><i class="fa fa-envelope-o color-icon-mail" aria-hidden="true"></i><div class="font-weight-experiences-under-name link-candidate"><i><%= job_application.experiences.first.title %></i> @ <%= job_application.experiences.first.organization %></div></td>
+
+                    <!-- Modal phone number -->
+                      <div class="mdl-tooltip mdl-tooltip--large" id="tooltip" for="tool-number"><%= job_application.candidate.phone_number %></div>
+                    <!-- -->
+                   <% else %>
+                      <td class="mdl-data-table__cell--non-numeric"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %><% end %></td>
+                  <% end %>
                 <% end %>
+              <% end %>
+
+
               <td class="mdl-data-table__cell--non-numeric">86.7%</td>
               <td>5y +</td>
 
@@ -100,8 +128,21 @@
                     </td>
 
                 <!-- Date -->
-              <td><%= job_application.created_at.strftime("%A") %></td>
-
+                <td>
+                  <% date = ((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i %>
+                  <% if I18n.l(JobApplication.first.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
+                    <% date = "Today"%>
+                  <% else %>
+                    <% if date <= 1 %>
+                      <% date = "1 day ago" %>
+                    <% else %>
+                    <% date = "#{((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i} day ago" %>
+                    <% end %>
+                  <% end %>
+                  <%= date %>
+                  <div>(<%= job_application.created_at.strftime('%x') %>)</div>
+                </td>
+              </tr>
             <% end %>
           <% end %>
         </tbody>
@@ -127,6 +168,7 @@
         var hidden_field = $("#job_application_ids");
         var new_value = $(hidden_field).val() + "," + id;
         $(hidden_field).val(new_value);
+
       }
     });
   }

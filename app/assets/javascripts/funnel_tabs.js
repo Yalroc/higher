@@ -11,7 +11,15 @@ $(document).ready(function() {
   tab = ( params["tab"] || "resume" );
   $('#' + tab).show(); // show tab we want to see
 
-  $('.tabs').find(".circle").find(".circle-numbers:contains('2')").parent().addClass("active-funnel-steps"); // show circle of resume
+
+  // something like this =>
+  var circle = 2
+    if (tab == 'cover-letter') {
+     circle = 3
+    }
+
+  // insert var instead of 2 below
+  $('.tabs').find(".circle").find(".circle-numbers:contains(" + circle + ")").parent().addClass("active-funnel-steps"); // show circle of resume
 
 
   $('.tabs').on('click', function() {
