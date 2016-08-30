@@ -68,7 +68,7 @@
                     <td class="text-center">-</td>
                   <% else %>
                     <% if job_application.contact == true %>
-                      <td class="mdl-data-table__cell--non-numeric link-row"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><strong><%= job_application.candidate.first_name %> <%= job_application.candidate.last_name %></strong><% end %><i class="fa fa-envelope-o color-icons" aria-hidden="true"></i></td>
+                      <td class="mdl-data-table__cell--non-numeric link-row"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><strong><%= job_application.candidate.first_name %> <%= job_application.candidate.last_name %></strong><% end %><i class="fa fa-phone color-icon-phone" id="tool-number" aria-hidden="true"></i><i class="fa fa-envelope-o color-icon-mail" aria-hidden="true"></i><div class="font-weight-experiences-under-name link-candidate"><i><%= job_application.experiences.first.title %></i> @ <%= job_application.experiences.first.organization %></div></td>
                     <% else %>
                       <td class="mdl-data-table__cell--non-numeric link-row"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><strong><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %></strong><% end %></td>
                     <% end %>
@@ -82,7 +82,11 @@
                     <% end %>
                   <% else %>
                    <% if job_application.contact == true %>
-                      <td class="mdl-data-table__cell--non-numeric"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><%= job_application.candidate.first_name %> <%= job_application.candidate.last_name %><% end %><i class="fa fa-envelope-o color-icons" aria-hidden="true"></i></td>
+                      <td class="mdl-data-table__cell--non-numeric"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><%= job_application.candidate.first_name %> <%= job_application.candidate.last_name %><% end %><i class="fa fa-phone color-icon-phone" id="tool-number" aria-hidden="true"></i><i class="fa fa-envelope-o color-icon-mail" aria-hidden="true"></i><div class="font-weight-experiences-under-name link-candidate"><i><%= job_application.experiences.first.title %></i> @ <%= job_application.experiences.first.organization %></div></td>
+
+                    <!-- Modal phone number -->
+                      <div class="mdl-tooltip mdl-tooltip--large" for="tool-number"><%= job_application.candidate.phone_number %></div>
+                    <!-- -->
                    <% else %>
                       <td class="mdl-data-table__cell--non-numeric"><%= link_to job_offer_job_application_path(@job_offer, job_application), class:"link-candidate" do %><%= job_application.experiences.first.title %> @ <%= job_application.experiences.first.organization %><% end %></td>
                   <% end %>
