@@ -8,7 +8,11 @@
             <!-- <i class="fa fa-search"></i> -->
         </div>
         <div class="retour">
+        <% if @user = current_recruiter %>
             <%= link_to "retour", job_offer_job_applications_path(@job_application.job_offer), class:"btn btn-danger" %>
+         <% else %>
+            <%= link_to "retour", root_path, class:"btn btn-danger" %>
+        <% end %>
         </div>
         <div class="people">
           <ul class="list-inline">
