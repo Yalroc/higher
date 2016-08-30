@@ -10,7 +10,7 @@
         <div class="people">
           <ul class="list-inline">
           <% @job_applications.each do |conversation| %>
-            <li>
+            <li class="liste-email">
               <%= link_to conversation_job_offer_job_application_path(@job_offer, conversation) do %>
               <div class="candidate-informations">
                 <p><%= conversation.candidate.email %> - <span id="status"><%= conversation.messages.count %> messages</span></p>

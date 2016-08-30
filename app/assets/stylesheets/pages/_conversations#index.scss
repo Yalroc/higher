@@ -17,15 +17,15 @@
     padding: 20px;
   }
 
-  input {
-    border-radius: 3px;
-    border: none;
-    padding: 14px;
-    color: white;
-    background: #6A6C75;
-    width: 90%;
-    font-size: 14px;
-  }
+  // input {
+  //   border-radius: 3px;
+  //   border: none;
+  //   padding: 14px;
+  //   color: white;
+  //   background: #6A6C75;
+  //   width: 90%;
+  //   font-size: 14px;
+  // }
 .candidate-informations {
   color: white;
 }
@@ -33,12 +33,12 @@
  color:grey;
  font-size: 15px;
 }
-ul {
+#list-inline {
   padding: 20px;
   height: 500px;
 }
 
-li {
+#liste-email {
   padding-bottom: 20px;
 }
 .chat {
