@@ -22,7 +22,7 @@
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>Contacted (0)</p>
       <p>New (0)</p>
-      <%= link_to "Messages", conversations_job_offer_job_applications_path(@job_offer, class: "mdl-button mdl-js-button mdl-button--raised delete-but") %>
+      <%= link_to "Messages", conversations_job_offer_job_applications_path(@job_offer), class: "" %>
     </div>
   </div>
   <div class="menu-profils">
