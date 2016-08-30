@@ -75,6 +75,7 @@
   border-left-width: 0;
   border-right-width: 0;
   border-color: $gray-light;
+  margin-top: 10%;
 }
 
 #padding-button {
@@ -259,6 +260,10 @@ font-size: 13px
 .font-weight-experiences-under-name {
   line-height: 10px;
   font-size: 11px;
+}
+
+#tooltip {
+  background: $gray;
 }
 
 
