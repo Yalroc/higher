@@ -129,10 +129,14 @@
                 <!-- Date -->
                 <td>
                   <% date = ((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i %>
-                  <% if date <= 1 %>
-                  <% date = "Today"%>
+                  <% if I18n.l(JobApplication.first.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
+                    <% date = "Today"%>
                   <% else %>
-                  <% date = "#{((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i} ago" %>
+                    <% if date <= 1 %>
+                      <% date = "1 day ago" %>
+                    <% else %>
+                    <% date = "#{((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i} day ago" %>
+                    <% end %>
                   <% end %>
                   <%= date %>
                   <div>(<%= job_application.created_at.strftime('%x') %>)</div>
