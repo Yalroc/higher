@@ -11,6 +11,8 @@ class MessagesController < ApplicationController
     @message.author_role = @user.class.to_s #car current_ doit être une string
     authorize @message #pundit
       if @message.save
+        @job_application.contact = true
+        @job_application.save
         redirect_to conversation_job_offer_job_application_path(@job_offer, @job_application, @new_message)
       else
         redirect_to conversation_job_offer_job_application_path(@job_offer, @job_application, @new_message)
