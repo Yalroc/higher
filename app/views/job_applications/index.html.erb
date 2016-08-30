@@ -23,7 +23,7 @@
       <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
 
-      <%= link_to "Messages", conversation_job_offer_job_application_path(@job_offer, @job_applications.first), class: "" %>
+      <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
     </div>
   </div>
   <div class="menu-profils">
