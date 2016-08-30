@@ -3,10 +3,16 @@ $(document).ready(function() {
   // switch tabs #job, #resume, & #cover-letter
   var params = getJsonFromUrl();
 
+  // empty everything
   $('.tab-content').hide();
+  $('.tabs').find(".circle").removeClass("active-funnel-steps");
 
+  // find which tab we are on
   tab = ( params["tab"] || "resume" );
-  $('#' + tab).show();
+  $('#' + tab).show(); // show tab we want to see
+
+  $('.tabs').find(".circle").find(".circle-numbers:contains('2')").parent().addClass("active-funnel-steps"); // show circle of resume
+
 
   $('.tabs').on('click', function() {
     var id = $(this).data('target')
