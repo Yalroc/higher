@@ -5,3 +5,20 @@
   padding: 10px 30px;
   box-shadow: 1px 1px 4px #888888;
 }
+
+
+.or-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px auto;
+}
+.or-line {
+  flex: 1 1 auto;
+  height: 1px;
+  background: $gray;
+}
+.or-text {
+  padding: 10px;
+  font-size: 20px;
+}
