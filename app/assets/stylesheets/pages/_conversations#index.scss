@@ -3,7 +3,7 @@
  }
 .clearfix {
   margin: 0 auto;
-  width: 750px;
+  width: 950px;
   background: #444753;
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,0.7);
@@ -17,29 +17,36 @@
     padding: 20px;
   }
 
-  input {
-    border-radius: 3px;
-    border: none;
-    padding: 14px;
-    color: white;
-    background: #6A6C75;
-    width: 90%;
-    font-size: 14px;
-  }
-
-ul {
+  // input {
+  //   border-radius: 3px;
+  //   border: none;
+  //   padding: 14px;
+  //   color: white;
+  //   background: #6A6C75;
+  //   width: 90%;
+  //   font-size: 14px;
+  // }
+.candidate-informations {
+  color: white;
+}
+#status {
+ color:grey;
+ font-size: 15px;
+}
+#list-inline {
   padding: 20px;
-  height: 770px;
+  height: 500px;
 }
 
-li {
+#liste-email {
   padding-bottom: 20px;
 }
 .chat {
-  width: 490px;
+  width: 600px;
   float:right;
   background: #F2F5F8;
   border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #434651;
 }
@@ -57,10 +64,40 @@ li {
 .chat-num-messages {
   color: $gray;
 }
-
-
-
-
-
-
-
+.chat-history {
+  height: 500px;
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+}
+.chat-message {
+  padding: 30px;
+}
+.placeholder-message {
+  border: none;
+}
+.button-send {
+  float: right;
+  color: $blue;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #F2F5F8;
+}
+.align-left {
+  text-align: right;
+}
+.recruiter-messages {
+  background-color: #86bb71;
+  color: white;
+  border-radius: 3px;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  width: 90%;
+  position: relative;
+}

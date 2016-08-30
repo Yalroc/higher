@@ -28,14 +28,14 @@
           <div class="chat-num-messages">already <%#= @job_applications.messages.count %> messages</div>
         </div>
         <div class="chat-history">
-          <% @job_application.messages.each do |message| %>
+          <% @job_applications.first.messages.each do |message| %>
             <div class="recruiter-messages">
               <p class="text-right"><%= message.content %></p>
             </div>
           <% end %>
         </div>
         <div class="chat-message">
-          <%= simple_form_for [@job_offer, @job_application, @new_message] do |f| %>
+          <%= simple_form_for [@job_offer, @job_applications.first, @new_message] do |f| %>
             <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
             <%= f.button :submit, class:"button-send" %>
           <% end %>

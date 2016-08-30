@@ -1,7 +1,7 @@
 class JobApplicationsController < ApplicationController
 
-  before_action :set_job_offer, only: [:index, :edit, :update, :conversation, :conversations, :job_applications, :batch_deletion]
-  before_action :set_job_application, only: [:update, :submit, :edit, :conversation, :conversations, :show]
+  before_action :set_job_offer, only: [:index, :show, :edit, :update, :conversation, :conversations, :job_applications, :batch_deletion]
+  before_action :set_job_application, only: [:update, :submit, :edit, :show, :conversation]
   before_action :authenticate_recruiter_and_candidate, only: [:show]
   after_action :verify_policy_scoped, only: [:index, :job_applications], unless: :skip_pundit?
 
@@ -74,12 +74,17 @@ class JobApplicationsController < ApplicationController
     @job_application.save
   end
 
+  # def conversations
+  #   @job_applications = policy_scope(JobApplication) #afficher toutes mes job_applications
+  #   authorize @job_applications # pundit
+  #   @new_message = Message.new
+  # end
   #rajouter conversation  et job_applications dans les before_action, skip et after_action
   def conversation #afficher une conversation + en créé une
-    @job_applications = JobApplication.all #on affiche toutes les conversations
     authorize @job_application # pundit
-    @messages = @job_application.messages #on veut tous les messages de la job_application dans une conversation
-    @new_message = Message.new             #pour l'utiliser dans sa view conversation
+      @job_applications = JobApplication.all
+      @messages = @job_application.messages #on veut tous les messages de la job_application dans une conversation
+      @new_message = Message.new
   end
 
   def destroy
