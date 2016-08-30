@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       if @message.save
         @job_application.contact = true
         @job_application.save
-        redirect_to conversation_job_offer_job_application_path(@job_offer, @job_application, @new_message)
+        redirect_to conversation_job_application_path(@job_application)
       else
         redirect_to conversation_job_application_path(@job_application)
       end
