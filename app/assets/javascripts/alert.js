@@ -1,5 +1,5 @@
 $(function(){
   setTimeout(function(){
-    $(".alert").fadeOut();
-  }, 1000)
+    $(".alert").slideUp();
+  }, 5000)
 })
