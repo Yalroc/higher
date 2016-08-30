@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
       collection do
         delete :batch_deletion
-    end
+      end
 
       member do
         get 'submit'
