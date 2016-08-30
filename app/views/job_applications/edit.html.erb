@@ -298,9 +298,9 @@
           <p class="small-text"><%= simple_format @job_application.motivation_letter %></p>
         </div>
         <!-- footer de modal -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
-          <%= button_to "Submit Application", submit_job_offer_job_application_path(@job_offer, @job_application), method: :get, class: "btn btn-primary" %>
+        <div class="modal-footer view-as-modal-footer">
+          <button type="button" class="btn btn-default btn-submit-application" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
+          <%= button_to "Submit Application", submit_job_offer_job_application_path(@job_offer, @job_application), class: "btn btn-primary btn-return-to-funnel" %>
         </div>
 
       </div> <!-- fin div englobbante du cv  -->
