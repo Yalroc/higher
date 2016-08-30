@@ -14,7 +14,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = policy_scope(JobApplication)
-    @job_applications = set_job_offer.job_applications.where(rejected: nil)
+    @job_applications = set_job_offer.job_applications.where(rejected: nil, submit: true)
   end
 
   def show

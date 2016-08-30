@@ -44,7 +44,8 @@ jo_jd = JobOffer.create!({
 ja_jd = JobApplication.create!({
   candidate: Candidate.first,
   job_offer: JobOffer.first,
-  motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition."
+  motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition.",
+  submit: true,
   })
 
 lae_jd = Language.create!({
@@ -93,6 +94,7 @@ Candidate.create!({
 ja_jdddd = JobApplication.create!({
   candidate: Candidate.second,
   job_offer: JobOffer.first,
+  submit: true,
   motivation_letter: "Dear Sir or Madam, I am very interested by your proposition. I have worked for more than ten years in the IT field, so I think I have enough experience to get this position."
   })
 
@@ -149,6 +151,7 @@ Candidate.create!({
 ja_jdddd = JobApplication.create!({
   candidate: Candidate.third,
   job_offer: JobOffer.first,
+  submit: true,
   motivation_letter: "Hi, I had an experience at Amazon in Marketing, but now I want to be more focused on tech products."
   })
 
@@ -201,6 +204,7 @@ Candidate.create!({
 ja_jdddd = JobApplication.create!({
   candidate: Candidate.fourth,
   job_offer: JobOffer.first,
+  submit: true,
   motivation_letter: "I need a more challenging position."
   })
 
@@ -256,6 +260,7 @@ Candidate.create!({
 ja_jdddd = JobApplication.create!({
   candidate: Candidate.fifth,
   job_offer: JobOffer.first,
+  submit: true,
   motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
   })
 
