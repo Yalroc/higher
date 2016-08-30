@@ -20,8 +20,9 @@
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored text-center" id="padding-button">Filters</button>
     <div class="menu-header-text">
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
-      <p>Contacted (0)</p>
-      <p>New (0)</p>
+      <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
+      <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
+
       <%= link_to "Messages", conversation_job_offer_job_application_path(@job_offer, @job_applications.first), class: "" %>
     </div>
   </div>
