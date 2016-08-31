@@ -70,7 +70,18 @@ Experience.create!({
   job_application: JobApplication.first,
   title: "Account director",
   start_date: "1-6-1994",
-  end_date: "1-6-2015",
+  end_date: "1-8-2015",
+  description: "I managed a team of 10 account managers.",
+  company_size: 100000,
+  industry: "Computer Software"
+  })
+
+Experience.create!({
+  organization: "Microsoft",
+  job_application: JobApplication.first,
+  title: "Account director",
+  start_date: "1-2-1980",
+  end_date: "1-11-1990",
   description: "I managed a team of 10 account managers.",
   company_size: 100000,
   industry: "Computer Software"
@@ -82,7 +93,7 @@ ed_qsdqjd_1 = Education.create!({
   start_date: "1-6-1992",
   degree_type: "Master",
   degree_field: "Grande Ecole",
-  end_date: "1-6-1995",
+  end_date: "1-8-1995",
   description: "I graduated from this business school which belongs to the top 10 in Europe.",
   })
 
