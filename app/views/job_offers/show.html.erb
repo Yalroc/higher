@@ -7,37 +7,17 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="cv-wrapper"> <!-- div englobbante  -->
-          <% if  %>
-            <p><%= simple_format @job_offer.description %></p>
-          <% else %>
-
-            <h4>WHAT CAN YOU EXPECT AS A DIGITAL MARKETING INTERN AT L'ORÉAL</h4>
-            <ul>
-              <li>You will work in close collaboration with the product manager on the digital strategy of the brand</li>
-              <li>You are in charge of the future creation, development and daily follow-up of our digital tools to reinforce the brand image and engage with our customer</li>
-              <li>You will help with the organization and realization of tools to create interactivity with our clients, e.g. online contests</li>
-              <li>You will participate in creating tools who help us to communicate with the hairdresser and who help the hairdressers to communicate with their clients</li>
-              <li>You will work on small marketing projects</li>
+          <h4 class="text-center"><%= @job_offer.title + " @ " + @job_offer.recruiter.organization.name %></h4>
+          <br>
+          <div class="job-offer-icons-div">
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li><a href=""><i class="fa fa-globe"></i> <%= @job_offer.location %></a></li>
+              <li><a href=""><i class="fa fa-wpforms"></i> <%= @job_offer.min_xp.to_i.to_s + "y - " + @job_offer.max_xp.to_i.to_s + "y" %></a></li>
+              <li><a href=""><i class="fa fa-money"></i> <%= @job_offer.salary.to_s + "K€" %></a></li>
             </ul>
-            <h4>ARE YOU THE ONE WE ARE LOOKING FOR ?</h4>
-            <ul>
-              <li>You have a master degree (preferably economics or similar degree)</li>
-              <li>You are at least bilingual: Dutch and/or French + English</li>
-              <li>You are curious and take initiatives</li>
-              <li>You are creative and communicative</li>
-              <li>You are problem solving, well organized and have an analytical mindset</li>
-            </ul>
-            <h4>WHAT'S IN IT FOR YOU ?</h4>
-            <ul>
-              <li>A remunerated internship of 6 months which will integrate you within an international company and work setting</li>
-              <li>A great challenge and competitive advantage on the job market</li>
-              <li>The possibility to orientate professionally</li>
-            </ul>
-            <p>Do you want to kick off your career ?</p>
-            <p>Join us !</p>
-
-          <% end %>
-
+          </div>
+          <br>
+          <p><%= simple_format @job_offer.description %></p>
         </div> <!-- fin div englobbante  -->
       </div>
     </div>

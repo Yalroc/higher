@@ -1,0 +1,29 @@
+<!-- NAVBAR FOR VISITORS -->
+<div class="navbar-higher"></div> <!-- spacer to compensate the 'fixed navbar offset' -->
+<div class="navbar-higher navbar-higher-fixed blue-bottom-border">
+
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-higher-brand" do %>
+    <%= image_tag "name-logo-small.png" %>
+  <%end %>
+
+  <!-- Search form -->
+  <form action="" class="navbar-higher-search">
+    <input type="text" class="navbar-higher-search-input">
+    <button type="submit" class="navbar-higher-search-btn">
+      <i class="fa fa-search"></i>
+    </button>
+  </form>
+
+  <!-- Jobs links & about -->
+  <div>
+    <%= link_to "connect as recruiter", job_offers_path, class: "btn btn-primary", id: "btn-recruiter" %>
+    <%= link_to "connect as candidate", new_candidate_session_path, class: "btn btn-primary", id: "btn-candidate" %>
+  </div>
+
+
+
+</div> <!-- end of navbar -->
+
+
+

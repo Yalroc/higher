@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830091424) do
+ActiveRecord::Schema.define(version: 20160831002016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,10 @@ ActiveRecord::Schema.define(version: 20160830091424) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "title"
+    t.string   "location"
+    t.decimal  "min_xp"
+    t.decimal  "max_xp"
+    t.integer  "salary"
     t.index ["recruiter_id"], name: "index_job_offers_on_recruiter_id", using: :btree
   end
 
@@ -116,6 +120,7 @@ ActiveRecord::Schema.define(version: 20160830091424) do
     t.string   "industry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "photo_url"
   end
 
   create_table "recruiters", force: :cascade do |t|
