@@ -60,20 +60,6 @@
   width: 100%;
 }
 
-// sub search navbar on jobs search results page
-.blue-sub-search-navbar {
-  height: 55px;
-  background: $blue-lighter;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: absolute;
-  top: 43px;
-  width: 100%;
-  z-index: 2;
-
-}
-
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
   display: flex;

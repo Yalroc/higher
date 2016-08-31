@@ -11,6 +11,10 @@
 <% elsif candidate_signed_in? %>
   <%= render "shared/navbar_components/navbar_candidates" %>
 
+<!-- NAVBAR FOR VISITORS (searching) -->
+<% elsif (params[:controller]) == "pages" && params[:action] == "search" %>
+  <%= render "shared/navbar_components/navbar_visitors_search" %>
+
 <!-- NAVBAR FOR VISITORS (log in & sign up) -->
 <% else %>
   <%= render "shared/navbar_components/navbar_visitors" %>

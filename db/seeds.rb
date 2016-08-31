@@ -19,6 +19,7 @@ Organization.create!({
   name: "Oracle",
   size: 74000,
   industry: "Information Technology and Services",
+  photo_url: "https://avatars0.githubusercontent.com/u/18237738?v=3&s=60",
   })
 
 re_jd = Recruiter.create!({
@@ -38,7 +39,11 @@ re_jd = Recruiter.create!({
 jo_jd = JobOffer.create!({
   recruiter: Recruiter.first,
   title: "Senior Account Manager - IT services - EMEA",
-  description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions."
+  description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions.",
+  location: "Paris",
+  min_xp: 3,
+  max_xp: 5,
+  salary: 50,
   })
 
 ja_jd = JobApplication.create!({

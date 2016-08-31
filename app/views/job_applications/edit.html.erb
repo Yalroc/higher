@@ -48,8 +48,8 @@
                               <%= field.input :end_date, discard_day: true, order: [:month, :year] %>
                               <%= field.input :present %>
                               <%= field.input :description %>
-                              <%= field.input :company_size %>
-                              <%= field.input :industry %>
+                              <%#=  field.input :company_size %>
+                              <%#= field.input :industry %>
                               <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
                               <%= field.button :submit %>
                             <% end %>
@@ -86,8 +86,8 @@
                       <%= field.input :end_date, discard_day: true, order: [:month, :year] %>
                       <%= field.input :present %>
                       <%= field.input :description %>
-                      <%= field.input :company_size %>
-                      <%= field.input :industry %>
+                      <%#= field.input :company_size %>
+                      <%#= field.input :industry %>
                       <%= field.input :job_application_id, as: :hidden, input_html: {value: @job_application.id} %>
                       <%= field.button :submit %>
                     <% end %>

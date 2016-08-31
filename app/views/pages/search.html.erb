@@ -1,23 +1,30 @@
+<div class="gray-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-xs-offset-0">
+        <div class="cv-wrapper"> <!-- div englobbante  -->
 
-<div class="blue-sub-search-navbar">
- <!-- try with simple form -->
-  <form action="/search" class="navbar-higher-search">
-    <input type="text" class="navbar-higher-search-input">
-    <button type="submit" class="navbar-higher-search-btn">
-      <i class="fa fa-search"></i>
-    </button>
-  </form>
-</div>
-<br>
-<br>
-<br>
-<h2>Search Results for <%= params[:query] %></h2>
-<ol>
-  <% @job_offers.each do |job_offer| %>
-    <li>
-      <%= link_to job_offer_path(job_offer) do %>
-        <%=  job_offer.recruiter.organization.name + " >> " + job_offer.title %>
-      <% end %>
-    </li>
-  <% end %>
-</ol>
+          <h2>Search Results for <%= params[:query] %></h2>
+
+          <!--job list -->
+          <% @job_offers.each do |job_offer| %>
+              <div class="product">
+                <!-- replace img with job_offer.organization.photo_url -->
+                <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
+                <div class='product-body'>
+                  <h3><%= job_offer.recruiter.organization.name %></h3>
+                  <p><%= link_to job_offer.title, job_offer_path(job_offer) %></p>
+                </div>
+                <ul class="list-inline product-controls hidden-sm hidden-xs">
+                  <li><a href=""><i class="fa fa-globe"></i> <%= job_offer.location %></a></li>
+                  <li><a href=""><i class="fa fa-wpforms"></i> <%= job_offer.min_xp.to_i.to_s + "y+" %></a></li>
+                  <li><a href=""><i class="fa fa-money"></i> <%= job_offer.salary.to_s + "K€" %></a></li>
+                </ul>
+              </div>
+          <% end %>
+
+        </div> <!-- fin div englobbante  -->
+      </div>
+    </div>
+  </div>
+</div> <!-- fin couleur de fond black -->
