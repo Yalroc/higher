@@ -59,7 +59,20 @@ Recruiter.create!({
 JobOffer.create!({
   recruiter: Recruiter.where(email: "j.nash@amazon.com").first,
   title: "Senior Financial Analyst - EMEA",
-  description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions.",
+  description: "Amazon seeks a Senior Financial Analyst to be a key member of its wholesale finance team. Amazon wholesale business serves as the procurement solution provider for businesses of all size and types by offering wide selection, consistently low prices and convenient shopping experience to businesses. This position will be a critical business partner and will own the P&L for one of our product categories. This includes, among other things, responsibility for financial metrics, reporting, forecasting and analysis.
+
+BASIC QUALIFICATIONS
+· Bachelor's degree in finance, accounting, business or related field
+· 3+ years post CA/ MBA from a reputed B-school with relevant finance experience
+· Advanced knowledge of Excel, and familiarity with databases.
+· Advanced analytical skills and an ability to work independently in a fast-paced, ambiguous and rapidly changing environment
+
+PREFERRED QUALIFICATIONS
+· A work ethic based on a strong desire to exceed expectations
+· Strong interpersonal skills emphasizing written and oral communication
+· Demonstrated ability to build and manage financial models for business forecasting, variance analysis, and problem solving
+· Advanced Excel and analysis skills
+· Experience with SQL is a strong plus",
   location: "Luxembourg",
   min_xp: 3,
   max_xp: 5,

@@ -28,12 +28,15 @@
     devise_controller? || params[:controller] =~ /^(active_)?admin/
   end
 
+  # def after_sign_in_path_for(resource)
+  #   case resource.class.name # .name == .to_s
+  #   when "Recruiter"
+  #     job_offers_path
+  #   when "Candidate"
+  #     || root_path
+  #   end
+  # end
   def after_sign_in_path_for(resource)
-    case resource.class.name # .name == .to_s
-    when "Recruiter"
-      job_offers_path
-    when "Candidate"
-      root_path
-    end
-  end
+     request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+   end
 end
