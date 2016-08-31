@@ -39,8 +39,8 @@ Rails.application.routes.draw do
   end
 
   resources :job_applications, only: [] do
-      get 'conversation', on: :member
-      resources :messages, only: [:create]
+    get 'conversation', on: :member
+    resources :messages, only: [:create]
   end
 
   # EXPERIENCES ROUTES
