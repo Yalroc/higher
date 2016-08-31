@@ -83,7 +83,7 @@ class JobApplicationsController < ApplicationController
   #rajouter conversation  et job_applications dans les before_action, skip et after_action
   def conversation #afficher une conversation + en créé une
     authorize @job_application # pundit
-      @job_applications = JobApplication.all
+      @job_applications = current_user.job_applications # on veut tous les messages du current_user
       @messages = @job_application.messages #on veut tous les messages de la job_application dans une conversation
       @new_message = Message.new
   end
