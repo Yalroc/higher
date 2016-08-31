@@ -25,9 +25,9 @@ Rails.application.routes.draw do
     # :edit => "As a candidate I can APPLY to a job offer" // QUESTION: how to make the 'new' page fit on two pages? ANSWSER: js
     resources :job_applications, only: [:index, :show, :edit, :update, :new] do
 
-      get 'submit', on: :member
+      post 'submit', on: :member
 
-      collection do
+      collection do #??????
         delete :batch_deletion
       end
 
