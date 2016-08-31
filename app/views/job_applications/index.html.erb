@@ -22,8 +22,12 @@
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
+      <% if false %>
+      <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
+      <% end %>
     </div>
   </div>
+  <% if current_recruiter.organization %>
   <div class="menu-profils">
       <% current_recruiter.organization.recruiters.each do |recruiter| %>
     <div class="mini-menu-profils">
@@ -33,8 +37,9 @@
       </div>
       <img src="http://26.media.tumblr.com/tumblr_lfwvh2sNGJ1qzkvmxo1_500.png" alt="Thierry Delas" class="avatar-large">
     </div>
-      <% end %>
+    <% end %>
   </div>
+  <% end %>
 </div>
 
 <!-- Table -->

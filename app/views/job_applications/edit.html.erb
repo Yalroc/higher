@@ -6,7 +6,6 @@
         <div class="cv-wrapper"> <!-- div englobbante  -->
           <% if  @job_offer %>
             <h4 class="text-center"><%= @job_offer.title + " @ " + @job_offer.recruiter.organization.name %></h4>
-            <br>
             <div class="job-offer-icons-div">
               <ul class="list-inline product-controls hidden-sm hidden-xs text-center">
                 <li><i class="fa fa-globe"></i> <%= @job_offer.location %></li>
@@ -23,6 +22,7 @@
     </div>
   </div>
 </div> <!-- fin couleur de fond black -->
+
 
 <!-- 2. RESUME -->
 <div class="gray-background tab-content" id="resume"> <!-- couleur de fond grise -->
@@ -233,7 +233,7 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="cv-wrapper"> <!-- div englobbante -->
           <%= simple_form_for([@job_offer, @job_application]) do |field| %>
-            <%= field.input :motivation_letter, input_html: { id: 'motivation_letter_field' } %>
+            <%= field.input :motivation_letter, input_html: { id: 'motivation_letter_field', placeholder: @sample_letter } %>
             <%= field.button :submit, "Save", class: "btn btn-primary" %>
           <% end %>
         </div> <!-- fin div englobbante  -->
