@@ -8,7 +8,7 @@
     <%= image_tag "LOreal_black_vector.png" %>
     </div>
     <div class="job-offer-title-job-applications"><%= @job_offer.title %></div>
-    <%= form_tag batch_deletion_job_offer_job_applications_path, method: :delete do %>
+    <%= form_tag batch_deletion_job_offer_job_applications_path, method: :delete, class:"form-pourri" do %>
       <%= hidden_field_tag :job_application_ids %>
       <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
     <% end %>
@@ -22,7 +22,6 @@
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
-
       <% if false %>
       <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
       <% end %>
@@ -32,13 +31,11 @@
   <div class="menu-profils">
       <% current_recruiter.organization.recruiters.each do |recruiter| %>
     <div class="mini-menu-profils">
-      <%= recruiter.title %><br>
-      <% if recruiter == current_recruiter %>
-        <i class="fa fa-circle green-point" aria-hidden="true"></i>
-      <% else %>
-        <i class="fa fa-circle red-point" aria-hidden="true"></i>
-      <% end %>
-        <i class="fa fa-comment-o text-center" aria-hidden="true"></i>
+      <div class="text-prof">
+        <span id="name-guy">Thierry Delas</span><br>
+        Senior Recruiter
+      </div>
+      <img src="http://26.media.tumblr.com/tumblr_lfwvh2sNGJ1qzkvmxo1_500.png" alt="Thierry Delas" class="avatar-large">
     </div>
     <% end %>
   </div>

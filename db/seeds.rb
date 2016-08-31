@@ -37,7 +37,7 @@ Organization.create!({
 Recruiter.create!({
   email: "t.delas@loreal.com",
   password: "123456",
-  title: "Thierry Delas @ Senior Recruiter - EMEA",
+  title: "Thierry Delas Senior Recruiter",
   organization: Organization.where(name: "L'Oréal").first,
   })
 

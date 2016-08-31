@@ -5,9 +5,9 @@
   skip_before_action :authenticate_recruiter!, only: [:show]
 
   def index
-    @job_offers = JobOffer.where(recruiter: current_recruiter).all
     @job_offer = JobOffer.new
     @job_offers = policy_scope(JobOffer)
+    @job_offers = JobOffer.where(recruiter: current_recruiter)
 
     if @job_offers.any?
       @organization = @job_offers.first.recruiter.organization
