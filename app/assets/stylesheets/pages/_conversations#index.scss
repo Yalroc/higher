@@ -4,32 +4,34 @@
 .clearfix {
   margin: 0 auto;
   width: 100%;
-  background: #444753;
+  background: white;
+  color: black;
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,0.7);
   display: flex;
 }
 .people-list {
-  width:260px;
   float: left;
-  color: white;
-  flex: 0 0 35%;
+  color: black;
+  height: 100vh;
+  flex: 0 0 30%;
+  padding: 20px;
 }
 .search {
-    padding: 20px;
-  }
+
+}
 
 .search-list {
   border-radius: 3px;
   border: none;
   padding: 14px;
   color: white;
-  background: #6A6C75;
-  width: 90%;
+  background: #ececec;
+  width: 100%;
   font-size: 14px;
 }
 .candidate-informations {
-  color: white;
+  color: #3a3a3a;
 }
 #status {
  color:grey;
@@ -45,12 +47,13 @@
 .chat {
   width: 790px;
   float:right;
-  background: #f4f5f9;
+  background: #f7f7f7;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0px;
   color: #434651;
-  flex: 0 0 65%;
+  flex: 0 0 70%;
+  border-left: 1px solid #e0e0e0;
 }
 .chat-about {
   float: left;
@@ -67,7 +70,7 @@
   color: $gray;
 }
 .chat-history {
-  height: 355px;
+  height: 70vh;
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
@@ -83,18 +86,18 @@
 }
 .button-send {
   float: right;
-  color: $blue;
   font-size: 16px;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
   font-weight: bold;
-  background: #F2F5F8;
+  background: black;
+  color: white;
 }
 
 .align-right {
   text-align: right;
-  background-color:#B4C1DD;
+  background-color: #13b990;
   color: white;
   border-radius: 3px;
   padding: 18px 20px;
@@ -121,16 +124,59 @@
   width: 30%;
   padding-top: 1px;
   padding-bottom: 1px;
+  border-bottom-left-radius: 0;
   // position: absolute;
 }
 
+.retour {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.backlink {
+  color: black;
+  opacity: 0.4;
+  text-decoration: underline;
+  &:hover {
+    color: black;
+    opacity: 1;
+  }
+}
+.conversation-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
 
+.card-candidate {
+  margin-bottom: 10px;
+  color: black;
+  width: 100%;
+  background: #f3f3f3;
+  padding: 5px;
+  color: black;
+  border-radius: 3px;
+  .job-title {
+    font-size: 12px;
+    color: grey;
+    span {
+      color: #333333;
+      font-weight: bold;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    background: #B5B5B5;
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
 
-
-
-
-
-
+.card-candidate.active {
+  background-color: green;
+}
 
 
 
