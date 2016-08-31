@@ -58,7 +58,8 @@
 }
 
 .mini-menu-profils {
-  margin-bottom: 20px;
+  margin-top: 6%;
+  margin-left: 10%;
 }
 
 .menu-header-text {
@@ -79,11 +80,8 @@
 }
 
 #padding-button {
-  width: 120px;
-  height: 32px;
-  padding-right: 45px;
-  margin-left: 20px;
-  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-bottom: 30px;
   margin-top: 10px;
   border-radius: 1px;
   z-index: 0;
@@ -270,7 +268,17 @@ font-size: 13px
   background: gray;
 }
 
+.text-prof {
+  margin-left: 25%;
+}
 
+#name-guy {
+  font-size: 16px;
+  font-weight: bold;
+}
 
-
+.form-pourri {
+  width: 0;
+  height: 0;
+}
 
