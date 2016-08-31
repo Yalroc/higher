@@ -23,9 +23,12 @@
       <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
 
+      <% if false %>
       <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
+      <% end %>
     </div>
   </div>
+  <% if current_recruiter.organization %>
   <div class="menu-profils">
       <% current_recruiter.organization.recruiters.each do |recruiter| %>
     <div class="mini-menu-profils">
@@ -37,8 +40,9 @@
       <% end %>
         <i class="fa fa-comment-o text-center" aria-hidden="true"></i>
     </div>
-      <% end %>
+    <% end %>
   </div>
+  <% end %>
 </div>
 
 <!-- Table -->

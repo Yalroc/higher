@@ -5,9 +5,9 @@
       <div class="people-list" id="people-list">
         <div class="retour">
         <% if @user = current_recruiter %>
-            <%= link_to "retour", job_offer_job_applications_path(@job_application.job_offer), class:"btn btn-danger" %>
+            <%= link_to "Retour", job_offer_job_applications_path(@job_application.job_offer), class:"backlink" %>
          <% else %>
-            <%= link_to "retour", root_path, class:"btn btn-danger" %>
+            <%= link_to "Retour", root_path, class:"backlink" %>
         <% end %>
         </div>
         <div class="search">
@@ -17,13 +17,21 @@
 
         <% if @user = current_recruiter %>
           <div class="people">
-            <ul class="list-inline">
+            <ul class="list-unstyled">
+            <h3 style="font-size: 20px">Your candidates</h3>
             <% @job_applications.each do |conversation| %>
               <li class="liste-email">
-                <%= link_to conversation_job_application_path(conversation) do %>
-                <div class="candidate-informations">
-                  <p><%= conversation.candidate.email %> - <span id="status"><%= conversation.messages.count %> messages</span></p>
-                </div>
+
+                <%= link_to conversation_job_application_path(conversation), class: "conversation-link" do %>
+                  <div class="card-candidate">
+                    <h4>
+                      <%= conversation.candidate.first_name %> <%= conversation.candidate.last_name %>
+                    </h4>
+                    <p class="job-title">
+                      <%= conversation.job_offer.title %> - <span>applied <%= time_ago_in_words(conversation.job_offer.created_at) %> ago</span>
+                    </p>
+
+                  </div>
                 <% end %>
               </li>
             <% end %>
@@ -61,8 +69,8 @@
         </div>
         <div class="chat-message">
           <%= simple_form_for [@job_application, @new_message] do |f| %>
-            <%= f.input :content, placeholder:"type your message", class:"placeholder-message" %>
-            <%= f.button :submit, class:"button-send" %>
+            <%= f.input :content, as: :string, placeholder:"type your message", class:"placeholder-message", label: false %>
+            <%= f.button :submit, class: "btn-send", style: "width: 200px;"%>
           <% end %>
         </div>
       </div>
