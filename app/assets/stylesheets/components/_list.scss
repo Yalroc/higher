@@ -53,16 +53,15 @@
 }
 
 /* Controls design */
-.product-controls {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 0px;
-}
-.product-controls a {
-  padding: 0 20px;
-  font-size: 17px;
-  color: $blue-lighter;
+.product-controls li {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+  color: #7F7F7F;
+  .fa {
+    color: $orange;
+  }
 }
 .product-controls a:hover {
   text-decoration: none;

@@ -4,7 +4,11 @@
       <div class="col-xs-12 col-xs-offset-0">
         <div class="cv-wrapper"> <!-- div englobbante  -->
 
-          <h2>Search Results for <%= params[:query] %></h2>
+          <% if params[:query] %>
+            <h2 class="search-header"><%= pluralize(@job_offers.count, "job offer")%> for <strong><%= params[:query] %></strong></h2>
+          <% else %>
+            <h2 class="search-header"><%= pluralize(@job_offers.count, "job offer") %></h2>
+          <% end %>
 
           <!--job list -->
           <% @job_offers.each do |job_offer| %>
@@ -22,9 +26,9 @@
                   <p><%= link_to job_offer.title, job_offer_path(job_offer) %></p>
                 </div>
                 <ul class="list-inline product-controls hidden-sm hidden-xs">
-                  <li><a href=""><i class="fa fa-globe"></i> <%= job_offer.location %></a></li>
-                  <li><a href=""><i class="fa fa-wpforms"></i> <%= job_offer.min_xp.to_i.to_s + "y+" %></a></li>
-                  <li><a href=""><i class="fa fa-money"></i> <%= job_offer.salary.to_s + "K€" %></a></li>
+                  <li><i class="fa fa-globe"></i> <%= job_offer.location %></li>
+                  <li><i class="fa fa-wpforms"></i> <%= job_offer.min_xp.to_i.to_s + "y+" %></li>
+                  <li><i class="fa fa-money"></i> <%= job_offer.salary.to_s + "K€" %></li>
                 </ul>
               </div>
           <% end %>
