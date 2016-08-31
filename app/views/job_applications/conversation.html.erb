@@ -54,17 +54,9 @@
           </div> -->
           <div class="chat-history">
             <% @job_application.messages.each do |message| %>
-              <% if @user = current_recruiter %>
-                <div class="text-right">
+                <div class="message <%= message.user == current_user ? "align-right" : "align-left" %>">
                   <p><%= message.content %></p>
                 </div>
-                  <!-- <p><%= message.content %></p> -->
-              <% else %>
-                <div class="candidate-messages text-left">
-                 <p><%#= message.content %></p>
-                </div>
-                 <!-- <p><%= message.content %></p> -->
-              <% end %>
             <% end %>
         </div>
         <div class="chat-message">

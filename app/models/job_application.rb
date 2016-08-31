@@ -7,4 +7,7 @@ class JobApplication < ApplicationRecord
   belongs_to :candidate
   belongs_to :job_offer
 
+  def recruiter
+    job_offer.recruiter
+  end
 end

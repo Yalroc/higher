@@ -7,11 +7,13 @@
   background: #444753;
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,0.7);
+  display: flex;
 }
 .people-list {
   width:260px;
   float: left;
   color: white;
+  flex: 0 0 35%;
 }
 .search {
     padding: 20px;
@@ -44,11 +46,12 @@
 .chat {
   width: 790px;
   float:right;
-  background: #F2F5F8;
+  background: #f4f5f9;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #434651;
+  flex: 0 0 65%;
 }
 .chat-about {
   float: left;
@@ -65,13 +68,16 @@
   color: $gray;
 }
 .chat-history {
-  height: 500px;
+  height: 355px;
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 .chat-message {
   padding: 30px;
+
 }
 .placeholder-message {
   border: none;
@@ -86,11 +92,10 @@
   font-weight: bold;
   background: #F2F5F8;
 }
-// .align-left {
-//   text-align: right;
-// }
-.recruiter-messages {
-  background-color: #4189c6;
+
+.align-right {
+  text-align: right;
+  background-color:#B4C1DD;
   color: white;
   border-radius: 3px;
   padding: 18px 20px;
@@ -99,11 +104,14 @@
   border-radius: 7px;
   margin-bottom: 30px;
   width: 30%;
-  position: relative;
-  float: right;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
 }
-.candidate-messages {
-  background-color: #FF0000;
+.align-left {
+  text-align: left;
+  background-color: #B4C1DD;
   color: white;
   border-radius: 3px;
   padding: 18px 20px;
@@ -112,5 +120,20 @@
   border-radius: 7px;
   margin-bottom: 30px;
   width: 30%;
-  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  // position: absolute;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
