@@ -19,7 +19,7 @@
 
   def user_not_authorized
     flash[:alert] = "It seems you are not authorized to perform this action...Sorry!"
-    redirect_to(root_path)
+    redirect_to :back
   end
 
   private
@@ -28,15 +28,12 @@
     devise_controller? || params[:controller] =~ /^(active_)?admin/
   end
 
-  # def after_sign_in_path_for(resource)
-  #   case resource.class.name # .name == .to_s
-  #   when "Recruiter"
-  #     job_offers_path
-  #   when "Candidate"
-  #     || root_path
-  #   end
-  # end
   def after_sign_in_path_for(resource)
-     request.env['omniauth.origin'] || stored_location_for(resource) || root_path
-   end
+    case resource.class.name
+    when "Recruiter"
+      request.env['omniauth.origin'] || stored_location_for(resource) || job_offers_path
+    when "Candidate"
+      request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+    end
+  end
 end
