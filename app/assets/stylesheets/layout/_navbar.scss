@@ -44,9 +44,9 @@
 /* Text on visitor navbar */
 
 .navbar-content-visitor {
-  position: absolute;
+  // position: absolute;
   padding-top: 10px;
-  margin-left: 22.5%;
+  // margin-left: 22.5%;
   color: white;
   font-weight: lighter;
 }
@@ -352,4 +352,7 @@
   position: absolute;
   top: 4px;
   right: 11px;
+}
+.dropdown-toggle {
+  color: white;
 }

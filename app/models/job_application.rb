@@ -10,4 +10,5 @@ class JobApplication < ApplicationRecord
   def recruiter
     job_offer.recruiter
   end
+  #permet de faire job_application.recruiter au lieu de job_application.job_offer.recruiter
 end
