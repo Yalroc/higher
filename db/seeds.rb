@@ -92,7 +92,24 @@ JobOffer.create!({
 JobOffer.create!({
   recruiter: Recruiter.where(email: "t.delas@loreal.com").first,
   title: "M&A Associate",
-  description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions.",
+  description: "When you choose L'Oreal as the place to build your career in M&A,<br> you can really add value. L'Oreals tax partners and professionals pride themselves on understanding our clients' business strategy and needs, providing a broad range of federal, state, local and international tax services to meet those needs. We are currently seeking a Senior Associate to join our Mergers & Acquisitions practice in our Paris, headquartes office.
+
+ Responsibilities:
+
+ - Advise<br> clients on a full spectrum of corporate tax services including planning, research, and other mergers and acquisitions activities
+ - Work as a part of a multi-disciplinary team that focuses on delivering due diligence and tax structuring services and communicates findings and opportunities to clients
+ - Assist clients with current issues which may include bankruptcy emergence planning, out of court workouts, debt restructurings, tax basis, Earning and Profits, and Section 382 studies
+ - Liaise with a target company's finance/accounting departments and tax advisors to gather pertinent facts for an analysis of the tax risks
+ - Develop, motivate, and train staff level team members
+
+ Qualifications:
+
+ - Two years of federal tax and/or mergers and acquisition experience in a public accounting firm, a corporate tax department, or a law firm
+ - Bachelor's degree, J.D., LL.M. in Taxation, and/or Master's in Taxation (MST) from an accredited college/university
+ - Knowledge of a broad range of corporate tax matters in various industries
+ - Ability to handle multiple engagements and client service teams
+ - Excellent research and writing skills
+ - L'Oreal offers a comprehensive compensation and benefits package.",
   location: "Paris",
   min_xp: 3,
   max_xp: 5,
