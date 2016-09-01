@@ -76,6 +76,8 @@ class JobApplicationsController < ApplicationController
   end
 
   def submit
+    # job offers to show when you submit
+    @job_offers = JobOffer.all
     authorize @job_application
     @job_application.submit = true
     @job_application.save
