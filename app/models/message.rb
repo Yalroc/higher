@@ -6,3 +6,4 @@ class Message < ApplicationRecord
     self.job_application.send(type)
   end
 end
+
