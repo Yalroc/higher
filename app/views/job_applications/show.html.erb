@@ -80,7 +80,11 @@
           <% if recruiter_signed_in? %>
             <%= link_to "Edit offer", root_path, class: "btn btn-primary" %>
             <!-- replace with modal soon -->
-            <%= link_to "Messages", conversation_job_application_path(@job_application), class: "btn btn-primary" %>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#First-Message-Modal">
+              Message
+              </button>
+
+            <%#= link_to "Messages", conversation_job_application_path(@job_application), class: "btn btn-primary" %>
           <% else %>
             <% JobApplication.where(job_offer: @job_offer, candidate: current_candidate).first ? call_to_action = "Finish application" : call_to_action = "Apply now" %>
             <%= link_to call_to_action, new_job_offer_job_application_path(@job_offer), class: "btn btn-primary" %>
@@ -91,3 +95,46 @@
   </div> <!-- apply now bar -->
 
 </div> <!-- fin couleur de fond black -->
+
+
+
+
+
+
+
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#First-Message-Modal">
+  Message
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="First-Message-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Write your first message</h4>
+      </div>
+      <div class="modal-body">
+        <div class="chat-message">
+          <%= simple_form_for [@job_application, @new_message] do |f| %>
+            <%= f.input :content, as: :string, placeholder:"type your message", class:"placeholder-message", label: false %>
+            <%= f.button :submit, class: "btn-send", style: "width: 200px;"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

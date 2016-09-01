@@ -33,6 +33,7 @@ class JobApplicationsController < ApplicationController
     else
       redirect_to :back
     end
+    @new_message = Message.new #first message modal
   end
 
   def new
