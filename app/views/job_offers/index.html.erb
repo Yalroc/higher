@@ -23,7 +23,20 @@
                     <span class="noun_job"><%= job_offer.title %></span>
                  <% end %>
                 </td>
-                <td class="column-2"><%= Date.today %></td>
+                <td class="column-2">
+                <% date = ((Time.now - job_offer.created_at) / (24 * 60 * 60)).to_i %>
+                  <% if I18n.l(job_offer.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
+                    <% date = "Today"%>
+                  <% else %>
+                    <% if date <= 1 %>
+                      <% date = "1 day ago" %>
+                    <% else %>
+                    <% date = "#{((Time.now - job_offer.created_at) / (24 * 60 * 60)).to_i} day ago" %>
+                    <% end %>
+                  <% end %>
+                  <%= date %>
+                  <div>(<%= job_offer.created_at.strftime('%x') %>)</div>
+                </td>
                 <td class="column-3"><%= job_offer.job_applications.where(submit: true, rejected: nil).count %></td>
                 <td class="column-4"><%= job_offer.job_applications.where(contact: true, rejected: nil).count %></td>
             <%end%>
