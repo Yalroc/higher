@@ -67,7 +67,7 @@
                       </div>
                     </div>
 
-                    <p class="display-inline"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s + " >> " %>
+                    <p class="display-inline"><span class="color-mid-gray"><%= experience.start_date.month.to_s + "/" + experience.start_date.year.to_s + " - " + experience.end_date.month.to_s + "/" + experience.end_date.year.to_s %></span><span id="chevron"> >></span>
                     <% if (((experience.end_date - experience.start_date)/30.5).to_i/12) != 0 %>
                       <%=  (((experience.end_date - experience.start_date)/30.5).to_i/12).to_s + " year(s) " %>
                     <% end %>
@@ -135,9 +135,7 @@
                   <div class="">
                     <h4 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h4>
 
-
-
-                    <p><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
+                    <p><span class="color-mid-gray"><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s %></span><span id="chevron"> >> </span><%= ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
                     <p><%= education.description %></p>
                     <a href="" data-toggle="modal" data-target="#EditEducationModal" id="links-modal-resume">Edit /</a>   <!-- button de modal: Edit Education -->
                     <%= link_to education_path(education), method: :delete do %>
@@ -212,7 +210,7 @@
             <div class="">
               <h3><i class="fa fa-globe" aria-hidden="true"></i> LANGUAGES</h3>
               <ul><% @languages.each do |language| %>
-                  <li><%= language.name + ' >> ' + language.proficiency %>
+                  <li><%= language.name %><span id="chevron"> >></span><%= language.proficiency %>
                   <a href="" data-toggle="modal" data-target="#EditLanguageModal">Edit /</a> <!-- button de modal: Edit Education -->
                   <div class="modal fade" id="EditLanguageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Edit Education -->
                     <div class="modal-dialog" role="document">
