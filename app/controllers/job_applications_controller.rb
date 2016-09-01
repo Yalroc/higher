@@ -69,7 +69,7 @@ class JobApplicationsController < ApplicationController
     authorize(@job_application)
 
     if @job_application.update(job_application_params)
-      redirect_to edit_job_offer_job_application_path(@job_offer, @job_application, tab: "cover-letter")
+      redirect_to edit_job_offer_job_application_path(@job_offer, @job_application, tab: "cover-letter", modal: true)
     else
       render :edit
     end

@@ -11,6 +11,9 @@ $(document).ready(function() {
   tab = ( params["tab"] || "resume" );
   $('#' + tab).show(); // show tab we want to see
 
+  if ( params["modal"] ) {
+    $("#ViewAsEmployerModal").modal("show");
+  }
 
   // something like this =>
   var circle = 2
