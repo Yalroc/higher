@@ -378,62 +378,6 @@ ed_jsd_1 = Education.create!({
   degree_field: "Finance",
   })
 
-##########
-
-Candidate.create!({
-  first_name: "Mohammed",
-  last_name: "Essaïd",
-  email: "moha@gmail.com",
-  password: "123456",
-  phone_number: "+33 9 31 94 88 66",
-  })
-
-ja_jdddd = JobApplication.create!({
-  candidate: Candidate.fifth,
-  job_offer: JobOffer.third,
-  submit: true,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
-  })
-
-la_jdddd = Language.create!({
-  job_application: JobApplication.fifth,
-  name: "French",
-  proficiency: "Native"
-  })
-
-la_ssjd = Language.create!({
-  job_application: JobApplication.fifth,
-  name: "English",
-  proficiency: "Fluent"
-  })
-
-la_sssjd = Language.create!({
-  job_application: JobApplication.fifth,
-  name: "Arabic",
-  proficiency: "Fluent"
-  })
-
-Experience.create!({
-  organization: "Capgemini",
-  job_application: JobApplication.fifth,
-  title: "Financial Controller",
-  start_date: "1-6-2002",
-  end_date: "1-6-2016",
-  description: "Exciting experience in a dynamic SSII.",
-  company_size: 100000,
-  industry: "Accounting"
-  })
-
-ed_jsd_1 = Education.create!({
-  organization: "TELECOM Paris Tech",
-  job_application: JobApplication.fifth,
-  start_date: "1-6-1996",
-  end_date: "1-6-2001",
-  description: "My specialization is about computer science.",
-  degree_type: "Master",
-  degree_field: "Computer Science",
-  })
-
 ####################
 
 Candidate.create!({
