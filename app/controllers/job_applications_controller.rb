@@ -56,6 +56,9 @@ class JobApplicationsController < ApplicationController
     @experience = Experience.new
     @education = Education.new
     @language = Language.new
+
+    #motivation letter placeholder
+    @sample_letter = return_sample_letter
   end
 
   def update
@@ -129,6 +132,22 @@ class JobApplicationsController < ApplicationController
   def set_job_application
     @job_application = JobApplication.find(params[:id])
   end
+
+  def return_sample_letter
+    "Dear Sir or Madam,
+
+I was excited to see your opening for a customer service rep, and I hope to be invited for an interview.My background includes serving as a customer service associate within both call-center and retail environments. Most recently, I worked on the customer service desk for Discount-Mart, where my responsibilities included handling customer merchandise returns, issuing refunds/store credits, flagging damaged merchandise for shipment back to vendors and providing back-up cashiering during busy periods.
+
+Previously, I worked within two high-volume customer-support call centers for a major telecommunications carrier and a satellite television services provider. In these positions, I demonstrated the ability to resolve a variety of issues and complaints (such as billing disputes, service interruptions or cutoffs, repair technician delays/no-shows and equipment malfunctions). I consistently met my call-volume goals, handling an average of 56 to 60 calls per day.
+
+In addition to this experience, I gained considerable customer service skills during my part-time employment as a waitress and restaurant hostess while in high school.
+
+I also bring to the table strong computer proficiencies in MS Word, MS Excel and CRM database applications and a year of college (business major). Please see the accompanying resume for details of my experience and education.
+
+Sincerely,"
+  end
+
+
 
 end
 

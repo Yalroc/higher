@@ -4,27 +4,28 @@
       <% if @job_offers.any? == true %>
         <table class="vw">
           <thead class="head-fixed text-center">
-            <tr class="flex">
-              <th class="column-1 text-center"><%= @organization.name %></th>
+            <div class="navbar-higher-brand-recruiter2">
+              <%= image_tag "LOreal_black_vector.png" %>
+            </div>
+            <tr class="flex height-45px">
+              <th class="column-1 text-center"></th>
               <th class="column-2 text-center">Offers</th>
               <th class="column-3 text-center">Candidates</th>
               <th class="column-4 text-center">Contacted</th>
-              <th class="column-5 text-center">Average fit</th>
             </tr>
           </thead>
           <tbody class="offers-body">
-            <% @job_offers.each do |offer| %>
+            <% @job_offers.each do |job_offer| %>
               <tr class= "border">
                 <td class="column-1">
-                  <%= link_to job_offer_job_applications_path(offer) do %>
+                  <%= link_to job_offer_job_applications_path(job_offer) do %>
                     <%= image_tag "noun_job.png", :width => '25' %>
-                    <span class="noun_job"><%= offer.title %></span>
+                    <span class="noun_job"><%= job_offer.title %></span>
                  <% end %>
                 </td>
                 <td class="column-2"><%= Date.today %></td>
-                <td class="column-3"><%= offer.job_applications.count %></td>
-                <td class="column-4">50</td>
-                <td class="column-5">75%</td>
+                <td class="column-3"><%= job_offer.job_applications.where(submit: true, rejected: nil).count %></td>
+                <td class="column-4"><%= job_offer.job_applications.where(contact: true, rejected: nil).count %></td>
             <%end%>
               </tr>
           </tbody>
@@ -53,7 +54,11 @@
       <div class="modal-body">
         <%= simple_form_for([ @job_offer ]) do |form| %>
           <%= form.input :title %>
-          <%= form.input :description %>
+          <%= form.input :description, input_html: { id: 'job_offer_description_field' } %>
+          <%= form.input :location %>
+          <%= form.input :min_xp %>
+          <%= form.input :max_xp %>
+          <%= form.input :salary %>
           <%= form.button :submit %>
         <% end %>
       </div>
