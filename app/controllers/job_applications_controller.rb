@@ -20,6 +20,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first
     authorize(@job_application)
     if current_recruiter
       @job_application.viewed = true
