@@ -6,14 +6,36 @@
 
           <br>
           <br>
-          <p>Application submitted! A confirmation has been sent to <%= current_candidate.email %>. You will receive another email when the employer invites you for an interview.</p>
+
+          <h4 class="text-center">Application submitted!</h4>
+
+          <br>
+
+          <p> A confirmation has been sent to <%= current_candidate.email %>. You will receive another email when the employer invites you for an interview.</p>
           <p>Would you like to be notified when recruiters look at your résumé? Then try our commitment-free premium membership for a week.</p>
           <p>Improve your chances of getting a call-back by 37% on all applications, past & new!</p>
           <div class="text-center">
+
+          <br>
+          <br>
+
             <%= link_to "Get verified", root_path, class: "btn btn-primary" %>
+
+            <br>
+            <br>
+
             <p>or</p>
+
             <p>Apply to another job:</p>
-            <div>TODO: SEARCH BAR</div>
+            <div>
+              <form action="/search" class="navbar-higher-search" id="search">
+                <input type="text" class="navbar-higher-search-input" placeholder="What is the position you are looking for ?" name="query">
+                <button type="submit" class="navbar-higher-search-btn">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </div>
+
             <br>
             <br>
             <p>Related job offers:</p>
