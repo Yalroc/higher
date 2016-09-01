@@ -19,7 +19,7 @@
 
   def user_not_authorized
     flash[:alert] = "It seems you are not authorized to perform this action...Sorry!"
-    redirect_to(root_path)
+    redirect_to :back
   end
 
   private
@@ -29,11 +29,11 @@
   end
 
   def after_sign_in_path_for(resource)
-    case resource.class.name # .name == .to_s
+    case resource.class.name
     when "Recruiter"
-      job_offers_path
+      request.env['omniauth.origin'] || stored_location_for(resource) || job_offers_path
     when "Candidate"
-      root_path
+      request.env['omniauth.origin'] || stored_location_for(resource) || root_path
     end
   end
 end

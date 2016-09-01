@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
 
-  before_action :set_job_offer, only: [:index, :show, :edit, :update, :job_applications, :batch_deletion]
+  before_action :set_job_offer, only: [:show, :edit, :update, :job_applications, :batch_deletion]
   before_action :set_job_application, only: [:update, :submit, :edit, :show, :conversation]
   before_action :authenticate_recruiter_and_candidate, only: [:show]
   after_action :verify_policy_scoped, only: [:index, :job_applications], unless: :skip_pundit?
@@ -15,9 +15,12 @@ class JobApplicationsController < ApplicationController
   def index
     @job_applications = policy_scope(JobApplication)
     @job_applications = set_job_offer.job_applications.where(rejected: nil, submit: true)
+
+    @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first # for crappy navbar link
   end
 
   def show
+    @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first
     authorize(@job_application)
     if current_recruiter
       @job_application.viewed = true
@@ -31,6 +34,7 @@ class JobApplicationsController < ApplicationController
     else
       redirect_to :back
     end
+    @new_message = Message.new #first message modal
   end
 
   def new
@@ -85,6 +89,7 @@ class JobApplicationsController < ApplicationController
 
   #rajouter conversation  et job_applications dans les before_action, skip et after_action
   def conversation #afficher une conversation + en créé une
+    @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first
     authorize @job_application # pundit
       @job_applications = current_user.job_applications # on veut tous les messages du current_user
       @messages = @job_application.messages #on veut tous les messages de la job_application dans une conversation

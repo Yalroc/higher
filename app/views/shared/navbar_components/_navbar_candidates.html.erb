@@ -16,9 +16,9 @@
       <!-- navigation links -->
       <div class="col-xs-4 col-xs-offset-2 margin-top-4px">
         <div class="navbar-higher-links-candidates inline">
-          <%= link_to "profile", root_path, class: "navbar-higher-link" %>
-          <%= link_to "applications", root_path, class: "navbar-higher-link" %>
-          <%= link_to "jobs", root_path, class: "navbar-higher-link" %>
+          <%= link_to "profile", candidate_path(current_candidate), class: "navbar-higher-link" %>
+          <%= link_to "applications", candidate_path(current_candidate), class: "navbar-higher-link" %>
+          <%= link_to "jobs", search_path, class: "navbar-higher-link" %>
         </div>
       </div>
 

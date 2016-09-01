@@ -3,14 +3,15 @@
 
 <!-- Second navbar -->
 <div class="second-navbar-job-applications">
-
     <div class="navbar-higher-brand-recruiter2">
-    <%= image_tag "LOreal_black_vector.png" %>
+      <%= image_tag "LOreal_black_vector.png" %>
     </div>
     <div class="job-offer-title-job-applications"><%= @job_offer.title %></div>
     <%= form_tag batch_deletion_job_offer_job_applications_path, method: :delete, class:"form-pourri" do %>
       <%= hidden_field_tag :job_application_ids %>
-      <button class="mdl-button mdl-js-button mdl-button--raised delete-but">Delete</button>
+      <button class="mdl-button mdl-js-button mdl-button--icon delete-but">
+        <i class="material-icons">delete</i>
+      </button>
     <% end %>
 </div>
 
@@ -22,9 +23,6 @@
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
-      <% if false %>
-      <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
-      <% end %>
     </div>
   </div>
   <% if current_recruiter.organization %>
@@ -96,26 +94,26 @@
 
 
               <td>
-                <% years =  job_application.experiences.first.end_date.year  - job_application.experiences.first.start_date.year - 2 %>
-                <% months = 12 - job_application.experiences.first.start_date.month + job_application.experiences.first.end_date.month %>
+                <% $years =  job_application.experiences.first.end_date.year  - job_application.experiences.first.start_date.year - 2 %>
+                <% $months = 12 - job_application.experiences.first.start_date.month + job_application.experiences.first.end_date.month %>
+                <% if $months >= 12 && $months < 24 %>
+                  <%  $years += 1 %>
+                  <%  $months -= 12 %>
+                <% end %>
+
                 <% unless job_application.experiences.second == nil %>
-
-                  <% years +=  job_application.experiences.second.end_date.year  - job_application.experiences.second.start_date.year - 2 %>
-                  <% months += 12 - job_application.experiences.second.start_date.month + job_application.experiences.second.end_date.month %>
+                  <% $years += (job_application.experiences.second.end_date.year - job_application.experiences.second.start_date.year) %>
+                  <% $months += (12 - job_application.experiences.second.start_date.month + job_application.experiences.second.end_date.month) %>
+                  <% if $months >= 12 && $months < 24 %>
+                    <% $years += 1 %>
+                    <% $months -= 12 %>
+                <% end %>
                 <% end %>
 
-                <% if months >= 12 && months < 24 %>
-                  <%  years += 1 %>
-                  <%  months -= 12 %>
-                <% else months >= 24 %>
-                  <% years += 2 %>
-                  <% months -= 24 %>
-                <% end %>
-
-                <% if months != 0 %>
-                  <%= years %> y <%= months %> m
+                <% if $months != 0 %>
+                  <%= $years %> y <%= $months %> m
                 <% else %>
-                  <%= years %> y
+                  <%= $years %> y
                 <% end %>
 
               </td>
@@ -151,7 +149,7 @@
                 <!-- Date -->
                 <td>
                   <% date = ((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i %>
-                  <% if I18n.l(JobApplication.first.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
+                  <% if I18n.l(job_application.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
                     <% date = "Today"%>
                   <% else %>
                     <% if date <= 1 %>
