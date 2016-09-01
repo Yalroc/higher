@@ -296,6 +296,12 @@
       <button type="button" class="close top-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <div class="modal-body">
 
+        <div class="titles-resume">
+          <h4 id="resume-style" >Your resume for : </h4> <h4 class="text-center" id="underline-title" ><%= @job_offer.title + " @ " + @job_offer.recruiter.organization.name %></h4>
+        </div>
+
+        <!-- <div id="top-border-under-title"></div> -->
+
         <!-- experience  -->
         <% if @experiences_sorted.empty? %>
         <% else %>
@@ -349,7 +355,7 @@
 
 
         <!-- motivation letter -->
-        <div class="top-border">
+        <div id="top-border">
           <h5><i class="fa fa-pencil" aria-hidden="true"></i> COVER LETTER</h5>
           <p class="small-text"><%= simple_format @job_application.motivation_letter %></p>
         </div>
