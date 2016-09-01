@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
 
-  before_action :set_job_offer, only: [:index, :show, :edit, :update, :job_applications, :batch_deletion]
+  before_action :set_job_offer, only: [:show, :edit, :update, :job_applications, :batch_deletion]
   before_action :set_job_application, only: [:update, :submit, :edit, :show, :conversation]
   before_action :authenticate_recruiter_and_candidate, only: [:show]
   after_action :verify_policy_scoped, only: [:index, :job_applications], unless: :skip_pundit?
@@ -15,6 +15,8 @@ class JobApplicationsController < ApplicationController
   def index
     @job_applications = policy_scope(JobApplication)
     @job_applications = set_job_offer.job_applications.where(rejected: nil, submit: true)
+
+    @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first # for crappy navbar link
   end
 
   def show
