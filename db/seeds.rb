@@ -389,6 +389,56 @@ Candidate.create!({
   })
 
 ja_jdddd = JobApplication.create!({
+  candidate: Candidate.find(5),
+  job_offer: JobOffer.third,
+  submit: true,
+  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  })
+
+la_jdddd = Language.create!({
+  job_application: JobApplication.find(5),
+  name: "English",
+  proficiency: "Native"
+  })
+
+la_ssjd = Language.create!({
+  job_application: JobApplication.find(5),
+  name: "French",
+  proficiency: "Fluent"
+  })
+
+Experience.create!({
+  organization: "Fleury Michon",
+  job_application: JobApplication.find(5),
+  title: "Finance Director",
+  start_date: "1-6-2002",
+  end_date: "1-6-2010",
+  description: "Exciting experience in a dynamic SSII.",
+  company_size: 100000,
+  industry: "Accounting"
+  })
+
+ed_jsd_1 = Education.create!({
+  organization: "IMD Lausanne",
+  job_application: JobApplication.find(5),
+  start_date: "1-6-1996",
+  end_date: "1-6-2001",
+  description: "My specialization is about computer science.",
+  degree_type: "Master",
+  degree_field: "Computer Science",
+  })
+
+#########################
+
+Candidate.create!({
+  first_name: "Sandra",
+  last_name: "Potier",
+  email: "clemdddsm@gmail.com",
+  password: "123456",
+  phone_number: "+33 9 31 94 88 66",
+  })
+
+ja_jdddd = JobApplication.create!({
   candidate: Candidate.find(6),
   job_offer: JobOffer.third,
   submit: true,
@@ -408,18 +458,18 @@ la_ssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Fleury Michon",
+  organization: "Akerman LLP",
   job_application: JobApplication.find(6),
-  title: "Finance Director",
-  start_date: "1-6-2002",
+  title: "Legal Analyst M&A",
+  start_date: "1-6-1999",
   end_date: "1-6-2010",
   description: "Exciting experience in a dynamic SSII.",
   company_size: 100000,
-  industry: "Accounting"
+  industry: "Corporate Law"
   })
 
 ed_jsd_1 = Education.create!({
-  organization: "IMD Lausanne",
+  organization: "Chicago Law School",
   job_application: JobApplication.find(6),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
@@ -428,14 +478,14 @@ ed_jsd_1 = Education.create!({
   degree_field: "Computer Science",
   })
 
-#########################
+###################
 
 Candidate.create!({
-  first_name: "Sandra",
-  last_name: "Potier",
-  email: "clemdddsm@gmail.com",
+  first_name: "Paul",
+  last_name: "Doumergue",
+  email: "paul.dou@gmail.com",
   password: "123456",
-  phone_number: "+33 9 31 94 88 66",
+  phone_number: "+33 8 31 94 88 66",
   })
 
 ja_jdddd = JobApplication.create!({
@@ -458,9 +508,9 @@ la_ssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Akerman LLP",
+  organization: "Airbus",
   job_application: JobApplication.find(7),
-  title: "Legal Analyst M&A",
+  title: "Aerospace Engineer",
   start_date: "1-6-1999",
   end_date: "1-6-2010",
   description: "Exciting experience in a dynamic SSII.",
@@ -469,7 +519,7 @@ Experience.create!({
   })
 
 ed_jsd_1 = Education.create!({
-  organization: "Chicago Law School",
+  organization: "INSA Lyon",
   job_application: JobApplication.find(7),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
@@ -478,14 +528,14 @@ ed_jsd_1 = Education.create!({
   degree_field: "Computer Science",
   })
 
-###################
+##############
 
 Candidate.create!({
-  first_name: "Paul",
-  last_name: "Doumergue",
-  email: "paul.dou@gmail.com",
+  first_name: "Edouard",
+  last_name: "Foussier",
+  email: "edf@gmail.com",
   password: "123456",
-  phone_number: "+33 8 31 94 88 66",
+  phone_number: "+33 9 31 94 88 66",
   })
 
 ja_jdddd = JobApplication.create!({
@@ -508,58 +558,8 @@ la_ssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Airbus",
-  job_application: JobApplication.find(8),
-  title: "Aerospace Engineer",
-  start_date: "1-6-1999",
-  end_date: "1-6-2010",
-  description: "Exciting experience in a dynamic SSII.",
-  company_size: 100000,
-  industry: "Corporate Law"
-  })
-
-ed_jsd_1 = Education.create!({
-  organization: "INSA Lyon",
-  job_application: JobApplication.find(8),
-  start_date: "1-6-1996",
-  end_date: "1-6-2001",
-  description: "My specialization is about computer science.",
-  degree_type: "Master",
-  degree_field: "Computer Science",
-  })
-
-##############
-
-Candidate.create!({
-  first_name: "Edouard",
-  last_name: "Foussier",
-  email: "edf@gmail.com",
-  password: "123456",
-  phone_number: "+33 9 31 94 88 66",
-  })
-
-ja_jdddd = JobApplication.create!({
-  candidate: Candidate.find(9),
-  job_offer: JobOffer.third,
-  submit: true,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
-  })
-
-la_jdddd = Language.create!({
-  job_application: JobApplication.find(9),
-  name: "English",
-  proficiency: "Native"
-  })
-
-la_ssjd = Language.create!({
-  job_application: JobApplication.find(9),
-  name: "French",
-  proficiency: "Fluent"
-  })
-
-Experience.create!({
   organization: "Le Wagon",
-  job_application: JobApplication.find(9),
+  job_application: JobApplication.find(8),
   title: "All things community",
   start_date: "1-6-2012",
   end_date: "1-8-2016",
@@ -570,7 +570,7 @@ Experience.create!({
 
 ed_jsd_1 = Education.create!({
   organization: "ESCP Europe",
-  job_application: JobApplication.find(9),
+  job_application: JobApplication.find(8),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
   description: "My specialization is about computer science.",
