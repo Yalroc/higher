@@ -20,6 +20,7 @@
             <ul class="list-unstyled">
             <h3 style="font-size: 20px">Your candidates</h3>
             <% @job_applications.each do |conversation| %>
+              <% if conversation.contact? %>
               <li class="liste-email">
 
                 <%= link_to conversation_job_application_path(conversation), class: "conversation-link" do %>
@@ -34,6 +35,7 @@
                   </div>
                 <% end %>
               </li>
+              <% end %>
             <% end %>
             </ul>
           </div>
