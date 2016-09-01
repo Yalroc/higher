@@ -354,8 +354,8 @@
         </div>
         <!-- footer de modal -->
         <div class="modal-footer view-as-modal-footer">
-          <button type="button" class="btn btn-default btn-submit-application" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
-          <%= button_to "Submit Application", submit_job_offer_job_application_path(@job_offer, @job_application), class: "btn btn-primary btn-return-to-funnel" %>
+          <button type="button" class="btn btn-default btn-submit-application" id="return-margin-top" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i> Return</button>
+          <%= button_to "Submit Application", submit_job_offer_job_application_path(@job_offer, @job_application), class: "btn btn-primary btn-return-to-funnel", id: "submit-margin-top" %>
         </div>
 
       </div> <!-- fin div englobbante du cv  -->
