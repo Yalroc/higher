@@ -23,9 +23,7 @@
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
 
 
-      <% if true %>
-      <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
-      <% end %>
+
     </div>
   </div>
   <% if current_recruiter.organization %>
@@ -152,7 +150,7 @@
                 <!-- Date -->
                 <td>
                   <% date = ((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i %>
-                  <% if I18n.l(JobApplication.first.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
+                  <% if I18n.l(job_application.created_at, format: "%A") == I18n.l(Date.today, format: "%A")  %>
                     <% date = "Today"%>
                   <% else %>
                     <% if date <= 1 %>
