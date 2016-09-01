@@ -21,7 +21,9 @@
       <strong><p>All (<%= @job_applications.where(rejected: nil).length %>)</p></strong>
       <p>New (<%= @job_applications.where(viewed: nil).length %>)</p>
       <p>Contacted (<%= @job_applications.where(contact: true).length %>)</p>
-      <% if false %>
+
+
+      <% if true %>
       <%= link_to "Messages", conversation_job_application_path(@job_applications.first), class: "" %>
       <% end %>
     </div>
