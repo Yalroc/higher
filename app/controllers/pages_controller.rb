@@ -4,11 +4,11 @@ class PagesController < ApplicationController
   skip_after_action  :verify_authorized
 
   def home
-    if recruiter_signed_in?
-      @job_offers = JobOffer.where(recruiter: current_recruiter)
-      @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first
-      @job_applications = @job_offer_for_navbar.job_applications
-    end
+    # if recruiter_signed_in?
+    #   @job_offers = JobOffer.where(recruiter: current_recruiter)
+    #   @job_offer_for_navbar = JobOffer.where(recruiter: current_recruiter).first
+    #   @job_applications = @job_offer_for_navbar.job_applications
+    # end
   end
 
   def demo  # demo job offer
