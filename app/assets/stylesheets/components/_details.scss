@@ -73,3 +73,79 @@
 .fa-linkedin {
   font-size: 19px;
 }
+
+// On the blank Resume
+
+#inline-link-resume {
+  display: -webkit-box;
+  margin: 10px 0;
+}
+
+#inline-link-resume i {
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+#inline-link-resume .fa-wpforms {
+  color: $gray-mid-light;
+}
+
+#inline-link-resume .fa-graduation-cap {
+  color: $blue;
+}
+
+#inline-link-resume .fa-globe {
+  color: $green;
+}
+
+#title-shy-margin {
+  margin-bottom: 60px;
+  font-style: italic;
+  color: $black;
+}
+
+.action-inline {
+  display: inline;
+}
+
+.margin-links-add-something {
+  margin-top: 10px;
+}
+
+.margin-left {
+  margin-left: 11px;
+}
+
+#chevron {
+  color: $gray-mid-light;
+  letter-spacing: -2px;
+  margin: 0 5px;
+}
+
+.color-mid-gray {
+  color: $gray-light;
+}
+
+#submit-margin-top {
+  margin-top: 10px;
+}
+
+#return-margin-top {
+  margin-top: 20px;
+}
+
+#resume-style {
+  color: $black;
+  font-weight: lighter;
+  font-style: italic;
+  margin-right: 10px;
+}
+
+.titles-resume {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-border-as-employer {
+
+}
