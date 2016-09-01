@@ -76,10 +76,6 @@
 
 // On the blank Resume
 
-#links-modal-resume {
-  display: block;
-}
-
 #inline-link-resume {
   display: -webkit-box;
   margin: 10px 0;
@@ -100,4 +96,18 @@
 
 #inline-link-resume .fa-globe {
   color: $green;
+}
+
+#title-shy-margin {
+  margin-bottom: 60px;
+  font-style: italic;
+  color: $black;
+}
+
+.action-inline {
+  display: inline;
+}
+
+.margin-links-add-something {
+  margin-top: 10px;
 }

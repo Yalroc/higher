@@ -80,6 +80,10 @@
             </div>
           <% end %>
 
+          <% if @job_application.experiences.empty? && @job_application.educations.empty? && @job_application.languages.empty? %>
+
+           <h2 id="title-shy-margin" >Don't be shy !</h2>
+          <% end %>
 
           <% if @job_application.experiences.empty? %>
             <div id="inline-link-resume">
@@ -123,7 +127,16 @@
               <% @educations_sorted.each do |education| %>
                 <div class="">
                   <h4 class="display-inline"><%= education.degree_type + ' ' + education.degree_field + ' @ ' + education.organization %></h4>
+
+
+
+                  <p><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
+                  <p><%= education.description %></p>
                   <a href="" data-toggle="modal" data-target="#EditEducationModal" id="links-modal-resume">Edit /</a>   <!-- button de modal: Edit Education -->
+                  <%= link_to education_path(education), method: :delete do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+
                   <div class="modal fade" id="EditEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> <!-- modal Edit Education -->
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -146,9 +159,6 @@
                       </div>
                     </div>
                   </div>  <!-- end of modal -->
-                  <%= link_to "Delete", education_path(education), method: :delete %>
-                  <p><%= education.start_date.year.to_s + " - " + education.end_date.year.to_s + " >> " + ([(education.end_date.year - education.start_date.year), 1].max ).to_s + " year(s)" %><p>
-                  <p><%= education.description %></p>
                 </div>
               <% end %>
             </div>
@@ -160,7 +170,9 @@
             </div>
             <!-- button de modal: Add Education -->
           <% else %>
-            <a href="" data-toggle="modal" data-target="#AddEducationModal" id="links-modal-resume"><strong>Add</strong> Education</a> <!-- button de modal: Add Education -->
+            <div class="margin-links-add-something">
+             <a href="" data-toggle="modal" data-target="#AddEducationModal" id="links-modal-resume"><strong>Add</strong> Education</a> <!-- button de modal: Add Education -->
+            </div>
           <% end %>
 
 
@@ -213,7 +225,9 @@
                       </div>
                     </div>
                   </div>
-                  <%= link_to "Delete", language_path(language), method: :delete %>
+                  <%= link_to language_path(language), method: :delete do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
                   </li>
               <% end %>
               </ul>
