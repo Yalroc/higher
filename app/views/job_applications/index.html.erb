@@ -95,26 +95,26 @@
 
 
               <td>
-                <% years =  job_application.experiences.first.end_date.year  - job_application.experiences.first.start_date.year - 2 %>
-                <% months = 12 - job_application.experiences.first.start_date.month + job_application.experiences.first.end_date.month %>
+                <% $years =  job_application.experiences.first.end_date.year  - job_application.experiences.first.start_date.year - 2 %>
+                <% $months = 12 - job_application.experiences.first.start_date.month + job_application.experiences.first.end_date.month %>
+                <% if $months >= 12 && $months < 24 %>
+                  <%  $years += 1 %>
+                  <%  $months -= 12 %>
+                <% end %>
+
                 <% unless job_application.experiences.second == nil %>
-
-                  <% years +=  job_application.experiences.second.end_date.year  - job_application.experiences.second.start_date.year - 2 %>
-                  <% months += 12 - job_application.experiences.second.start_date.month + job_application.experiences.second.end_date.month %>
+                  <% $years += (job_application.experiences.second.end_date.year - job_application.experiences.second.start_date.year) %>
+                  <% $months += (12 - job_application.experiences.second.start_date.month + job_application.experiences.second.end_date.month) %>
+                  <% if $months >= 12 && $months < 24 %>
+                    <% $years += 1 %>
+                    <% $months -= 12 %>
+                <% end %>
                 <% end %>
 
-                <% if months >= 12 && months < 24 %>
-                  <%  years += 1 %>
-                  <%  months -= 12 %>
-                <% else months >= 24 %>
-                  <% years += 2 %>
-                  <% months -= 24 %>
-                <% end %>
-
-                <% if months != 0 %>
-                  <%= years %> y <%= months %> m
+                <% if $months != 0 %>
+                  <%= $years %> y <%= $months %> m
                 <% else %>
-                  <%= years %> y
+                  <%= $years %> y
                 <% end %>
 
               </td>
