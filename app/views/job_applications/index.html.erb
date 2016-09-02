@@ -155,7 +155,7 @@
                     <% if date <= 1 %>
                       <% date = "1 day ago" %>
                     <% else %>
-                    <% date = "#{((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i} day ago" %>
+                    <% date = "#{((Time.now - job_application.created_at) / (24 * 60 * 60)).to_i} days ago" %>
                     <% end %>
                   <% end %>
                   <%= date %>
