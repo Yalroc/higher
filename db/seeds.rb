@@ -389,27 +389,27 @@ Candidate.create!({
   })
 
 ja_jdddd = JobApplication.create!({
-  candidate: Candidate.find(5),
+  candidate: Candidate.find_by(last_name: "Eljira"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  motivation_letter: "Ok"
   })
 
 la_jdddd = Language.create!({
-  job_application: JobApplication.find(5),
+  job_application: JobApplication.find_by(motivation_letter: "Ok"),
   name: "English",
   proficiency: "Native"
   })
 
 la_ssjd = Language.create!({
-  job_application: JobApplication.find(5),
+  job_application: JobApplication.find_by(motivation_letter: "Ok"),
   name: "French",
   proficiency: "Fluent"
   })
 
 Experience.create!({
   organization: "Fleury Michon",
-  job_application: JobApplication.find(5),
+  job_application: JobApplication.find_by(motivation_letter: "Ok"),
   title: "Finance Director",
   start_date: "1-6-2002",
   end_date: "1-6-2010",
@@ -420,7 +420,7 @@ Experience.create!({
 
 ed_jsd_1 = Education.create!({
   organization: "IMD Lausanne",
-  job_application: JobApplication.find(5),
+  job_application: JobApplication.find_by(motivation_letter: "Ok"),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
   description: "My specialization is about computer science.",
@@ -439,27 +439,27 @@ Candidate.create!({
   })
 
 ja_jdddd = JobApplication.create!({
-  candidate: Candidate.find(6),
+  candidate: Candidate.find_by(last_name: "Potier"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  motivation_letter: "I"
   })
 
 la_jdddd = Language.create!({
-  job_application: JobApplication.find(6),
+  job_application: JobApplication.find_by(motivation_letter: "I"),
   name: "English",
   proficiency: "Native"
   })
 
 la_ssjd = Language.create!({
-  job_application: JobApplication.find(6),
+  job_application: JobApplication.find_by(motivation_letter: "I"),
   name: "French",
   proficiency: "Fluent"
   })
 
 Experience.create!({
   organization: "Akerman LLP",
-  job_application: JobApplication.find(6),
+  job_application: JobApplication.find_by(motivation_letter: "I"),
   title: "Legal Analyst M&A",
   start_date: "1-6-1999",
   end_date: "1-6-2010",
@@ -470,7 +470,7 @@ Experience.create!({
 
 ed_jsd_1 = Education.create!({
   organization: "Chicago Law School",
-  job_application: JobApplication.find(6),
+  job_application: JobApplication.find_by(motivation_letter: "I"),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
   description: "My specialization is about computer science.",
@@ -489,27 +489,27 @@ Candidate.create!({
   })
 
 ja_jdddd = JobApplication.create!({
-  candidate: Candidate.find(7),
+  candidate: Candidate.find_by(last_name: "Doumergue"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  motivation_letter: "Hello world"
   })
 
 la_jdddd = Language.create!({
-  job_application: JobApplication.find(7),
+  job_application: JobApplication.find_by(motivation_letter: "Hello world"),
   name: "English",
   proficiency: "Native"
   })
 
 la_ssjd = Language.create!({
-  job_application: JobApplication.find(7),
+  job_application: JobApplication.find_by(motivation_letter: "Hello world"),
   name: "French",
   proficiency: "Fluent"
   })
 
 Experience.create!({
   organization: "Airbus",
-  job_application: JobApplication.find(7),
+  job_application: JobApplication.find_by(motivation_letter: "Hello world"),
   title: "Aerospace Engineer",
   start_date: "1-6-1999",
   end_date: "1-6-2010",
@@ -520,7 +520,7 @@ Experience.create!({
 
 ed_jsd_1 = Education.create!({
   organization: "INSA Lyon",
-  job_application: JobApplication.find(7),
+  job_application: JobApplication.find_by(motivation_letter: "Hello world"),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
   description: "My specialization is about computer science.",
@@ -539,27 +539,27 @@ Candidate.create!({
   })
 
 ja_jdddd = JobApplication.create!({
-  candidate: Candidate.find(8),
+  candidate: Candidate.find_by(last_name: "Foussier"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "I have always been interested by your company since my childhood. I love Oracle."
+  motivation_letter: "Yolo",
   })
 
 la_jdddd = Language.create!({
-  job_application: JobApplication.find(8),
+  job_application: JobApplication.find_by(motivation_letter: "Yolo"),
   name: "English",
   proficiency: "Native"
   })
 
 la_ssjd = Language.create!({
-  job_application: JobApplication.find(8),
+  job_application: JobApplication.find_by(motivation_letter: "Yolo"),
   name: "French",
   proficiency: "Fluent"
   })
 
 Experience.create!({
   organization: "Le Wagon",
-  job_application: JobApplication.find(8),
+  job_application: JobApplication.find_by(motivation_letter: "Yolo"),
   title: "All things community",
   start_date: "1-6-2012",
   end_date: "1-8-2016",
@@ -570,7 +570,7 @@ Experience.create!({
 
 ed_jsd_1 = Education.create!({
   organization: "ESCP Europe",
-  job_application: JobApplication.find(8),
+  job_application: JobApplication.find_by(motivation_letter: "Yolo"),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
   description: "My specialization is about computer science.",
