@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
-        <% if current_candidate.first_name %>
+          <% if current_candidate.first_name && current_candidate.phone_number.nil? %>
+          <h2 id="title-candidate-padded"><%= @candidate.first_name + " " + @candidate.last_name %> </h2>
+          <h4 id="title-candidate-padded" class="text-center">What's your number ?<br><br><%= link_to "Give it here !", edit_candidate_path %></h4>
+        <% elsif current_candidate.first_name %>
           <h2 id="title-candidate-padded"><%= @candidate.first_name + " " + @candidate.last_name %> </h2>
         <% else  %>
           <h3 id="title-candidate-padded" class="text-center">Who are you ?<br><br><%= link_to "Fill your profile !", edit_candidate_path %></h3>
