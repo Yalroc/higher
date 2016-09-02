@@ -16,25 +16,27 @@
 
           <!--job list -->
           <% @job_offers.each do |job_offer| %>
-              <div class="product">
-                <!-- replace img with job_offer.organization.photo_url -->
-                <% if job_offer.recruiter.organization.name == "Oracle" %>
-                  <%= image_tag "oracle-logo-organization.png", class: "product-image" %>
-                <% elsif job_offer.recruiter.organization.name == "L'Oréal" %>
-                  <%= image_tag "loreal-logo-organization.png", class: "product-image" %>
-                <% elsif job_offer.recruiter.organization.name == "Amazon" %>
-                  <%= image_tag "amazon-logo-organization.png", class: "product-image" %>
-                <% end %>
-                <div class='product-body'>
-                  <h3><%= job_offer.recruiter.organization.name %></h3>
-                  <p><%= link_to job_offer.title, job_offer_path(job_offer) %></p>
+              <%= link_to job_offer_path(job_offer), id: "link-offers" do %>
+                <div class="product">
+                  <!-- replace img with job_offer.organization.photo_url -->
+                    <% if job_offer.recruiter.organization.name == "Oracle" %>
+                      <%= image_tag "oracle-logo-organization.png", class: "product-image" %>
+                    <% elsif job_offer.recruiter.organization.name == "L'Oréal" %>
+                      <%= image_tag "loreal-logo-organization.png", class: "product-image" %>
+                    <% elsif job_offer.recruiter.organization.name == "Amazon" %>
+                      <%= image_tag "amazon-logo-organization.png", class: "product-image" %>
+                    <% end %>
+                    <div class='product-body'>
+                      <h3 id="orga-name-deco"><%= job_offer.recruiter.organization.name %></h3>
+                      <p><%= job_offer.title %></p>
+                    </div>
+                    <ul class="list-inline product-controls hidden-sm hidden-xs">
+                      <li><i class="fa fa-globe"></i> <%= job_offer.location %></li>
+                      <li><i class="fa fa-wpforms"></i> <%= job_offer.min_xp.to_i.to_s + "y+" %></li>
+                      <li><i class="fa fa-money"></i> <%= job_offer.salary.to_s + "K€" %></li>
+                    </ul>
                 </div>
-                <ul class="list-inline product-controls hidden-sm hidden-xs">
-                  <li><i class="fa fa-globe"></i> <%= job_offer.location %></li>
-                  <li><i class="fa fa-wpforms"></i> <%= job_offer.min_xp.to_i.to_s + "y+" %></li>
-                  <li><i class="fa fa-money"></i> <%= job_offer.salary.to_s + "K€" %></li>
-                </ul>
-              </div>
+              <% end %>
           <% end %>
 
         </div> <!-- fin div englobbante  -->

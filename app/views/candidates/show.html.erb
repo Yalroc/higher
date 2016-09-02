@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
-        <% if current_candidate.first_name %>
+          <% if current_candidate.first_name && current_candidate.phone_number.nil? %>
+          <h2 id="title-candidate-padded"><%= @candidate.first_name + " " + @candidate.last_name %> </h2>
+          <h4 id="title-candidate-padded" class="text-center">What's your number ?<br><br><%= link_to "Give it here !", edit_candidate_path %></h4>
+        <% elsif current_candidate.first_name %>
           <h2 id="title-candidate-padded"><%= @candidate.first_name + " " + @candidate.last_name %> </h2>
         <% else  %>
           <h3 id="title-candidate-padded" class="text-center">Who are you ?<br><br><%= link_to "Fill your profile !", edit_candidate_path %></h3>
@@ -26,15 +29,15 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <div class="col-xs-4 col-xs-offset-4">
+        <div class="col-xs-6 col-xs-offset-3">
 
 
       <h3 id="padding-title">You candidate for</h3>
           <% @candidate.job_applications.each do |job_application| %>
-          <%= link_to "job application", job_offer_job_application_path(job_application.job_offer, job_application) %>
 
+              <button type="button" id="button-candidate" class="btn-show-application" data-toggle="modal" data-target="#ShowInfoJobApp_<%= job_application.id %>"><i class="glyphicon glyphicon-flash"></i><%= " " + job_application.job_offer.title + " " %><i class="glyphicon glyphicon-flash"></i></button>
 
-                <button type="button" id="button-candidate" class="btn-show-application" data-toggle="modal" data-target="#ShowInfoJobApp_<%= job_application.id %>"><i class="glyphicon glyphicon-flash"></i><%= " " + job_application.job_offer.title + " " %><i class="glyphicon glyphicon-flash"></i></button>
+            <p><%= link_to "see your job application", job_offer_job_application_path(job_application.job_offer, job_application) %></p>
 
             <% end %>
         </div>
