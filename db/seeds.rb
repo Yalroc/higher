@@ -19,7 +19,6 @@ Organization.create!({
   name: "Oracle",
   size: 74000,
   industry: "Information Technology and Services",
-  photo_url: "http://www.fhcom.net/upload/images/photos//1422377810-logo-legaulois2013-transparent.png",
   })
 
 Organization.create!({
@@ -167,6 +166,7 @@ JobApplication.create!({
   job_offer: JobOffer.third,
   motivation_letter: "Dear Sir or Madam, I am writing in response to your advertisement for a Sales Director for your Consulting Services Line of Business in France. I have done many roles in the same field of skills required by your proposition.",
   submit: true,
+  created_at: "30-8-2016"
   })
 
 Language.create!({
@@ -227,7 +227,8 @@ ja_jdddd = JobApplication.create!({
   candidate: Candidate.second,
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "Dear Sir or Madam, I am very interested by your proposition. I have worked for more than ten years in the IT field, so I think I have enough experience to get this position."
+  motivation_letter: "Dear Sir or Madam, I am very interested by your proposition. I have worked for more than ten years in the IT field, so I think I have enough experience to get this position.",
+  created_at: "1-9-2016"
   })
 
 la_jdddd = Language.create!({
@@ -284,7 +285,8 @@ ja_jdddd = JobApplication.create!({
   candidate: Candidate.third,
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "Hi, I had an experience at Amazon in Marketing, but now I want to be more focused on tech products."
+  motivation_letter: "Hi, I had an experience at Amazon in Marketing, but now I want to be more focused on tech products.",
+  created_at: "31-8-2016"
   })
 
 la_jdddd = Language.create!({
@@ -321,63 +323,7 @@ ed_jsd_1 = Education.create!({
   })
 
 
-##########
-
-
-
-Candidate.create!({
-  first_name: "Jeanne",
-  last_name: "Pré",
-  email: "jeanne@gmail.com",
-  password: "123456",
-  phone_number: "+33 9 71 94 35 66",
-  })
-
-ja_jdddd = JobApplication.create!({
-  candidate: Candidate.fourth,
-  job_offer: JobOffer.third,
-  submit: true,
-  motivation_letter: "I need a more challenging position."
-  })
-
-la_jdddd = Language.create!({
-  job_application: JobApplication.fourth,
-  name: "French",
-  proficiency: "Native"
-  })
-
-la_ssjd = Language.create!({
-  job_application: JobApplication.fourth,
-  name: "English",
-  proficiency: "Fluent"
-  })
-
-la_sssjd = Language.create!({
-  job_application: JobApplication.fourth,
-  name: "German",
-  proficiency: "Fluent"
-  })
-
-Experience.create!({
-  organization: "EY",
-  job_application: JobApplication.fourth,
-  title: "Senior Auditor",
-  start_date: "1-6-2002",
-  end_date: "1-6-2016",
-  description: "I managed a team of 15 collaborators.",
-  company_size: 100000,
-  industry: "Accounting"
-  })
-
-ed_jsd_1 = Education.create!({
-  organization: "Trinity College",
-  job_application: JobApplication.fourth,
-  start_date: "1-6-1996",
-  end_date: "1-6-2001",
-  description: "My specialization is about finance.",
-  degree_type: "Master",
-  degree_field: "Finance",
-  })
+#########
 
 ####################
 
@@ -393,7 +339,8 @@ ja_jdddd = JobApplication.create!({
   candidate: Candidate.find_by(last_name: "Eljira"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "Ok"
+  motivation_letter: "Ok",
+  created_at: "1-9-2016",
   })
 
 la_jdddd = Language.create!({
@@ -443,7 +390,8 @@ ja_jdddd = JobApplication.create!({
   candidate: Candidate.find_by(last_name: "Potier"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "I"
+  motivation_letter: "I",
+  created_at: "1-9-2016"
   })
 
 la_jdddd = Language.create!({
@@ -493,7 +441,8 @@ ja_jdddd = JobApplication.create!({
   candidate: Candidate.find_by(last_name: "Doumergue"),
   job_offer: JobOffer.third,
   submit: true,
-  motivation_letter: "Hello world"
+  motivation_letter: "Hello world",
+  created_at: "1-9-2016"
   })
 
 la_jdddd = Language.create!({
