@@ -182,7 +182,7 @@ lasqf_jd = Language.create!({
   })
 
 Experience.create!({
-  organization: "P&G",
+  organization: "Unilever",
   job_application: JobApplication.first,
   title: "Category Manager",
   start_date: "1-6-1994",
@@ -193,7 +193,7 @@ Experience.create!({
   })
 
 Experience.create!({
-  organization: "Unilever",
+  organization: "Carrefour",
   job_application: JobApplication.first,
   title: "Product Manager",
   start_date: "1-2-1980",
@@ -250,9 +250,9 @@ la_sssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Natixis",
+  organization: "Publicis",
   job_application: JobApplication.second,
-  title: "Asset Manager",
+  title: "Communication Assistant",
   start_date: "1-6-2002",
   end_date: "1-6-2016",
   description: "I was charged of the middle market clients.",
@@ -302,9 +302,9 @@ la_ssjd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Lazard",
+  organization: "Cdiscount",
   job_application: JobApplication.third,
-  title: "M&A Analyst",
+  title: "Digital Marketing Analyst",
   start_date: "1-6-2010",
   end_date: "1-6-2016",
   description: "I worked on several projects about SEO and growth hacking.",
@@ -358,7 +358,7 @@ la_ssjd = Language.create!({
 Experience.create!({
   organization: "Fleury Michon",
   job_application: JobApplication.find_by(motivation_letter: "Ok"),
-  title: "Finance Director",
+  title: "Marketing Assistant",
   start_date: "1-6-2002",
   end_date: "1-6-2010",
   description: "Exciting experience in a dynamic SSII.",
@@ -367,7 +367,7 @@ Experience.create!({
   })
 
 ed_jsd_1 = Education.create!({
-  organization: "IMD Lausanne",
+  organization: "EM Strasbourg",
   job_application: JobApplication.find_by(motivation_letter: "Ok"),
   start_date: "1-6-1996",
   end_date: "1-6-2001",
@@ -527,6 +527,78 @@ ed_jsd_1 = Education.create!({
   degree_type: "Master",
   degree_field: "Computer Science",
   })
+
+
+##################
+
+Candidate.create!({
+  first_name: "Bernard",
+  last_name: "Madoff",
+  email: "bernard@gmail.com",
+  password: "123456",
+  phone_number: "+33 7 31 94 88 66",
+  })
+
+ja_jdddd = JobApplication.create!({
+  candidate: Candidate.find_by(last_name: "Madoff"),
+  job_offer: JobOffer.third,
+  motivation_letter: "Dear Sir,
+  I really want to work with you because i am the bezst fit for you, trust me !",
+  created_at: "1-9-2016"
+  })
+
+Education.create!({
+  organization: "Ninja School",
+  job_application: JobApplication.find_by(motivation_letter: "Dear Sir,
+  I really want to work with you because i am the bezst fit for you, trust me !"),
+  title: "Martial Arts Training",
+  start_date: "1-6-2007",
+  end_date: "1-8-2010",
+  description: "Martial Arts Training",
+  degree_type: "Kun-fu",
+  degree_field: "Master",
+  })
+
+Education.create!({
+  organization: "Le Wagon",
+  job_application: JobApplication.find_by(motivation_letter: "Dear Sir,
+  I really want to work with you because i am the bezst fit for you, trust me !"),
+  title: "Programming",
+  start_date: "1-9-2010",
+  end_date: "1-11-2010",
+  description: "Full stack coding bootcamp",
+  degree_type: "RoR",
+  degree_field: "",
+  })
+
+
+Experience.create!({
+  organization: "P&G",
+  job_application: JobApplication.find_by(motivation_letter: "Dear Sir,
+  I really want to work with you because i am the bezst fit for you, trust me !"),
+  title: "Category Manager",
+  start_date: "1-6-1999",
+  end_date: "1-6-2010",
+  description: "I worked within a team of 12 collaborators. I was personally in charge of analyzing KPIs of several categories of products and writing reports and recommandations about it.",
+  company_size: 100000,
+  industry: "Marketing"
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
