@@ -112,8 +112,8 @@
                   <%= simple_form_for(@experience) do |field| %>
                       <%= field.input :title %>
                       <%= field.input :organization %>
-                      <%= field.input :start_date, discard_day: true, order: [:month, :year] %>
-                      <%= field.input :end_date, discard_day: true, order: [:month, :year] %>
+                      <%= field.input :start_date, discard_day: true, start_year: 2000, end_year: Date.today.year, order: [:month, :year] %>
+                      <%= field.input :end_date, discard_day: true, start_year: 2000, end_year: Date.today.year, order: [:month, :year] %>
                       <%= field.input :present %>
                       <%= field.input :description %>
                       <%#= field.input :company_size %>
