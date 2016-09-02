@@ -12,7 +12,6 @@ class PagesController < ApplicationController
   end
 
   def demo  # demo job offer
-    @job_offer = JobOffer.find(1)
   end
 
   def search
