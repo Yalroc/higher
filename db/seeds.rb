@@ -19,7 +19,7 @@ Organization.create!({
   name: "Oracle",
   size: 74000,
   industry: "Information Technology and Services",
-  photo_url: "http://fullhdpictures.com/wp-content/uploads/2016/02/Oracle-Logos.png",
+  photo_url: "http://www.fhcom.net/upload/images/photos//1422377810-logo-legaulois2013-transparent.png",
   })
 
 Organization.create!({
@@ -58,7 +58,7 @@ Recruiter.create!({
 
 JobOffer.create!({
   recruiter: Recruiter.where(email: "j.nash@amazon.com").first,
-  title: "Senior Financial Analyst - EMEA",
+  title: "Full Stack Marketing Ruby On Rails Backflip 360°",
   description: "Amazon seeks a Senior Financial Analyst to be a key member of its wholesale finance team. Amazon wholesale business serves as the procurement solution provider for businesses of all size and types by offering wide selection, consistently low prices and convenient shopping experience to businesses. This position will be a critical business partner and will own the P&L for one of our product categories. This includes, among other things, responsibility for financial metrics, reporting, forecasting and analysis.
 
 BASIC QUALIFICATIONS
@@ -81,44 +81,45 @@ PREFERRED QUALIFICATIONS
 
 JobOffer.create!({
   recruiter: Recruiter.where(email: "t.delas@loreal.com").first,
-  title: "Business Analyst - The Body Shop",
+  title: "Community Manager",
   description: "We are currently looking to hire 1 experienced (Senior) Sales Director for our Consulting Services Line of Business in France.  In this role you will have responsibility for all consulting bookings in France, either through managing the group of French Consulting Sales Representatives (Field & Inside) or by performing sales directly with specific focus on SaaS, IaaS and PaaS solutions.",
   location: "Paris",
   min_xp: 1,
   max_xp: 3,
-  salary: 50,
+  salary: 35,
   })
 
 JobOffer.create!({
   recruiter: Recruiter.where(email: "t.delas@loreal.com").first,
-  title: "M&A Associate",
-  description: "When you choose L'Oreal as the place to build your career in M&A,<br> you can really add value. L'Oreals tax partners and professionals pride themselves on understanding our clients' business strategy and needs, providing a broad range of federal, state, local and international tax services to meet those needs. We are currently seeking a Senior Associate to join our Mergers & Acquisitions practice in our Paris, headquartes office.
+  title: "Digital Marketing Manager",
+  description: "
+    Description
 
- Responsibilities:
+    As a leading worldwide provider of navigation devices and wearable technology, our focus is on developing, designing and supporting superior products. Our advanced technology promotes performance, safety and ease of use in every market we serve. That makes us an engineering and technology company with a keen focus on recruiting talent in those fields. But the same vertical integration business model that keeps all design and manufacturing processes in-house also gives us the incentive to hire top performers from different backgrounds, including operations, finance and accounting, information technology, sales, marketing and communications.
 
- - Advise<br> clients on a full spectrum of corporate tax services including planning, research, and other mergers and acquisitions activities
- - Work as a part of a multi-disciplinary team that focuses on delivering due diligence and tax structuring services and communicates findings and opportunities to clients
- - Assist clients with current issues which may include bankruptcy emergence planning, out of court workouts, debt restructurings, tax basis, Earning and Profits, and Section 382 studies
- - Liaise with a target company's finance/accounting departments and tax advisors to gather pertinent facts for an analysis of the tax risks
- - Develop, motivate, and train staff level team members
 
- Qualifications:
+    We're looking for a Digital Marketing Manager at our world headquarters in Olathe, KS to manage the execution of the strategic vision, coordination, and implementation of digital marketing efforts for retail partners.
 
- - Two years of federal tax and/or mergers and acquisition experience in a public accounting firm, a corporate tax department, or a law firm
- - Bachelor's degree, J.D., LL.M. in Taxation, and/or Master's in Taxation (MST) from an accredited college/university
- - Knowledge of a broad range of corporate tax matters in various industries
- - Ability to handle multiple engagements and client service teams
- - Excellent research and writing skills
- - L'Oreal offers a comprehensive compensation and benefits package.",
+
+    In this role, your key essential functions will be:
+    - Develop and execute the strategic vision for digital marketing for retail partners including advertisements, promotions, banners, homepage takeovers, brand landing pages, emails, social posts, and search words
+    - Work directly with retail partners to improve the end customer shopping experience
+    - Assess effectiveness of campaigns through calculating ROI, and change/optimize accordingly to maximize sales and brand exposure
+    - Work closely with sales leaders to ensure an aligned digital strategy
+    - Manage 3rd party digital content agreements to maximize contract allowances
+    - Maintain strong product knowledge across all products in consumer segments
+
+    You will also be responsible for the following:
+    Some travel required, as necessary, to attend dealer marketing conferences, vendor meetings and industry shows.",
   location: "Paris",
-  min_xp: 3,
-  max_xp: 5,
-  salary: 70,
+  min_xp: 5,
+  max_xp: 10,
+  salary: 52,
   })
 
 JobOffer.create!({
   recruiter: Recruiter.where(email: "k.smith@oracle.com").first,
-  title: "Internal Auditor",
+  title: "SEO expert",
   description: "This is not your typical Internal Audit position. As an Internal Auditor for the country's leading nuclear organisation, you will have the opportunity to take part in incredibly varied and highly complex audits, within an extremely visible role in the business.
 
 
@@ -156,9 +157,9 @@ Work proactively
 Build effective relationships at all levels",
 
   location: "Paris",
-  min_xp: 2,
-  max_xp: 3,
-  salary: 45,
+  min_xp: 8,
+  max_xp: 12,
+  salary: 70,
   })
 
 JobApplication.create!({
