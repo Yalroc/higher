@@ -18,7 +18,12 @@
   end
 
   def user_not_authorized
-    flash[:alert] = "It seems you are not authorized to perform this action...Sorry!"
+
+    if params[:action] == "edit" && params[:controller] == "job_applications"
+      flash[:alert] = "You have already applied to this job offer !"
+    else
+      flash[:alert] = "It seems you are not authorized to perform this action...Sorry!"
+    end
     redirect_to :back
   end
 
