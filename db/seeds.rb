@@ -182,9 +182,9 @@ lasqf_jd = Language.create!({
   })
 
 Experience.create!({
-  organization: "Calyon",
+  organization: "P&G",
   job_application: JobApplication.first,
-  title: "Quantitative Analyst",
+  title: "Category Manager",
   start_date: "1-6-1994",
   end_date: "1-8-2015",
   description: "I managed a team of 10 account managers.",
@@ -193,9 +193,9 @@ Experience.create!({
   })
 
 Experience.create!({
-  organization: "Michelin",
+  organization: "Unilever",
   job_application: JobApplication.first,
-  title: "Cash Manager",
+  title: "Product Manager",
   start_date: "1-2-1980",
   end_date: "1-11-1990",
   description: "I managed a team of 10 account managers.",
@@ -228,7 +228,7 @@ ja_jdddd = JobApplication.create!({
   job_offer: JobOffer.third,
   submit: true,
   motivation_letter: "Dear Sir or Madam, I am very interested by your proposition. I have worked for more than ten years in the IT field, so I think I have enough experience to get this position.",
-  created_at: "1-9-2016"
+  created_at: "31-8-2016"
   })
 
 la_jdddd = Language.create!({
